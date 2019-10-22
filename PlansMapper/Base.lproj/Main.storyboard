@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUl-j7-Z2d">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,30 +10,143 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-ha-UMm">
+                                <rect key="frame" x="148" y="193" width="24" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Aal-94-ay9"/>
+                                </constraints>
+                            </slider>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dsp-vk-sWo">
+                                <rect key="frame" x="113" y="283" width="94" height="29"/>
+                            </stepper>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-nR-l3s">
+                                <rect key="frame" x="100" y="104" width="120" height="28"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="Mi1-6e-VWq"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0am-dd-i4f">
+                                <rect key="frame" x="135.5" y="407" width="51" height="31"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="6AP-wS-kup" secondAttribute="trailing" id="fmm-Wa-ONP"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="6AP-wS-kup" secondAttribute="bottom" id="iGB-Wj-i8l"/>
-                            <constraint firstItem="6AP-wS-kup" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="y29-k3-6CI"/>
-                            <constraint firstItem="6AP-wS-kup" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="yEa-o0-q1y"/>
+                            <constraint firstItem="0am-dd-i4f" firstAttribute="top" secondItem="dsp-vk-sWo" secondAttribute="bottom" constant="95" id="1mk-VT-DwZ"/>
+                            <constraint firstItem="dsp-vk-sWo" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="283" id="6XB-ZM-3QZ"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="84" id="7PH-RO-opr"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="Hr6-0F-b75"/>
+                            <constraint firstItem="dsp-vk-sWo" firstAttribute="centerX" secondItem="PXz-ha-UMm" secondAttribute="centerX" id="Q1v-fJ-2ZS"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="centerX" secondItem="PXz-ha-UMm" secondAttribute="centerX" id="XmB-2U-fgp"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b1b-qa-EHp"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="centerX" secondItem="dsp-vk-sWo" secondAttribute="centerX" id="csP-A9-RT2"/>
+                            <constraint firstItem="PXz-ha-UMm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="150" id="eay-7y-xbJ"/>
+                            <constraint firstItem="ieF-nR-l3s" firstAttribute="centerX" secondItem="0am-dd-i4f" secondAttribute="centerX" id="nSF-5f-g4E"/>
+                            <constraint firstItem="PXz-ha-UMm" firstAttribute="top" secondItem="ieF-nR-l3s" secondAttribute="bottom" constant="62" id="poI-p2-eIa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings-icon" id="LSR-Ku-INw"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="451" y="973"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="gG3-0J-S9B">
+            <objects>
+                <viewController id="xap-kQ-RDy" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xsF-MM-agM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-567" y="1059"/>
+        </scene>
+        <!--Plans-->
+        <scene sceneID="58e-Er-5gx">
+            <objects>
+                <viewController id="FlM-1d-gso" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dlC-4Y-Sci">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I7D-k1-Yav">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Plans List" largeTitleDisplayMode="always" id="tg4-qp-daM"/>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" id="0zh-9o-6ZL"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" constant="44" id="BJ1-FV-F8k"/>
+                            <constraint firstItem="I7D-k1-Yav" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="EcW-dL-15B"/>
+                            <constraint firstItem="I7D-k1-Yav" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="JZv-uF-HBK"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="I7D-k1-Yav" secondAttribute="bottom" id="PNN-Vt-2ve"/>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" id="V3e-Mu-VYZ"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="I7D-k1-Yav" secondAttribute="bottom" id="WdV-KR-Mtu"/>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="I7D-k1-Yav" secondAttribute="trailing" id="Wy8-a1-3R1"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="ujp-Fh-NhY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Plans" image="home-icon" id="Bua-BZ-gfj"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33o-IU-VEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1633.3333333333335" y="972.99107142857133"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JoB-Ld-6yG">
+            <objects>
+                <tabBarController id="pUl-j7-Z2d" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UjX-lp-MV3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="FlM-1d-gso" kind="relationship" relationship="viewControllers" id="D1H-5y-1yo"/>
+                        <segue destination="xap-kQ-RDy" kind="relationship" relationship="viewControllers" id="bIQ-vb-N68"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FSR-Go-mvK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycd-PU-rtw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-566" y="257"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="home-icon" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="location-icon" width="26.666666030883789" height="26.666666030883789"/>
+        <image name="settings-icon" width="26.666666030883789" height="26.666666030883789"/>
+    </resources>
 </document>
