@@ -23,6 +23,7 @@
 		D22B4B4F23609CEB0094BC4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2B236083250094BC4A /* LoginView.swift */; };
 		D22B4B5023609D290094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
 		D22B4B5123609EF00094BC4A /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansView.swift */; };
+		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlansMapper_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D22B4B4423609A580094BC4A /* PlansMapper_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlansMapper_iOS.h; sourceTree = "<group>"; };
 		D22B4B4523609A580094BC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22B4B552360AD060094BC4A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,18 +122,15 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
-				D22B4B28236071B70094BC4A /* TableCells */,
+				D22B4B542360ACDA0094BC4A /* DataManager */,
 				D22B4B27236023DF0094BC4A /* Model */,
+				D22B4B28236071B70094BC4A /* TableCells */,
+				D22B4B522360A83D0094BC4A /* Views */,
+				D22B4B532360A8810094BC4A /* ProjectResources */,
 				5149C059235EF99D00887D2A /* AppDelegate.swift */,
-				5149C05B235EF99D00887D2A /* SettingsView.swift */,
-				5149C05D235EF99D00887D2A /* Main.storyboard */,
 				5149C063235EF99F00887D2A /* Assets.xcassets */,
-				5149C065235EF99F00887D2A /* LaunchScreen.storyboard */,
-				5149C068235EF99F00887D2A /* Info.plist */,
 				5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */,
-				D22B4B2923607F440094BC4A /* TabsMainController.swift */,
-				D22B4B2B236083250094BC4A /* LoginView.swift */,
-				D22B4B2D236088B00094BC4A /* PlansView.swift */,
+				5149C068235EF99F00887D2A /* Info.plist */,
 			);
 			path = PlansMapper;
 			sourceTree = "<group>";
@@ -166,6 +165,34 @@
 				D22B4B4523609A580094BC4A /* Info.plist */,
 			);
 			path = "PlansMapper-iOS";
+			sourceTree = "<group>";
+		};
+		D22B4B522360A83D0094BC4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D22B4B2B236083250094BC4A /* LoginView.swift */,
+				D22B4B2D236088B00094BC4A /* PlansView.swift */,
+				5149C05B235EF99D00887D2A /* SettingsView.swift */,
+				D22B4B2923607F440094BC4A /* TabsMainController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D22B4B532360A8810094BC4A /* ProjectResources */ = {
+			isa = PBXGroup;
+			children = (
+				5149C05D235EF99D00887D2A /* Main.storyboard */,
+				5149C065235EF99F00887D2A /* LaunchScreen.storyboard */,
+			);
+			path = ProjectResources;
+			sourceTree = "<group>";
+		};
+		D22B4B542360ACDA0094BC4A /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D22B4B552360AD060094BC4A /* DataManager.swift */,
+			);
+			path = DataManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +355,7 @@
 				5149C05C235EF99D00887D2A /* SettingsView.swift in Sources */,
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
+				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansView.swift in Sources */,
 				D22B4B2C236083250094BC4A /* LoginView.swift in Sources */,
 				5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */,

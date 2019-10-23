@@ -202,6 +202,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="sDa-7I-Nuv" kind="show" id="Meq-2Y-wGW"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -220,7 +223,11 @@
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Plans List" id="JSw-hy-QQR">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hTN-St-U3U"/>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hTN-St-U3U">
+                            <connections>
+                                <action selector="userDidTapLogout:" destination="FlM-1d-gso" id="I3L-dQ-8hf"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="plansTableView" destination="9pQ-UP-m7w" id="7rj-Y9-YbG"/>
@@ -229,6 +236,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-IU-VEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1599" y="1936"/>
+        </scene>
+        <!--Details View-->
+        <scene sceneID="53q-MP-Qy8">
+            <objects>
+                <viewController title="Details View" id="sDa-7I-Nuv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qJ5-Gj-M4I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="rVY-nS-a9D"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kv0-Tw-Y3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-648" y="1959"/>
         </scene>
         <!--Tabs Main Controller-->
         <scene sceneID="JoB-Ld-6yG">

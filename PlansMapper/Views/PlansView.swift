@@ -12,16 +12,22 @@ class PlansView: UIViewController {
 
 	// MARK: - Class properties
 	@IBOutlet weak var plansTableView: UITableView!
-	var plansList = ["Plan1", "Plan 2", "Plan 3"]
+
+	var plansList = ["Plan1", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3"]
 	
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
-    
+	
+}
 
-    // MARK: - Navigation
-
+// MARK: - private functionlities
+private extension PlansView {
+	
+	@IBAction func userDidTapLogout(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
 }
 
 
