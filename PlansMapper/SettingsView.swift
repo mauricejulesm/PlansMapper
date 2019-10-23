@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingsView.swift
 //  PlansMapper
 //
 //  Created by Maurice on 10/22/19.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingsView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
