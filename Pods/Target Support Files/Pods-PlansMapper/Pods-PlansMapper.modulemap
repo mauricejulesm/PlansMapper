@@ -1,0 +1,6 @@
+framework module Pods_PlansMapper {
+  umbrella header "Pods-PlansMapper-umbrella.h"
+
+  export *
+  module * { export * }
+}
