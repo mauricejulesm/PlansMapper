@@ -3,6 +3,9 @@ An iOS mobile application that helps users to make their plans, set deadlines wi
 
 # Technologies used
 * Natural Language Processing (NLP)
-* Swift Programming Languae
+* Swift Programming Language
 * Xcode IDE
 * Apple's MapKit
+
+# Used Resources
+* https://resizeimage.net/ ( making app icons)

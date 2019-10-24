@@ -3,31 +3,85 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C9ED60CBA62C393182A7B27 /* Pods_PlansMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1992024F90E47321A01A500D /* Pods_PlansMapper.framework */; };
 		5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149C059235EF99D00887D2A /* AppDelegate.swift */; };
-		5149C05C235EF99D00887D2A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149C05B235EF99D00887D2A /* ViewController.swift */; };
+		5149C05C235EF99D00887D2A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5149C05B235EF99D00887D2A /* SettingsView.swift */; };
 		5149C05F235EF99D00887D2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149C05D235EF99D00887D2A /* Main.storyboard */; };
 		5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */; };
 		5149C064235EF99F00887D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5149C063235EF99F00887D2A /* Assets.xcassets */; };
 		5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149C065235EF99F00887D2A /* LaunchScreen.storyboard */; };
+		D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
+		D22B4B2C236083250094BC4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2B236083250094BC4A /* LoginView.swift */; };
+		D22B4B2E236088B00094BC4A /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansView.swift */; };
+		D22B4B4623609A580094BC4A /* PlansMapper_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = D22B4B4423609A580094BC4A /* PlansMapper_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D22B4B4923609A580094BC4A /* PlansMapper_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */; };
+		D22B4B4A23609A580094BC4A /* PlansMapper_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D22B4B4F23609CEB0094BC4A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2B236083250094BC4A /* LoginView.swift */; };
+		D22B4B5023609D290094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
+		D22B4B5123609EF00094BC4A /* PlansView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansView.swift */; };
+		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D22B4B4723609A580094BC4A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5149C04E235EF99D00887D2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D22B4B4123609A580094BC4A;
+			remoteInfo = "PlansMapper-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D22B4B4E23609A580094BC4A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D22B4B4A23609A580094BC4A /* PlansMapper_iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		1992024F90E47321A01A500D /* Pods_PlansMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlansMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		43BADBB726474B6A260CD612 /* Pods-PlansMapper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlansMapper.release.xcconfig"; path = "Target Support Files/Pods-PlansMapper/Pods-PlansMapper.release.xcconfig"; sourceTree = "<group>"; };
 		5149C056235EF99D00887D2A /* PlansMapper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlansMapper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5149C059235EF99D00887D2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5149C05B235EF99D00887D2A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5149C05B235EF99D00887D2A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5149C05E235EF99D00887D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5149C061235EF99D00887D2A /* PlansMapper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PlansMapper.xcdatamodel; sourceTree = "<group>"; };
 		5149C063235EF99F00887D2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5149C066235EF99F00887D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5149C068235EF99F00887D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlansMapper.debug.xcconfig"; path = "Target Support Files/Pods-PlansMapper/Pods-PlansMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		D22B4B2923607F440094BC4A /* TabsMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsMainController.swift; sourceTree = "<group>"; };
+		D22B4B2B236083250094BC4A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		D22B4B2D236088B00094BC4A /* PlansView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansView.swift; sourceTree = "<group>"; };
+		D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PlansMapper_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D22B4B4423609A580094BC4A /* PlansMapper_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlansMapper_iOS.h; sourceTree = "<group>"; };
+		D22B4B4523609A580094BC4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D22B4B552360AD060094BC4A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5149C053235EF99D00887D2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22B4B4923609A580094BC4A /* PlansMapper_iOS.framework in Frameworks */,
+				2C9ED60CBA62C393182A7B27 /* Pods_PlansMapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D22B4B3F23609A580094BC4A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,11 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1039F0BB1889E6045DA70E64 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1992024F90E47321A01A500D /* Pods_PlansMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		5149C04D235EF99D00887D2A = {
 			isa = PBXGroup;
 			children = (
 				5149C058235EF99D00887D2A /* PlansMapper */,
+				D22B4B4323609A580094BC4A /* PlansMapper-iOS */,
 				5149C057235EF99D00887D2A /* Products */,
+				8A4F8ED379CCB09D7606EA83 /* Pods */,
+				1039F0BB1889E6045DA70E64 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -49,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				5149C056235EF99D00887D2A /* PlansMapper.app */,
+				D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,36 +122,131 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
+				D22B4B542360ACDA0094BC4A /* DataManager */,
+				D22B4B27236023DF0094BC4A /* Model */,
+				D22B4B28236071B70094BC4A /* TableCells */,
+				D22B4B522360A83D0094BC4A /* Views */,
+				D22B4B532360A8810094BC4A /* ProjectResources */,
 				5149C059235EF99D00887D2A /* AppDelegate.swift */,
-				5149C05B235EF99D00887D2A /* ViewController.swift */,
-				5149C05D235EF99D00887D2A /* Main.storyboard */,
 				5149C063235EF99F00887D2A /* Assets.xcassets */,
-				5149C065235EF99F00887D2A /* LaunchScreen.storyboard */,
-				5149C068235EF99F00887D2A /* Info.plist */,
 				5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */,
+				5149C068235EF99F00887D2A /* Info.plist */,
 			);
 			path = PlansMapper;
 			sourceTree = "<group>";
 		};
+		8A4F8ED379CCB09D7606EA83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */,
+				43BADBB726474B6A260CD612 /* Pods-PlansMapper.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D22B4B27236023DF0094BC4A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D22B4B28236071B70094BC4A /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TableCells;
+			sourceTree = "<group>";
+		};
+		D22B4B4323609A580094BC4A /* PlansMapper-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D22B4B4423609A580094BC4A /* PlansMapper_iOS.h */,
+				D22B4B4523609A580094BC4A /* Info.plist */,
+			);
+			path = "PlansMapper-iOS";
+			sourceTree = "<group>";
+		};
+		D22B4B522360A83D0094BC4A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D22B4B2B236083250094BC4A /* LoginView.swift */,
+				D22B4B2D236088B00094BC4A /* PlansView.swift */,
+				5149C05B235EF99D00887D2A /* SettingsView.swift */,
+				D22B4B2923607F440094BC4A /* TabsMainController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D22B4B532360A8810094BC4A /* ProjectResources */ = {
+			isa = PBXGroup;
+			children = (
+				5149C05D235EF99D00887D2A /* Main.storyboard */,
+				5149C065235EF99F00887D2A /* LaunchScreen.storyboard */,
+			);
+			path = ProjectResources;
+			sourceTree = "<group>";
+		};
+		D22B4B542360ACDA0094BC4A /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				D22B4B552360AD060094BC4A /* DataManager.swift */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D22B4B3D23609A580094BC4A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22B4B4623609A580094BC4A /* PlansMapper_iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		5149C055235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5149C06B235EF99F00887D2A /* Build configuration list for PBXNativeTarget "PlansMapper" */;
 			buildPhases = (
+				7B092C8CC52787E8EEEA466A /* [CP] Check Pods Manifest.lock */,
 				5149C052235EF99D00887D2A /* Sources */,
 				5149C053235EF99D00887D2A /* Frameworks */,
 				5149C054235EF99D00887D2A /* Resources */,
+				03E083C0000C1481AFA64A64 /* [CP] Embed Pods Frameworks */,
+				D22B4B4E23609A580094BC4A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D22B4B4823609A580094BC4A /* PBXTargetDependency */,
 			);
 			name = PlansMapper;
 			productName = PlansMapper;
 			productReference = 5149C056235EF99D00887D2A /* PlansMapper.app */;
 			productType = "com.apple.product-type.application";
+		};
+		D22B4B4123609A580094BC4A /* PlansMapper-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D22B4B4D23609A580094BC4A /* Build configuration list for PBXNativeTarget "PlansMapper-iOS" */;
+			buildPhases = (
+				D22B4B3D23609A580094BC4A /* Headers */,
+				D22B4B3E23609A580094BC4A /* Sources */,
+				D22B4B3F23609A580094BC4A /* Frameworks */,
+				D22B4B4023609A580094BC4A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PlansMapper-iOS";
+			productName = "PlansMapper-iOS";
+			productReference = D22B4B4223609A580094BC4A /* PlansMapper_iOS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -98,6 +259,9 @@
 				ORGANIZATIONNAME = mauricejules;
 				TargetAttributes = {
 					5149C055235EF99D00887D2A = {
+						CreatedOnToolsVersion = 10.3;
+					};
+					D22B4B4123609A580094BC4A = {
 						CreatedOnToolsVersion = 10.3;
 					};
 				};
@@ -116,6 +280,7 @@
 			projectRoot = "";
 			targets = (
 				5149C055235EF99D00887D2A /* PlansMapper */,
+				D22B4B4123609A580094BC4A /* PlansMapper-iOS */,
 			);
 		};
 /* End PBXProject section */
@@ -131,20 +296,91 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D22B4B4023609A580094BC4A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03E083C0000C1481AFA64A64 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlansMapper/Pods-PlansMapper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlansMapper/Pods-PlansMapper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlansMapper/Pods-PlansMapper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7B092C8CC52787E8EEEA466A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlansMapper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5149C052235EF99D00887D2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5149C05C235EF99D00887D2A /* ViewController.swift in Sources */,
+				5149C05C235EF99D00887D2A /* SettingsView.swift in Sources */,
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
+				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
+				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
+				D22B4B2E236088B00094BC4A /* PlansView.swift in Sources */,
+				D22B4B2C236083250094BC4A /* LoginView.swift in Sources */,
 				5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D22B4B3E23609A580094BC4A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D22B4B5123609EF00094BC4A /* PlansView.swift in Sources */,
+				D22B4B5023609D290094BC4A /* TabsMainController.swift in Sources */,
+				D22B4B4F23609CEB0094BC4A /* LoginView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D22B4B4823609A580094BC4A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D22B4B4123609A580094BC4A /* PlansMapper-iOS */;
+			targetProxy = D22B4B4723609A580094BC4A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5149C05D235EF99D00887D2A /* Main.storyboard */ = {
@@ -284,16 +520,19 @@
 		};
 		5149C06C235EF99F00887D2A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5ACLZJ25J4;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
 				INFOPLIST_FILE = PlansMapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hp.mauricejules.PlansMapper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honorsPj.mauricejm.PlansMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,19 +541,78 @@
 		};
 		5149C06D235EF99F00887D2A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43BADBB726474B6A260CD612 /* Pods-PlansMapper.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5ACLZJ25J4;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
 				INFOPLIST_FILE = PlansMapper/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.hp.mauricejules.PlansMapper;
+				PRODUCT_BUNDLE_IDENTIFIER = com.honorsPj.mauricejm.PlansMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D22B4B4B23609A580094BC4A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "PlansMapper-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mauricej.PlansMapper-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D22B4B4C23609A580094BC4A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "PlansMapper-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mauricej.PlansMapper-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -335,6 +633,15 @@
 			buildConfigurations = (
 				5149C06C235EF99F00887D2A /* Debug */,
 				5149C06D235EF99F00887D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D22B4B4D23609A580094BC4A /* Build configuration list for PBXNativeTarget "PlansMapper-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D22B4B4B23609A580094BC4A /* Debug */,
+				D22B4B4C23609A580094BC4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
