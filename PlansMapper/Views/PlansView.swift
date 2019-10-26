@@ -15,11 +15,12 @@ class PlansView: UIViewController {
 
 	var plansList = ["Plan1", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3"]
 	
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-
+		
+		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
     }
-	
 }
 
 // MARK: - private functionlities
@@ -40,9 +41,9 @@ extension PlansView : UITableViewDataSource, UITableViewDelegate {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath)
-		cell.textLabel?.text = plansList[indexPath.row]
-		cell.detailTextLabel?.text = "Plan details ..."
+		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
+		cell.planTitleLbl?.text = plansList[indexPath.row]
+		cell.planDescLbl?.text = "Plan details ..."
 
 		return cell
 	}
@@ -56,6 +57,10 @@ extension PlansView : UITableViewDataSource, UITableViewDelegate {
 			plansList.remove(at: indexPath.row)
 			plansTableView.deleteRows(at: [indexPath], with: .automatic)
 		}
+	}
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		plansTableView.deselectRow(at: indexPath, animated: false)
 	}
 
 	
