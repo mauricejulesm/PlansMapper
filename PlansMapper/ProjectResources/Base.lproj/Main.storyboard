@@ -223,11 +223,12 @@
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Plans List" id="JSw-hy-QQR">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="hTN-St-U3U">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="hTN-St-U3U">
                             <connections>
                                 <action selector="userDidTapLogout:" destination="FlM-1d-gso" id="I3L-dQ-8hf"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pp9-wS-t1w"/>
                     </navigationItem>
                     <connections>
                         <outlet property="plansTableView" destination="9pQ-UP-m7w" id="7rj-Y9-YbG"/>
