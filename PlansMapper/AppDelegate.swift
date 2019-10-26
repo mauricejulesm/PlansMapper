@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -49,6 +51,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+	
+	// MARK: - Nofitications registering
+	func registerLocal() {
+		let notifCenter = UNUserNotificationCenter.current()
+		
+		notifCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+			if granted {
+				print("The app was allowed to send notifications")
+			} else {
+				print("The app was denied to send notifications")
+			}
+		}
+	}
 
 }
 
