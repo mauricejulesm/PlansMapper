@@ -24,6 +24,7 @@
 		D2972F602364CFCA0069B9C0 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5C2364CFCA0069B9C0 /* User+CoreDataProperties.swift */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
+		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -63,6 +64,7 @@
 		D2972F5C2364CFCA0069B9C0 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				D22B4B2D236088B00094BC4A /* PlansView.swift */,
 				5149C05B235EF99D00887D2A /* SettingsView.swift */,
 				D22B4B2923607F440094BC4A /* TabsMainController.swift */,
+				D2972F632364D7670069B9C0 /* NewPlanView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				D22B4B2C236083250094BC4A /* LoginView.swift in Sources */,
 				D2972F602364CFCA0069B9C0 /* User+CoreDataProperties.swift in Sources */,
 				5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */,
+				D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

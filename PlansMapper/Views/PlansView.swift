@@ -23,14 +23,6 @@ class PlansView: UIViewController {
     }
 }
 
-// MARK: - private functionlities
-private extension PlansView {
-	
-	@IBAction func userDidTapLogout(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
-	}
-}
-
 
 // MARK: - UITableViewController delegate methods
 
@@ -64,4 +56,18 @@ extension PlansView : UITableViewDataSource, UITableViewDelegate {
 	}
 
 	
+}
+// MARK: - private functionlities
+private extension PlansView {
+	
+	@IBAction func userDidTapLogout(_ sender: Any) {
+		dismiss(animated: true, completion: nil)
+	}
+	
+	@IBAction func addPlanBtnTapped(_ sender: Any) {
+		let newPlanView = storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
+		show(newPlanView, sender: self)
+		//present(newPlanView, animated: true, completion: nil)
+		
+	}
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SWp-CB-2gN">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,20 +15,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="SettingsView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PXz-ha-UMm">
-                                <rect key="frame" x="148" y="193" width="24" height="30"/>
+                                <rect key="frame" x="148" y="217" width="118" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="Aal-94-ay9"/>
                                 </constraints>
                             </slider>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="dsp-vk-sWo">
-                                <rect key="frame" x="113" y="283" width="94" height="29"/>
+                                <rect key="frame" x="160" y="283" width="94" height="29"/>
                             </stepper>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ieF-nR-l3s">
-                                <rect key="frame" x="100" y="104" width="120" height="28"/>
+                                <rect key="frame" x="100" y="128" width="214" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="Mi1-6e-VWq"/>
                                 </constraints>
@@ -38,7 +38,7 @@
                                 </segments>
                             </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0am-dd-i4f">
-                                <rect key="frame" x="135.5" y="407" width="51" height="31"/>
+                                <rect key="frame" x="182.5" y="407" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -68,7 +68,7 @@
             <objects>
                 <viewController id="xap-kQ-RDy" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XFx-hQ-Meg">
-                                <rect key="frame" x="0.0" y="20" width="414" height="980"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mz1-mO-KLr" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="980"/>
@@ -188,18 +188,18 @@
             <objects>
                 <viewController id="FlM-1d-gso" customClass="PlansView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlC-4Y-Sci">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
-                                <rect key="frame" x="0.0" y="111" width="320" height="408"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xcU-nk-2K6">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="200"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xcU-nk-2K6" id="veT-HI-HbK">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -228,7 +228,11 @@
                                 <action selector="userDidTapLogout:" destination="FlM-1d-gso" id="I3L-dQ-8hf"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pp9-wS-t1w"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pp9-wS-t1w">
+                            <connections>
+                                <action selector="addPlanBtnTapped:" destination="FlM-1d-gso" id="USE-qv-UGU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="plansTableView" destination="9pQ-UP-m7w" id="7rj-Y9-YbG"/>
@@ -243,7 +247,7 @@
             <objects>
                 <viewController title="Details View" id="sDa-7I-Nuv" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qJ5-Gj-M4I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rVY-nS-a9D"/>
@@ -279,7 +283,7 @@
                     <tabBarItem key="tabBarItem" title="Plans" image="home-icon" id="Bua-BZ-gfj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nKP-dI-qZh">
-                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -290,6 +294,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPa-ek-dIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1598" y="1139"/>
+        </scene>
+        <!--New Plan View-->
+        <scene sceneID="Joq-Fv-vD6">
+            <objects>
+                <viewController storyboardIdentifier="NewPlanView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MBz-Gw-TrM" customClass="NewPlanView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eJQ-lS-fSo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new plan here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-qD-fCB">
+                                <rect key="frame" x="44" y="156" width="326" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick your deadline below" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lfz-qL-85P">
+                                <rect key="frame" x="82" y="211" width="250" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your new plan below" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7N-g6-Z8S">
+                                <rect key="frame" x="51" y="124" width="311" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Day/Month/Year" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ASq-2K-wzw">
+                                <rect key="frame" x="28" y="256" width="358" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="E7N-g6-Z8S" firstAttribute="top" secondItem="OPe-3D-Glw" secondAttribute="top" constant="80" id="DTW-aa-7Yq"/>
+                            <constraint firstItem="lfz-qL-85P" firstAttribute="top" secondItem="cSl-qD-fCB" secondAttribute="bottom" constant="25" id="Lju-yg-RrC"/>
+                            <constraint firstItem="ASq-2K-wzw" firstAttribute="leading" secondItem="OPe-3D-Glw" secondAttribute="leading" constant="28" id="Nbx-07-uk5"/>
+                            <constraint firstItem="OPe-3D-Glw" firstAttribute="trailing" secondItem="ASq-2K-wzw" secondAttribute="trailing" constant="28" id="WN7-4D-7FQ"/>
+                            <constraint firstItem="OPe-3D-Glw" firstAttribute="trailing" secondItem="lfz-qL-85P" secondAttribute="trailing" constant="82" id="YHg-mM-cXa"/>
+                            <constraint firstItem="lfz-qL-85P" firstAttribute="leading" secondItem="OPe-3D-Glw" secondAttribute="leading" constant="82" id="hG8-LZ-jhP"/>
+                            <constraint firstItem="E7N-g6-Z8S" firstAttribute="leading" secondItem="OPe-3D-Glw" secondAttribute="leading" constant="51" id="jec-sz-U2H"/>
+                            <constraint firstItem="cSl-qD-fCB" firstAttribute="top" secondItem="E7N-g6-Z8S" secondAttribute="bottom" constant="8" id="n59-ri-d8u"/>
+                            <constraint firstItem="ASq-2K-wzw" firstAttribute="top" secondItem="lfz-qL-85P" secondAttribute="bottom" constant="22" id="nYI-WS-Eof"/>
+                            <constraint firstItem="OPe-3D-Glw" firstAttribute="trailing" secondItem="E7N-g6-Z8S" secondAttribute="trailing" constant="52" id="pc1-zE-2jU"/>
+                            <constraint firstItem="cSl-qD-fCB" firstAttribute="leading" secondItem="OPe-3D-Glw" secondAttribute="leading" constant="44" id="yHc-lb-IT8"/>
+                            <constraint firstItem="OPe-3D-Glw" firstAttribute="trailing" secondItem="cSl-qD-fCB" secondAttribute="trailing" constant="44" id="zjN-Pc-JRo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="OPe-3D-Glw"/>
+                    </view>
+                    <connections>
+                        <outlet property="txtFieldNewPlanTitle" destination="cSl-qD-fCB" id="3qW-UB-Upd"/>
+                        <outlet property="txtFldDeadline" destination="ASq-2K-wzw" id="r3K-Z7-pud"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fcV-Bg-hd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1599" y="2623"/>
         </scene>
     </scenes>
     <resources>
