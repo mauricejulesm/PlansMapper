@@ -3,13 +3,15 @@
     <entity name="Plan" representedClassName="Plan" syncable="YES">
         <attribute name="dateCreated" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="rawPlans" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="rawPlans" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Plan" inverseName="user" inverseEntity="Plan" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Plan" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="User" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="Plan" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="User" positionX="-356.953125" positionY="-177.76171875" width="128" height="88"/>
     </elements>
 </model>

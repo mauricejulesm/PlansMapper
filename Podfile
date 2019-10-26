@@ -6,7 +6,7 @@ target 'PlansMapper' do
   use_frameworks!
 
   # Pods for PlansMapper
-	pod 'Firebase/Auth'
-	pod 'Firebase/Firestore'
+	# pod 'Firebase/Auth'
+	# pod 'Firebase/Firestore'
 
 end
