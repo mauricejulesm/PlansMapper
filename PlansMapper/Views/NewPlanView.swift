@@ -16,11 +16,13 @@ class NewPlanView: UIViewController {
 	@IBOutlet var txtFldDeadline: UITextField!
 	
 	//MARK: Properties
-	
+	let datePicker = UIDatePicker()
 	lazy var dataManager = DataManager()
-	//lazy var notifManager = NotificationManager()
+	lazy var notifManager = NotificationManager()
 	lazy var alertManager = AlertsManager()
 	var editMode = false
+	var currentPlan : Plan?
+	
 	
 	
 	override func viewDidLoad() {
@@ -28,36 +30,47 @@ class NewPlanView: UIViewController {
 		setUpUI()
 	}
 	
+	override func willMove(toParent parent: UIViewController?) {
+		navigationItem.largeTitleDisplayMode = .always
+		navigationController?.navigationBar.prefersLargeTitles = true
+	}
+	
 	
 	private func setUpUI(){
 		self.title = "New Plan"
+		navigationController?.navigationBar.prefersLargeTitles = false
 		txtFieldNewPlanTitle.delegate = self
 		txtFldDeadline.delegate = self
-		//txtFieldNewPlanTitle.becomeFirstResponder()
-		if (editMode) {
-			//txtFieldNewPlanTitle.text = currentProject?.name
-		}
+		txtFieldNewPlanTitle.becomeFirstResponder()
 		
-		// Listen for keyboard notification
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
+		showDatePicker()
+
+		
+		if (editMode) {
+			txtFieldNewPlanTitle.text = currentPlan?.title
+		}
 		
 		let saveBtn = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBtnTapped))
 		self.navigationItem.rightBarButtonItem  = saveBtn
 	}
 	
-	deinit {
-		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
-		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
-	}
+//	deinit {
+//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification, object: nil)
+//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
+//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
+//	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		txtFieldNewPlanTitle.resignFirstResponder()
 		txtFldDeadline.resignFirstResponder()
 	}
 	
+	func configureKeyboard() {
+		// Listen for keyboard notification
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
+	}
 	
 	@objc func saveBtnTapped() {
 		let calendar = Calendar.current
@@ -76,13 +89,66 @@ class NewPlanView: UIViewController {
 					do {
 						try newPlan?.managedObjectContext?.save()
 						print("Saved Plan: \(title) successfully")
-						self.navigationController?.popViewController(animated: true)
 					} catch { return }
 				}
+				
+				// schedule the reminder
+				notifManager.registerNotifCategories()
+				let components = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from:  getDateFromString(stringDate:deadline))
+				notifManager.scheduceNotification(todoContent:title, year:components.year!, month:components.month!,day:components.day!,hour:components.hour!,minute:components.minute!,second:components.second!)
+				
+				self.navigationController?.popViewController(animated: true)
+
 			}else {
 				alertManager.showPlanSaveAlert(from: self)
 			}
 		}
+	}
+	
+	
+	//MARK: Dates and datepicker configurations
+	
+	func getDateFromString(stringDate:String) -> Date {
+		
+		let format = DateFormatter()
+		format.dateFormat = "yyyy/MM/dd HH:mm:ss"
+		//    let formattedDate = format.string(from: date)
+		let realDate = format.date(from: stringDate)!
+		return realDate
+	}
+	
+	func showDatePicker(){
+		
+		let currentDate = Date()  //get the current date
+		//Formate Date
+		datePicker.datePickerMode = .dateAndTime
+		datePicker.minimumDate = currentDate
+		datePicker.date = currentDate
+		
+		//ToolBar
+		let toolbar = UIToolbar();
+		toolbar.sizeToFit()
+		let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(donedatePicker));
+		let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(cancelDatePicker));
+		
+		toolbar.setItems([doneButton,spaceButton,cancelButton], animated: false)
+		
+		txtFldDeadline.inputAccessoryView = toolbar
+		txtFldDeadline.inputView = datePicker
+		
+	}
+	
+	@objc func donedatePicker(){
+		
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
+		txtFldDeadline.text = formatter.string(from: datePicker.date)
+		self.view.endEditing(true)
+	}
+	
+	@objc func cancelDatePicker(){
+		self.view.endEditing(true)
 	}
 	
 }

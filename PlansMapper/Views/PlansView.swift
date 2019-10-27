@@ -27,21 +27,15 @@ class PlansView: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
 			else { return }
-		
 		let context = appDelegate.persistentContainer.viewContext
-		
 		let fetchRequest = dataManager.getPlanFetchRequest()
-		
-		// sorting by the date created
 		let sortDesc = NSSortDescriptor(key: "dateCreated", ascending: false)
 		fetchRequest.sortDescriptors = [sortDesc]
-		
-		// fetching
 		do {
 			plansList = try context.fetch(fetchRequest)
 			self.plansTableView.reloadData()
 		} catch  {
-			print("Unable to fetch categories")
+			print("Unable to fetch plans")
 		}
 	}
 }
@@ -60,8 +54,7 @@ extension PlansView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
 		cell.planTitleLbl?.text = plansList[indexPath.row].title
-		cell.planDescLbl?.text = "Plan details ..."
-
+		cell.planDescLbl?.text = plansList[indexPath.row].dateCreated
 		return cell
 	}
 	
@@ -71,8 +64,7 @@ extension PlansView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			plansList.remove(at: indexPath.row)
-			plansTableView.deleteRows(at: [indexPath], with: .automatic)
+			deletePlan(at: indexPath)
 		}
 	}
 }
@@ -94,6 +86,20 @@ extension PlansView : UITableViewDelegate {
 // MARK: - private functionlities
 private extension PlansView {
 
+	func deletePlan(at indexPath: IndexPath) {
+		let plan = plansList[indexPath.row]
+		guard let context = plan.managedObjectContext else { return }
+		context.delete(plan)
+		do {
+			try context.save()
+			plansList.remove(at: indexPath.row)
+			self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
+		} catch  {
+			print("Unable to delete the category")
+			//self.plansTableView.reloadRows(at: [indexPath], with: .automatic)
+		}
+		
+	}
 	
 //	@IBAction func addPlanBtnTapped(_ sender: Any) {
 //		let newPlanView = storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView

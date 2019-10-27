@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		
 		DataManager().applicationDocumentsDirectory()
-
+		registerLocalNotifications()
         return true
     }
 
@@ -56,7 +56,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 	
 	// MARK: - Nofitications registering
-	func registerLocal() {
+	func registerLocalNotifications() {
 		let notifCenter = UNUserNotificationCenter.current()
 		
 		notifCenter.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
