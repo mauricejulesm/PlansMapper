@@ -25,6 +25,7 @@
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
+		D2BC3F632365D8D500EC516F /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = D2BC3F622365D8D400EC516F /* splash_screen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,6 +66,7 @@
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
+		D2BC3F622365D8D400EC516F /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 		5149C04D235EF99D00887D2A = {
 			isa = PBXGroup;
 			children = (
+				D2BC3F622365D8D400EC516F /* splash_screen.png */,
 				5149C058235EF99D00887D2A /* PlansMapper */,
 				D22B4B4323609A580094BC4A /* PlansMapper-iOS */,
 				5149C057235EF99D00887D2A /* Products */,
@@ -265,6 +268,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2BC3F632365D8D500EC516F /* splash_screen.png in Resources */,
 				D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */,
 				5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */,
 				5149C064235EF99F00887D2A /* Assets.xcassets in Resources */,
