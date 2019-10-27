@@ -11,9 +11,7 @@ import UIKit
 import CoreData
 
 @objc(Plan)
-public class Plan: NSManagedObject {
-
-	
+public class Plan: NSManagedObject {	
 	
 	convenience init?(dateCreated:String, title: String){
 		let appDelegate = UIApplication.shared.delegate as? AppDelegate

@@ -10,10 +10,12 @@ import UIKit
 
 class PlansView: UIViewController {
 
-	// MARK: - Class properties
+	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
 
-	var plansList = ["Plan1", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3", "Plan 2", "Plan 3"]
+	// MARK: - Class properties
+	var plansList = [Plan]()
+	lazy var dataManager = DataManager()
 	
 	
     override func viewDidLoad() {
@@ -21,20 +23,43 @@ class PlansView: UIViewController {
 		
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+			else { return }
+		
+		let context = appDelegate.persistentContainer.viewContext
+		
+		let fetchRequest = dataManager.getPlanFetchRequest()
+		
+		// sorting by the date created
+		let sortDesc = NSSortDescriptor(key: "dateCreated", ascending: false)
+		fetchRequest.sortDescriptors = [sortDesc]
+		
+		// fetching
+		do {
+			plansList = try context.fetch(fetchRequest)
+			self.plansTableView.reloadData()
+		} catch  {
+			print("Unable to fetch categories")
+		}
+	}
 }
 
 
-// MARK: - UITableViewController delegate methods
+// MARK: - TableView datasource methods
 
-extension PlansView : UITableViewDataSource, UITableViewDelegate {
-	
+extension PlansView : UITableViewDataSource {
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 1
+	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return plansList.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		cell.planTitleLbl?.text = plansList[indexPath.row]
+		cell.planTitleLbl?.text = plansList[indexPath.row].title
 		cell.planDescLbl?.text = "Plan details ..."
 
 		return cell
@@ -50,24 +75,30 @@ extension PlansView : UITableViewDataSource, UITableViewDelegate {
 			plansTableView.deleteRows(at: [indexPath], with: .automatic)
 		}
 	}
+}
 
+
+// MARK: - Tableview delegate methods
+
+extension PlansView : UITableViewDelegate {
+	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		plansTableView.deselectRow(at: indexPath, animated: false)
 	}
-
 	
-}
-// MARK: - private functionlities
-private extension PlansView {
-	
-	@IBAction func userDidTapLogout(_ sender: Any) {
-		dismiss(animated: true, completion: nil)
-	}
-	
-	@IBAction func addPlanBtnTapped(_ sender: Any) {
-		let newPlanView = storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
-		show(newPlanView, sender: self)
-		//present(newPlanView, animated: true, completion: nil)
+	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 	}
+}
+
+// MARK: - private functionlities
+private extension PlansView {
+
+	
+//	@IBAction func addPlanBtnTapped(_ sender: Any) {
+//		let newPlanView = storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
+//		show(newPlanView, sender: self)
+//		//present(newPlanView, animated: true, completion: nil)
+//
+//	}
 }

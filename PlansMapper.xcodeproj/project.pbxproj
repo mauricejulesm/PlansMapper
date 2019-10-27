@@ -20,8 +20,7 @@
 		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
 		D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B572360C0270094BC4A /* PlanCell.swift */; };
 		D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D22B4B582360C0270094BC4A /* PlanCell.xib */; };
-		D2972F5F2364CFCA0069B9C0 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5B2364CFCA0069B9C0 /* User+CoreDataClass.swift */; };
-		D2972F602364CFCA0069B9C0 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5C2364CFCA0069B9C0 /* User+CoreDataProperties.swift */; };
+		D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C26062365821900EFEBD3 /* AlertsManager.swift */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
@@ -60,8 +59,7 @@
 		D22B4B552360AD060094BC4A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D22B4B572360C0270094BC4A /* PlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanCell.swift; path = PlansMapper/DataManager/PlanCell.swift; sourceTree = SOURCE_ROOT; };
 		D22B4B582360C0270094BC4A /* PlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlanCell.xib; path = PlansMapper/DataManager/PlanCell.xib; sourceTree = SOURCE_ROOT; };
-		D2972F5B2364CFCA0069B9C0 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		D2972F5C2364CFCA0069B9C0 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		D24C26062365821900EFEBD3 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
@@ -109,6 +107,7 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
+				D2972F65236581660069B9C0 /* Alerts */,
 				D22B4B542360ACDA0094BC4A /* DataManager */,
 				D22B4B27236023DF0094BC4A /* Model */,
 				D22B4B28236071B70094BC4A /* TableCells */,
@@ -134,8 +133,6 @@
 		D22B4B27236023DF0094BC4A /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D2972F5B2364CFCA0069B9C0 /* User+CoreDataClass.swift */,
-				D2972F5C2364CFCA0069B9C0 /* User+CoreDataProperties.swift */,
 				D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */,
 				D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */,
 			);
@@ -187,6 +184,14 @@
 				D22B4B552360AD060094BC4A /* DataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D2972F65236581660069B9C0 /* Alerts */ = {
+			isa = PBXGroup;
+			children = (
+				D24C26062365821900EFEBD3 /* AlertsManager.swift */,
+			);
+			path = Alerts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,13 +297,12 @@
 				D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */,
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
+				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
-				D2972F5F2364CFCA0069B9C0 /* User+CoreDataClass.swift in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansView.swift in Sources */,
 				D22B4B2C236083250094BC4A /* LoginView.swift in Sources */,
-				D2972F602364CFCA0069B9C0 /* User+CoreDataProperties.swift in Sources */,
 				5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */,
 				D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */,
 			);

@@ -19,6 +19,5 @@ extension Plan {
 
     @NSManaged public var dateCreated: String?
     @NSManaged public var title: String?
-    @NSManaged public var user: User?
 
 }
