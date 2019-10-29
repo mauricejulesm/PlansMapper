@@ -66,7 +66,7 @@
         <!--Map-->
         <scene sceneID="gG3-0J-S9B">
             <objects>
-                <viewController id="xap-kQ-RDy" sceneMemberID="viewController">
+                <viewController id="xap-kQ-RDy" customClass="MapView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -191,6 +191,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add_icon" translatesAutoresizingMaskIntoConstraints="NO" id="4bf-wy-UEv">
+                                <rect key="frame" x="82" y="323" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="bZZ-DR-yTI"/>
+                                    <constraint firstAttribute="height" constant="250" id="qIQ-gn-9J3"/>
+                                </constraints>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -216,8 +223,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" id="0zh-9o-6ZL"/>
+                            <constraint firstItem="4bf-wy-UEv" firstAttribute="centerX" secondItem="dlC-4Y-Sci" secondAttribute="centerX" id="1mF-wh-Dvo"/>
                             <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="BJ1-FV-F8k"/>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" id="V3e-Mu-VYZ"/>
+                            <constraint firstItem="4bf-wy-UEv" firstAttribute="centerY" secondItem="dlC-4Y-Sci" secondAttribute="centerY" id="cG7-Za-XUf"/>
                             <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="ujp-Fh-NhY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
@@ -353,7 +362,6 @@
         <!--Custom Scroll View-->
         <scene sceneID="gZY-4D-vFg">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-nr-LdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="CustomScrollView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="R5c-io-P8s" customClass="CustomScrollView" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKo-cw-gUV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -389,11 +397,13 @@
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-nr-LdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1601" y="169"/>
         </scene>
     </scenes>
     <resources>
+        <image name="add_icon" width="85.333335876464844" height="85.333335876464844"/>
         <image name="home-icon" width="26.666666030883789" height="26.666666030883789"/>
         <image name="location-icon" width="26.666666030883789" height="26.666666030883789"/>
         <image name="settings-icon" width="26.666666030883789" height="26.666666030883789"/>

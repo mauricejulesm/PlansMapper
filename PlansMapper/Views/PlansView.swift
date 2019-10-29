@@ -8,7 +8,14 @@
 
 import UIKit
 
+enum PlansTableState {
+    case hasData
+    case hasNoData
+}
+
 class PlansView: UIViewController {
+    
+    
 
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
@@ -38,6 +45,16 @@ class PlansView: UIViewController {
 			print("Unable to fetch plans")
 		}
 	}
+    
+    fileprivate func setTableState (_ state : PlansTableState){
+        switch state {
+        case .hasData:
+            self.plansTableView.alpha = 1.0
+        case .hasNoData:
+            self.plansTableView.alpha = 0.0
+        }
+    }
+    
 }
 
 
