@@ -80,6 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="xsF-MM-agM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
+                    <connections>
+                        <outlet property="mapView" destination="6AP-wS-kup" id="OIl-hw-aUs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
