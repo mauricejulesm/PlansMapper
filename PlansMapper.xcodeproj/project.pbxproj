@@ -19,11 +19,13 @@
 		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
 		D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B572360C0270094BC4A /* PlanCell.swift */; };
 		D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D22B4B582360C0270094BC4A /* PlanCell.xib */; };
-		D23F60EA2368B3C300DC85C7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23F60E92368B3C300DC85C7 /* MapView.swift */; };
 		D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C26062365821900EFEBD3 /* AlertsManager.swift */; };
 		D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C260B2365CDC600EFEBD3 /* NotificationManager.swift */; };
 		D27D67A52368BF1D00A629CD /* PlansViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67A42368BF1D00A629CD /* PlansViewModel.swift */; };
-		D27D67A72368BF6300A629CD /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67A62368BF6300A629CD /* MapViewModel.swift */; };
+		D27D67CD2369AF4000A629CD /* PlansMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */; };
+		D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */; };
+		D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */; };
+		D27D67D12369B16A00A629CD /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = D27D67D02369B16A00A629CD /* PublicArt.json */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
@@ -62,11 +64,13 @@
 		D22B4B552360AD060094BC4A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D22B4B572360C0270094BC4A /* PlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanCell.swift; path = PlansMapper/DataManager/PlanCell.swift; sourceTree = SOURCE_ROOT; };
 		D22B4B582360C0270094BC4A /* PlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlanCell.xib; path = PlansMapper/DataManager/PlanCell.xib; sourceTree = SOURCE_ROOT; };
-		D23F60E92368B3C300DC85C7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		D24C26062365821900EFEBD3 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
 		D24C260B2365CDC600EFEBD3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D27D67A42368BF1D00A629CD /* PlansViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansViewModel.swift; sourceTree = "<group>"; };
-		D27D67A62368BF6300A629CD /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewController.swift; sourceTree = "<group>"; };
+		D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewModel.swift; sourceTree = "<group>"; };
+		D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapModel.swift; sourceTree = "<group>"; };
+		D27D67D02369B16A00A629CD /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
@@ -96,7 +100,6 @@
 		5149C04D235EF99D00887D2A = {
 			isa = PBXGroup;
 			children = (
-				D2BC3F622365D8D400EC516F /* splash_screen.png */,
 				5149C058235EF99D00887D2A /* PlansMapper */,
 				D22B4B4323609A580094BC4A /* PlansMapper-iOS */,
 				5149C057235EF99D00887D2A /* Products */,
@@ -124,6 +127,8 @@
 				D22B4B532360A8810094BC4A /* ProjectResources */,
 				5149C059235EF99D00887D2A /* AppDelegate.swift */,
 				5149C063235EF99F00887D2A /* Assets.xcassets */,
+				D27D67D02369B16A00A629CD /* PublicArt.json */,
+				D2BC3F622365D8D400EC516F /* splash_screen.png */,
 				5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */,
 				5149C068235EF99F00887D2A /* Info.plist */,
 			);
@@ -217,8 +222,9 @@
 		D27D67A32368BEB800A629CD /* MapManager */ = {
 			isa = PBXGroup;
 			children = (
-				D23F60E92368B3C300DC85C7 /* MapView.swift */,
-				D27D67A62368BF6300A629CD /* MapViewModel.swift */,
+				D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */,
+				D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */,
+				D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */,
 			);
 			path = MapManager;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			files = (
 				D2BC3F632365D8D500EC516F /* splash_screen.png in Resources */,
 				D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */,
+				D27D67D12369B16A00A629CD /* PublicArt.json in Resources */,
 				5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */,
 				5149C064235EF99F00887D2A /* Assets.xcassets in Resources */,
 				5149C05F235EF99D00887D2A /* Main.storyboard in Resources */,
@@ -357,13 +364,14 @@
 			files = (
 				5149C05C235EF99D00887D2A /* SettingsView.swift in Sources */,
 				D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */,
+				D27D67CD2369AF4000A629CD /* PlansMapViewController.swift in Sources */,
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
+				D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */,
 				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */,
-				D27D67A72368BF6300A629CD /* MapViewModel.swift in Sources */,
-				D23F60EA2368B3C300DC85C7 /* MapView.swift in Sources */,
+				D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansView.swift in Sources */,

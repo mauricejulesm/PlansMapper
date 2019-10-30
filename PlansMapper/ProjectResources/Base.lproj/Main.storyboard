@@ -66,7 +66,7 @@
         <!--Map-->
         <scene sceneID="gG3-0J-S9B">
             <objects>
-                <viewController id="xap-kQ-RDy" customClass="MapView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xap-kQ-RDy" customClass="PlansMapViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
                     <connections>
-                        <outlet property="mapView" destination="6AP-wS-kup" id="OIl-hw-aUs"/>
+                        <outlet property="mapView" destination="6AP-wS-kup" id="Ona-1b-Ub2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
