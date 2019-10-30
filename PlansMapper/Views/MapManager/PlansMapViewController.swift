@@ -30,7 +30,8 @@ class PlansMapViewController: UIViewController {
 //							  discipline: "Spirit",
 //							  coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
 //		mapView.addAnnotation(artwork)
-
+		mapView.register(ArtworkMarkerView.self,
+						 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 		loadInitialData()
 		mapView.addAnnotations(artworks)
 

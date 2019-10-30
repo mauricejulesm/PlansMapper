@@ -26,6 +26,7 @@
 		D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */; };
 		D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */; };
 		D27D67D12369B16A00A629CD /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = D27D67D02369B16A00A629CD /* PublicArt.json */; };
+		D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
@@ -71,6 +72,7 @@
 		D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewModel.swift; sourceTree = "<group>"; };
 		D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapModel.swift; sourceTree = "<group>"; };
 		D27D67D02369B16A00A629CD /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
+		D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkViews.swift; sourceTree = "<group>"; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */,
 				D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */,
 				D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */,
+				D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */,
 			);
 			path = MapManager;
 			sourceTree = "<group>";
@@ -369,6 +372,7 @@
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
 				D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */,
 				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
+				D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */,
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */,
 				D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */,
