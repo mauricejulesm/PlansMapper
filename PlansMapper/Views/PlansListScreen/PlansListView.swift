@@ -13,10 +13,8 @@ enum PlansTableState {
     case hasNoData
 }
 
-class PlansView: UIViewController {
+class PlansListView: UIViewController {
     
-    
-
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
 
@@ -27,7 +25,8 @@ class PlansView: UIViewController {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		plansTableView.delegate = self
+		plansTableView.dataSource = self
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
     }
 	
@@ -60,7 +59,7 @@ class PlansView: UIViewController {
 
 // MARK: - TableView datasource methods
 
-extension PlansView : UITableViewDataSource {
+extension PlansListView : UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -84,12 +83,65 @@ extension PlansView : UITableViewDataSource {
 			deletePlan(at: indexPath)
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let done = completePlanAction(at: indexPath)
+		return UISwipeActionsConfiguration(actions: [done])
+	}
+	
+	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+		let edit = editPlanAction(at: indexPath)
+		let delete = deletePlan(at: indexPath)
+		
+		return UISwipeActionsConfiguration(actions: [edit, delete])
+	}
+	
+	
+	func editPlanAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion ) in
+			print("Edit tapped")
+			completion(true)
+		}
+		action.image = UIImage(named: "edit_icon")
+		//action.backgroundColor = .gray
+		return action
+	}
+	
+	func completePlanAction(at indexPath: IndexPath) -> UIContextualAction {
+		let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion ) in
+			print("done tapped")
+			
+			completion(true)
+		}
+		action.image = UIImage(named: "done_icon")
+		action.backgroundColor = .green
+		return action
+	}
+	
+	func deletePlan(at indexPath: IndexPath) -> UIContextualAction{
+		let plan = plansList[indexPath.row]
+		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
+			guard let context = plan.managedObjectContext else { return }
+			context.delete(plan)
+			do {
+				try context.save()
+				self.plansList.remove(at: indexPath.row)
+				self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
+			} catch  {
+				print("Unable to delete the category")
+			}
+			completion(true)
+		}
+		action.image = UIImage(named: "trash_icon")
+		return action
+	}
+	
 }
 
 
 // MARK: - Tableview delegate methods
 
-extension PlansView : UITableViewDelegate {
+extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		plansTableView.deselectRow(at: indexPath, animated: false)
@@ -101,27 +153,7 @@ extension PlansView : UITableViewDelegate {
 }
 
 // MARK: - private functionlities
-private extension PlansView {
+private extension PlansListView {
 
-	func deletePlan(at indexPath: IndexPath) {
-		let plan = plansList[indexPath.row]
-		guard let context = plan.managedObjectContext else { return }
-		context.delete(plan)
-		do {
-			try context.save()
-			plansList.remove(at: indexPath.row)
-			self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
-		} catch  {
-			print("Unable to delete the category")
-			//self.plansTableView.reloadRows(at: [indexPath], with: .automatic)
-		}
-		
-	}
 	
-//	@IBAction func addPlanBtnTapped(_ sender: Any) {
-//		let newPlanView = storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
-//		show(newPlanView, sender: self)
-//		//present(newPlanView, animated: true, completion: nil)
-//
-//	}
 }

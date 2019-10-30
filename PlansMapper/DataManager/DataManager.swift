@@ -20,8 +20,8 @@ class DataManager  {
 		// fetchRequest.predicate = NSPredicate(format: "title = %@ AND dateCreated = %@", title, date)           // for more precision
 		fetchRequest.predicate = NSPredicate(format: "title = %@", "\(title)")
 		do{
-			let test = try context.fetch(fetchRequest)
-			let planToUpdate = test[0]
+			//let test = try context.fetch(fetchRequest)
+			//let planToUpdate = test[0]
 			
 //			planToUpdate.completed ? planToUpdate.setValue(false, forKey: "completed") : planToUpdate.setValue(true, forKey: "completed")
 //			planToUpdate.isExpanded ? planToUpdate.isExpanded = false : nil

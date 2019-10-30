@@ -8,6 +8,6 @@
 
 import UIKit
 
-class PlansViewModel: NSObject {
+class PlansListViewModel: NSObject {
 
 }

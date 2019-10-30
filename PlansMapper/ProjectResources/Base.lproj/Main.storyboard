@@ -81,7 +81,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
                     <connections>
-                        <outlet property="mapView" destination="6AP-wS-kup" id="Ona-1b-Ub2"/>
+                        <outlet property="mapView" destination="6AP-wS-kup" id="OIl-hw-aUs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -91,6 +91,7 @@
         <!--Login View-->
         <scene sceneID="2Xe-88-Rl6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qn-Xq-Vff" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="SWp-CB-2gN" customClass="LoginView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3aw-4z-2aV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
@@ -182,14 +183,13 @@
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3Qn-Xq-Vff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2334.375" y="158.45070422535213"/>
         </scene>
         <!--Plans List-->
         <scene sceneID="58e-Er-5gx">
             <objects>
-                <viewController id="FlM-1d-gso" customClass="PlansView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FlM-1d-gso" customClass="PlansListView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlC-4Y-Sci">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -217,10 +217,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="FlM-1d-gso" id="mx1-sL-Mwj"/>
-                                    <outlet property="delegate" destination="FlM-1d-gso" id="bYt-n2-3Yt"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -237,7 +233,6 @@
                     <navigationItem key="navigationItem" title="Plans List" id="JSw-hy-QQR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pp9-wS-t1w">
                             <connections>
-                                <action selector="addPlanBtnTapped:" destination="FlM-1d-gso" id="USE-qv-UGU"/>
                                 <segue destination="MBz-Gw-TrM" kind="show" id="9H6-uW-gFM"/>
                             </connections>
                         </barButtonItem>
