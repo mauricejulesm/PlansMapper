@@ -19,7 +19,7 @@ class PlansMapViewModel: NSObject {
 		let addressDict = [CNPostalAddressStreetKey: mapModel!.subtitle!]
 		let placemark = MKPlacemark(coordinate: mapModel!.coordinate, addressDictionary: addressDict)
 		let mapItem = MKMapItem(placemark: placemark)
-		mapItem.name = mapModel!.title
+		//mapItem.name = mapModel!.title
 		return mapItem
 	}
 }

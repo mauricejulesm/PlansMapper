@@ -14,6 +14,7 @@
 		5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */; };
 		5149C064235EF99F00887D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5149C063235EF99F00887D2A /* Assets.xcassets */; };
 		5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149C065235EF99F00887D2A /* LaunchScreen.storyboard */; };
+		D226AC09236CA0FE00D66BB6 /* NLP_Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */; };
 		D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
 		D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansListView.swift */; };
 		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
@@ -58,6 +59,7 @@
 		5149C066235EF99F00887D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5149C068235EF99F00887D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlansMapper.debug.xcconfig"; path = "Target Support Files/Pods-PlansMapper/Pods-PlansMapper.debug.xcconfig"; sourceTree = "<group>"; };
+		D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Processor.swift; sourceTree = "<group>"; };
 		D22B4B2923607F440094BC4A /* TabsMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsMainController.swift; sourceTree = "<group>"; };
 		D22B4B2D236088B00094BC4A /* PlansListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansListView.swift; sourceTree = "<group>"; };
 		D22B4B4423609A580094BC4A /* PlansMapper_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlansMapper_iOS.h; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
+				D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */,
 				D24C260A2365CDAB00EFEBD3 /* NotificationsManager */,
 				D2972F65236581660069B9C0 /* Alerts */,
 				D22B4B542360ACDA0094BC4A /* DataManager */,
@@ -144,6 +147,14 @@
 				43BADBB726474B6A260CD612 /* Pods-PlansMapper.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */ = {
+			isa = PBXGroup;
+			children = (
+				D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */,
+			);
+			path = NaturalLanguageProcessor;
 			sourceTree = "<group>";
 		};
 		D22B4B27236023DF0094BC4A /* CoreDataModels */ = {
@@ -376,6 +387,7 @@
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */,
 				D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */,
+				D226AC09236CA0FE00D66BB6 /* NLP_Processor.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */,

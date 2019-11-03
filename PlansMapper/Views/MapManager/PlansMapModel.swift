@@ -11,15 +11,11 @@ import Contacts
 
 class PlansMapModel: NSObject, MKAnnotation {
 	
-	let title: String?
 	let locationName: String
-	let discipline: String
 	let coordinate: CLLocationCoordinate2D
 	
-	init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
-		self.title = title
+	init(locationName: String, coordinate: CLLocationCoordinate2D) {
 		self.locationName = locationName
-		self.discipline = discipline
 		self.coordinate = coordinate
 		
 		super.init()
@@ -32,9 +28,7 @@ class PlansMapModel: NSObject, MKAnnotation {
 	
 	init?(json: [Any]) {
 		// 1
-		self.title = json[16] as? String ?? "No Title"
 		self.locationName = json[12] as! String
-		self.discipline = json[15] as! String
 		// 2
 		if let latitude = Double(json[18] as! String),
 			let longitude = Double(json[19] as! String) {
@@ -45,20 +39,20 @@ class PlansMapModel: NSObject, MKAnnotation {
 	}
 	
 	// markerTintColor for disciplines: Sculpture, Plaque, Mural, Monument, other
-	var markerTintColor: UIColor  {
-		switch discipline {
-		case "Monument":
-			return .red
-		case "Mural":
-			return .cyan
-		case "Plaque":
-			return .blue
-		case "Sculpture":
-			return .purple
-		default:
-			return .green
-		}
-	}
+//	var markerTintColor: UIColor  {
+//		switch discipline {
+//		case "Monument":
+//			return .red
+//		case "Mural":
+//			return .cyan
+//		case "Plaque":
+//			return .blue
+//		case "Sculpture":
+//			return .purple
+//		default:
+//			return .green
+//		}
+//	}
 	
 	
 	// Annotation right callout accessory opens this mapItem in Maps app
@@ -66,7 +60,13 @@ class PlansMapModel: NSObject, MKAnnotation {
 		let addressDict = [CNPostalAddressStreetKey: subtitle!]
 		let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
 		let mapItem = MKMapItem(placemark: placemark)
-		mapItem.name = title
+//		mapItem.name = title
 		return mapItem
 	}
+	
+	var myRegion : MKCoordinateRegion {
+		let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+		return MKCoordinateRegion(center: coordinate, span: span)
+	}
+	
 }

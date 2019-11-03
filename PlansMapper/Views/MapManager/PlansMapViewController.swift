@@ -8,39 +8,73 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class PlansMapViewController: UIViewController {
 
 	@IBOutlet var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 1000
 	lazy var viewModel = PlansMapViewModel()
-	var artworks: [PlansMapModel] = []
+	var planVenues: [PlansMapModel] = []
+	var planVenue: PlansMapModel?
+	var currentUserLocation : CLLocation!
+	var fakeLocation : CLLocation!
+	var locationAllowed = false
+	let locationManager = CLLocationManager()
+	
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		mapView.delegate = self
 
-		// set initial location in Honolulu
-		let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
-		centerMapOnLocation(location: initialLocation)
+		//fakeLocation = CLLocation(latitude:-20.275018, longitude: 57.578638)
+		// set initial location as the current user location
+		checkLocationAuthorizationStatus()
 		
-		// show artwork on map
-//		let artwork = PlansMapModel(title: "Maurice Jr. The Falcon",
-//							  locationName: "Falcon Land",
-//							  discipline: "Spirit",
-//							  coordinate: CLLocationCoordinate2D(latitude: 21.283921, longitude: -157.831661))
-//		mapView.addAnnotation(artwork)
+		centerMapOnLocation(location: currentUserLocation)
+		
 		mapView.register(ArtworkMarkerView.self,
 						 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-		loadInitialData()
-		mapView.addAnnotations(artworks)
-
+		
+		//mapView.setRegion(planVenue.myRegion, animated: true)
+		//loadInitialData()
+		
+		searchPlaces(for: "Shopping Mall")
     }
 	
 	func centerMapOnLocation(location: CLLocation) {
 		let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
 												  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
 		mapView.setRegion(coordinateRegion, animated: true)
+	}
+	
+	func searchPlaces(for item:String) {
+		let searchRequest = MKLocalSearch.Request()
+		searchRequest.naturalLanguageQuery = "Shopping Mall"
+		
+		let search = MKLocalSearch(request: searchRequest)
+		
+		search.start(completionHandler: { (response, error) in
+			
+			for item in response!.mapItems {
+				let venue = PlansMapModel(locationName: item.name!, coordinate: CLLocationCoordinate2D(latitude: item.placemark.coordinate.latitude, longitude: item.placemark.coordinate.longitude))
+				
+				self.planVenues.append(venue)
+				print("Found: \(venue.locationName), at lat: \(venue.coordinate.latitude), and at lon: \(venue.coordinate.longitude)")
+				
+			}
+			
+			self.mapView.addAnnotations(self.planVenues)
+
+//			guard let response = response else {
+//				print("Error: \(error?.localizedDescription ?? "Unknown error").")
+//				return
+//			}
+			
+			
+			
+		
+	})
 	}
 	
 	func loadInitialData() {
@@ -53,8 +87,19 @@ class PlansMapViewController: UIViewController {
 			let dictionary = json as? [String: Any],
 			let works = dictionary["data"] as? [[Any]] else { return }
 		let validWorks = works.compactMap { PlansMapModel(json: $0) }
-		artworks.append(contentsOf: validWorks)
+		planVenues.append(contentsOf: validWorks)
 	}
+	
+	func checkLocationAuthorizationStatus() {
+		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+			currentUserLocation = locationManager.location
+			mapView.showsUserLocation = true
+			locationAllowed = true
+		} else {
+			locationManager.requestWhenInUseAuthorization()
+		}
+	}
+	
 }
 
 

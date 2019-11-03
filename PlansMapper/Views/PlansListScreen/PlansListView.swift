@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 enum PlansTableState {
     case hasData
@@ -14,7 +15,8 @@ enum PlansTableState {
 }
 
 class PlansListView: UIViewController {
-    
+	let locationManager = CLLocationManager()
+	
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
 
@@ -28,6 +30,7 @@ class PlansListView: UIViewController {
 		plansTableView.delegate = self
 		plansTableView.dataSource = self
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
+		locationManager.requestWhenInUseAuthorization()
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
