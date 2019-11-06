@@ -13,24 +13,17 @@ class DataManager  {
 	func updatePlanStatus(title:String) {
 		
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-		
 		let context = appDelegate.persistentContainer.viewContext
-		
 		let fetchRequest = getPlanFetchRequest()
-		// fetchRequest.predicate = NSPredicate(format: "title = %@ AND dateCreated = %@", title, date)           // for more precision
 		fetchRequest.predicate = NSPredicate(format: "title = %@", "\(title)")
 		do{
-			//let test = try context.fetch(fetchRequest)
-			//let planToUpdate = test[0]
-			
-//			planToUpdate.completed ? planToUpdate.setValue(false, forKey: "completed") : planToUpdate.setValue(true, forKey: "completed")
-//			planToUpdate.isExpanded ? planToUpdate.isExpanded = false : nil
-			
+			let test = try context.fetch(fetchRequest)
+			let planToUpdate = test[0]
+			planToUpdate.completed ? planToUpdate.setValue(false, forKey: "completed") : planToUpdate.setValue(true, forKey: "completed")
 			try context.save()
 		}catch{
 			print(error)
 		}
-		
 		print("Object: \(title) updated")
 	}
 	

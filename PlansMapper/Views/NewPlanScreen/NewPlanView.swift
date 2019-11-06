@@ -86,7 +86,7 @@ class NewPlanView: UIViewController {
 					//dataManager.updateProject(title: currentProject!.name!, newTitle: title!)
 					self.navigationController?.popViewController(animated: true)
 				}else {
-					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc)
+					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, completed: false)
 					do {
 						try newPlan?.managedObjectContext?.save()
 						print("Saved Plan: \(title) successfully")

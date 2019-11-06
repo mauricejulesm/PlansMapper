@@ -20,5 +20,6 @@ extension Plan {
     @NSManaged public var dateCreated: String?
 	@NSManaged public var title: String?
 	@NSManaged public var planDescription: String?
+	@NSManaged public var completed: Bool
 
 }

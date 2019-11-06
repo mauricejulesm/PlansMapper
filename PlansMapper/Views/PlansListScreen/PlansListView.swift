@@ -22,6 +22,14 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	@IBOutlet weak var plansTableView: UITableView!
 	@IBOutlet var blankTableImg: UIImageView!
 	
+	// MARK: - plans arrays
+	var planItems  = [Plan]()
+	var completedPlans = [Plan]()
+	var incompletePlans = [Plan]()
+	var currentPlans = [Plan]()
+	var unSortedPlans = [Plan]()
+	var subTasks = [Plan]()
+	
 	// MARK: - Class properties
 	var plansList = [Plan]()
 	lazy var dataManager = DataManager()
@@ -50,6 +58,19 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			print("Unable to fetch plans")
 		}
 	}
+	
+	func assignPlans() {
+		completedPlans = []
+		incompletePlans = []
+		
+		for plan in planItems {
+			if (plan.value(forKey: "completed") as! Bool == true){
+				completedPlans.append(plan)
+			}else{
+				incompletePlans.append(plan)
+			}
+		}
+	}
     
     fileprivate func setTableState (_ state : PlansTableState){
         switch state {
@@ -75,9 +96,21 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		cell.planTitleLbl?.text = plansList[indexPath.row].title
-		cell.planDescLbl?.text = plansList[indexPath.row].planDescription
-		cell.dateCreatedLbl?.text = plansList[indexPath.row].dateCreated
+		let plan = plansList[indexPath.row]
+		cell.planTitleLbl?.text = plan.title
+		cell.planDescLbl?.text = plan.planDescription
+		cell.dateCreatedLbl?.text = plan.dateCreated
+		
+		let isComplete = plan.value(forKey: "completed") as? Bool
+
+		let switchView = cell.doneSwitch!
+		isComplete ?? false ? switchView.setOn(true, animated: true) : switchView.setOn(false, animated: true)
+		switchView.tag = indexPath.row
+		switchView.accessibilityLabel = plan.value(forKey: "title") as? String
+		switchView.addTarget(self, action: #selector(self.onPlanStatusChanged(_:)), for: .valueChanged)
+		//cell.accessoryView = switchView
+
+		
 		return cell
 	}
 	
@@ -87,7 +120,7 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		if editingStyle == .delete {
-			deletePlan(at: indexPath)
+			_ = deletePlan(at: indexPath)
 		}
 	}
 	
@@ -143,6 +176,18 @@ extension PlansListView : UITableViewDataSource {
 		return action
 	}
 	
+	@objc func onPlanStatusChanged(_ sender : UISwitch!){
+		let currentPlanTitle = sender.accessibilityLabel
+
+		self.dataManager.updatePlanStatus(title:currentPlanTitle!)
+		
+		//self.currentPlans.remove(at: sender.tag)
+		//self.assignPlans()
+		
+		//self.plansTableView.reloadData()
+		print("The switch is \(sender.isOn ? "ON" : "OFF")")
+	}
+	
 }
 
 
@@ -152,6 +197,7 @@ extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		plansTableView.deselectRow(at: indexPath, animated: false)
+		
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

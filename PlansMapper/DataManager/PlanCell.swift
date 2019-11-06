@@ -14,6 +14,7 @@ class PlanCell: UITableViewCell {
 	@IBOutlet weak var planDescLbl: UILabel!
 	@IBOutlet var dateCreatedLbl: UILabel!
 	@IBOutlet var img: UIImageView!
+	@IBOutlet var doneSwitch: UISwitch!
 	
 	override func awakeFromNib() {
         super.awakeFromNib()
