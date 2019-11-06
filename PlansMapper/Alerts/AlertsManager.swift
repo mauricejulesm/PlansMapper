@@ -13,7 +13,7 @@ class AlertsManager {
 	// show an alert on error while creating a plan
 	func showPlanSaveAlert(from viewController: UIViewController) {
 		
-		let errorAlert = UIAlertController(title: "Error", message: "Make sure title and deadline are not empty", preferredStyle: .alert)
+		let errorAlert = UIAlertController(title: "Error", message: "Make sure title, deadline and details are not empty", preferredStyle: .alert)
 		let alertCancelAct = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
 		
 		errorAlert.addAction(alertCancelAct)

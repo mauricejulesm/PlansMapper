@@ -15,49 +15,56 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="PlanCell" id="KGk-i7-Jjw" customClass="PlanCell" customModule="PlansMapper" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="361" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="361" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DaW-rX-UBb">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DaW-rX-UBb">
                         <rect key="frame" x="10" y="16" width="341" height="178.5"/>
                         <color key="backgroundColor" red="0.090348728001117706" green="0.27443981170654297" blue="0.45712417364120483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k61-lq-yoV">
-                        <rect key="frame" x="35" y="153" width="88" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Date Created" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k61-lq-yoV">
+                        <rect key="frame" x="35" y="144" width="306" height="23"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                        <color key="textColor" red="1" green="0.6701463741" blue="0.10023736060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cVz-fg-4El">
-                        <rect key="frame" x="35" y="20" width="34" height="65"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <rect key="frame" x="35" y="20" width="306" height="29"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Description: This is a long description of this weekend plan" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="88V-wW-2WU">
+                        <rect key="frame" x="35" y="64" width="306" height="70"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="DaW-rX-UBb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="4og-3B-AdP"/>
-                    <constraint firstItem="DaW-rX-UBb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="5qd-AT-imE"/>
-                    <constraint firstItem="k61-lq-yoV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="649-xk-egD"/>
-                    <constraint firstItem="cVz-fg-4El" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="BBg-Ph-xJc"/>
-                    <constraint firstItem="cVz-fg-4El" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="G5P-r7-T5c"/>
-                    <constraint firstAttribute="bottom" secondItem="DaW-rX-UBb" secondAttribute="bottom" constant="5" id="MPh-YG-W47"/>
-                    <constraint firstItem="DaW-rX-UBb" firstAttribute="leading" secondItem="k61-lq-yoV" secondAttribute="trailing" constant="-113" id="MW3-9y-bTi"/>
-                    <constraint firstItem="DaW-rX-UBb" firstAttribute="top" secondItem="cVz-fg-4El" secondAttribute="bottom" constant="-69" id="Nf4-nV-v6S"/>
-                    <constraint firstItem="k61-lq-yoV" firstAttribute="top" secondItem="cVz-fg-4El" secondAttribute="bottom" constant="68" id="ToX-wj-cxz"/>
-                    <constraint firstAttribute="trailing" secondItem="DaW-rX-UBb" secondAttribute="trailing" constant="10" id="WnB-xV-zzo"/>
-                    <constraint firstAttribute="trailing" secondItem="k61-lq-yoV" secondAttribute="trailing" constant="2" id="aan-j6-K3r"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="cVz-fg-4El" secondAttribute="trailing" constant="2" id="i3X-Fz-vaP"/>
-                    <constraint firstItem="k61-lq-yoV" firstAttribute="top" secondItem="DaW-rX-UBb" secondAttribute="bottom" constant="-41.5" id="iYV-Wh-lJX"/>
-                    <constraint firstItem="DaW-rX-UBb" firstAttribute="leading" secondItem="cVz-fg-4El" secondAttribute="trailing" constant="-59" id="jBi-2n-1fL"/>
-                    <constraint firstAttribute="bottom" secondItem="k61-lq-yoV" secondAttribute="bottom" constant="26" id="lx7-6O-YzP"/>
+                    <constraint firstItem="cVz-fg-4El" firstAttribute="leading" secondItem="DaW-rX-UBb" secondAttribute="leading" constant="25" id="2fH-lL-NDG"/>
+                    <constraint firstAttribute="bottom" secondItem="DaW-rX-UBb" secondAttribute="bottom" constant="5" id="5Gg-qf-kho"/>
+                    <constraint firstItem="88V-wW-2WU" firstAttribute="top" secondItem="cVz-fg-4El" secondAttribute="bottom" constant="15" id="5ZY-7W-v3s"/>
+                    <constraint firstItem="DaW-rX-UBb" firstAttribute="trailing" secondItem="cVz-fg-4El" secondAttribute="trailing" constant="10" id="CPf-u8-LkX"/>
+                    <constraint firstItem="k61-lq-yoV" firstAttribute="leading" secondItem="DaW-rX-UBb" secondAttribute="leading" constant="25" id="FOi-od-9r6"/>
+                    <constraint firstItem="DaW-rX-UBb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="KfO-CV-bNX"/>
+                    <constraint firstItem="DaW-rX-UBb" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OmK-QR-hyD"/>
+                    <constraint firstItem="88V-wW-2WU" firstAttribute="leading" secondItem="DaW-rX-UBb" secondAttribute="leadingMargin" constant="17" id="Yon-VL-OeW"/>
+                    <constraint firstAttribute="trailing" secondItem="k61-lq-yoV" secondAttribute="trailing" constant="20" id="fbz-pR-2VE"/>
+                    <constraint firstAttribute="bottom" secondItem="k61-lq-yoV" secondAttribute="bottom" constant="32.5" id="gjV-sx-hcd"/>
+                    <constraint firstItem="DaW-rX-UBb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="lk0-Fc-qXe"/>
+                    <constraint firstItem="DaW-rX-UBb" firstAttribute="trailing" secondItem="88V-wW-2WU" secondAttribute="trailing" constant="10" id="nfI-yg-bZB"/>
+                    <constraint firstItem="cVz-fg-4El" firstAttribute="top" secondItem="DaW-rX-UBb" secondAttribute="top" constant="4" id="owu-D5-YN3"/>
+                    <constraint firstItem="k61-lq-yoV" firstAttribute="top" secondItem="88V-wW-2WU" secondAttribute="bottom" constant="10" id="roM-ba-IzE"/>
+                    <constraint firstAttribute="trailing" secondItem="DaW-rX-UBb" secondAttribute="trailing" constant="10" id="xu5-o9-B9F"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dateCreatedLbl" destination="k61-lq-yoV" id="W9W-T6-fxs"/>
                 <outlet property="img" destination="DaW-rX-UBb" id="iOs-nN-SrN"/>
-                <outlet property="planDescLbl" destination="k61-lq-yoV" id="eKY-qh-Nmc"/>
+                <outlet property="planDescLbl" destination="88V-wW-2WU" id="RJ0-LJ-HHi"/>
                 <outlet property="planTitleLbl" destination="cVz-fg-4El" id="hSG-to-Ynq"/>
             </connections>
             <point key="canvasLocation" x="161.59420289855075" y="103.125"/>

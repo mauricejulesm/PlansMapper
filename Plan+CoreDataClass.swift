@@ -13,7 +13,7 @@ import CoreData
 @objc(Plan)
 public class Plan: NSManagedObject {	
 	
-	convenience init?(dateCreated:String, title: String){
+	convenience init?(dateCreated:String, title: String, desc: String){
 		let appDelegate = UIApplication.shared.delegate as? AppDelegate
 		
 		guard let context = appDelegate?.persistentContainer.viewContext else {
@@ -22,5 +22,6 @@ public class Plan: NSManagedObject {
 		self.init(entity: Plan.entity(), insertInto: context)
 		self.dateCreated = dateCreated
 		self.title = title
+		self.planDescription = desc
 	}
 }

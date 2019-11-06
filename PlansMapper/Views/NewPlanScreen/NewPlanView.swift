@@ -14,6 +14,7 @@ class NewPlanView: UIViewController {
 	
 	@IBOutlet var txtFieldNewPlanTitle: UITextField!
 	@IBOutlet var txtFldDeadline: UITextField!
+	@IBOutlet var planDescTxtField: UITextView!
 	
 	//MARK: Properties
 	let datePicker = UIDatePicker()
@@ -31,14 +32,14 @@ class NewPlanView: UIViewController {
 	}
 	
 	override func willMove(toParent parent: UIViewController?) {
-		navigationItem.largeTitleDisplayMode = .always
-		navigationController?.navigationBar.prefersLargeTitles = true
+		//navigationItem.largeTitleDisplayMode = .always
+		//navigationController?.navigationBar.prefersLargeTitles = true
 	}
 	
 	
 	private func setUpUI(){
 		self.title = "New Plan"
-		navigationController?.navigationBar.prefersLargeTitles = false
+		//navigationController?.navigationBar.prefersLargeTitles = false
 		txtFieldNewPlanTitle.delegate = self
 		txtFldDeadline.delegate = self
 		txtFieldNewPlanTitle.becomeFirstResponder()
@@ -77,15 +78,15 @@ class NewPlanView: UIViewController {
 		let dateCreated = "Created: " + dataManager.getTimeNow()
 		var due = "Due: "
 		
-		if let title = txtFieldNewPlanTitle.text, let deadline = txtFldDeadline.text {
-			if (title != "" && deadline != "") {
+		if let title = txtFieldNewPlanTitle.text, let deadline = txtFldDeadline.text, let desc = planDescTxtField.text {
+			if (title != "" && deadline != "" && desc != "") {
 				due += deadline
 				
 				if (editMode) {
 					//dataManager.updateProject(title: currentProject!.name!, newTitle: title!)
 					self.navigationController?.popViewController(animated: true)
 				}else {
-					let newPlan = Plan(dateCreated: dateCreated, title: title)
+					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc)
 					do {
 						try newPlan?.managedObjectContext?.save()
 						print("Saved Plan: \(title) successfully")

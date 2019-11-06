@@ -8,18 +8,20 @@
 
 import UIKit
 import CoreLocation
+import UserNotifications
 
 enum PlansTableState {
     case hasData
     case hasNoData
 }
 
-class PlansListView: UIViewController {
+class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	let locationManager = CLLocationManager()
 	
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
-
+	@IBOutlet var blankTableImg: UIImageView!
+	
 	// MARK: - Class properties
 	var plansList = [Plan]()
 	lazy var dataManager = DataManager()
@@ -31,6 +33,7 @@ class PlansListView: UIViewController {
 		plansTableView.dataSource = self
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
 		locationManager.requestWhenInUseAuthorization()
+		UNUserNotificationCenter.current().delegate = self
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -73,7 +76,8 @@ extension PlansListView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
 		cell.planTitleLbl?.text = plansList[indexPath.row].title
-		cell.planDescLbl?.text = plansList[indexPath.row].dateCreated
+		cell.planDescLbl?.text = plansList[indexPath.row].planDescription
+		cell.dateCreatedLbl?.text = plansList[indexPath.row].dateCreated
 		return cell
 	}
 	
