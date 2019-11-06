@@ -20,7 +20,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
-	@IBOutlet var blankTableImg: UIImageView!
+	@IBOutlet weak var segmentController: UISegmentedControl!
 	
 	// MARK: - plans arrays
 	var planItems  = [Plan]()
@@ -57,13 +57,16 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		} catch  {
 			print("Unable to fetch plans")
 		}
+		assignPlans()
+		if (segmentController.selectedSegmentIndex == 0){ currentPlans = incompletePlans }
+		self.plansTableView.reloadData()
 	}
 	
 	func assignPlans() {
 		completedPlans = []
 		incompletePlans = []
 		
-		for plan in planItems {
+		for plan in plansList {
 			if (plan.value(forKey: "completed") as! Bool == true){
 				completedPlans.append(plan)
 			}else{
@@ -71,16 +74,16 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			}
 		}
 	}
-    
-    fileprivate func setTableState (_ state : PlansTableState){
-        switch state {
-        case .hasData:
-            self.plansTableView.alpha = 1.0
-        case .hasNoData:
-            self.plansTableView.alpha = 0.0
-        }
-    }
-    
+	
+	// MARK: - Segments and status changing
+	@IBAction func switchSegments(_ sender: UISegmentedControl){
+		if sender.selectedSegmentIndex == 0  {
+			currentPlans = incompletePlans
+		}else{
+			currentPlans = completedPlans
+		}
+		self.plansTableView.reloadData()
+	}
 }
 
 
@@ -91,12 +94,12 @@ extension PlansListView : UITableViewDataSource {
 		return 1
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return plansList.count
+		return currentPlans.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		let plan = plansList[indexPath.row]
+		let plan = currentPlans[indexPath.row]
 		cell.planTitleLbl?.text = plan.title
 		cell.planDescLbl?.text = plan.planDescription
 		cell.dateCreatedLbl?.text = plan.dateCreated
@@ -108,9 +111,6 @@ extension PlansListView : UITableViewDataSource {
 		switchView.tag = indexPath.row
 		switchView.accessibilityLabel = plan.value(forKey: "title") as? String
 		switchView.addTarget(self, action: #selector(self.onPlanStatusChanged(_:)), for: .valueChanged)
-		//cell.accessoryView = switchView
-
-		
 		return cell
 	}
 	
@@ -159,13 +159,20 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func deletePlan(at indexPath: IndexPath) -> UIContextualAction{
-		let plan = plansList[indexPath.row]
+		let plan = currentPlans[indexPath.row]
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			guard let context = plan.managedObjectContext else { return }
 			context.delete(plan)
+			
+			if (self.segmentController.selectedSegmentIndex == 0){
+				self.incompletePlans.remove(at: indexPath.row)
+			}else{
+				self.completedPlans.remove(at: indexPath.row)
+			}
+			
 			do {
 				try context.save()
-				self.plansList.remove(at: indexPath.row)
+				self.currentPlans.remove(at: indexPath.row)
 				self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
 			} catch  {
 				print("Unable to delete the category")
@@ -178,13 +185,12 @@ extension PlansListView : UITableViewDataSource {
 	
 	@objc func onPlanStatusChanged(_ sender : UISwitch!){
 		let currentPlanTitle = sender.accessibilityLabel
-
 		self.dataManager.updatePlanStatus(title:currentPlanTitle!)
-		
-		//self.currentPlans.remove(at: sender.tag)
-		//self.assignPlans()
-		
-		//self.plansTableView.reloadData()
+		self.currentPlans.remove(at: sender.tag)
+		self.assignPlans()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
+			self.plansTableView.reloadData()
+		}
 		print("The switch is \(sender.isOn ? "ON" : "OFF")")
 	}
 	
