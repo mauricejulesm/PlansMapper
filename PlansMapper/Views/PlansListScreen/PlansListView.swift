@@ -114,47 +114,43 @@ extension PlansListView : UITableViewDataSource {
 		return cell
 	}
 	
-	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-		return true
-	}
-	
-	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-		if editingStyle == .delete {
-			_ = deletePlan(at: indexPath)
-		}
-	}
-	
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let done = completePlanAction(at: indexPath)
-		return UISwipeActionsConfiguration(actions: [done])
+		let swipeAction = UISwipeActionsConfiguration(actions: [done])
+		swipeAction.performsFirstActionWithFullSwipe = false
+		return swipeAction
 	}
 	
 	func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let edit = editPlanAction(at: indexPath)
 		let delete = deletePlan(at: indexPath)
-		
-		return UISwipeActionsConfiguration(actions: [edit, delete])
+		let swipeActions = UISwipeActionsConfiguration(actions: [edit, delete])
+		swipeActions.performsFirstActionWithFullSwipe = false
+		return swipeActions
 	}
 	
 	
 	func editPlanAction(at indexPath: IndexPath) -> UIContextualAction {
 		let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion ) in
 			print("Edit tapped")
+			let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
+			vc.currentPlan = self.currentPlans[indexPath.row]
+			vc.editMode = true
+			self.navigationController?.pushViewController(vc, animated: true)
 			completion(true)
 		}
 		action.image = UIImage(named: "edit_icon")
-		//action.backgroundColor = .gray
 		return action
 	}
 	
 	func completePlanAction(at indexPath: IndexPath) -> UIContextualAction {
-		let action = UIContextualAction(style: .destructive, title: "Done") { (action, view, completion ) in
+		let action = UIContextualAction(style: .normal, title: "Done") { (action, view, completion ) in
 			print("done tapped")
 			
 			completion(true)
 		}
 		action.image = UIImage(named: "done_icon")
-		action.backgroundColor = .green
+		action.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
 		return action
 	}
 	
@@ -203,7 +199,6 @@ extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		plansTableView.deselectRow(at: indexPath, animated: false)
-		
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

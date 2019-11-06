@@ -29,7 +29,7 @@ class DataManager  {
 	
 	
 	
-	func editPlan(title:String, newTodoTitle:String) {
+	func editPlan(title:String, newPlanTitle:String, newDesc: String) {
 		
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 		
@@ -41,37 +41,14 @@ class DataManager  {
 		do{
 			let test = try context.fetch(fetchRequest)
 			let planToUpdate = test[0]
-			
-			planToUpdate.setValue(newTodoTitle, forKey: "title")
-			
-			
+			planToUpdate.setValue(newPlanTitle, forKey: "title")
+			planToUpdate.setValue(newDesc, forKey: "planDescription")
 			try context.save()
 		}catch{
 			print(error)
 		}
 		
-		print("Task: \(title) updated to: \(newTodoTitle)")
-	}
-	
-	func updatePlanDetails(title:String, newTitle:String) {
-		
-		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-		
-		let context = appDelegate.persistentContainer.viewContext
-		
-		let fetchRequest = getPlanFetchRequest()
-		// fetchRequest.predicate = NSPredicate(format: "title = %@ AND dateCreated = %@", title, date)           // for more precision
-		fetchRequest.predicate = NSPredicate(format: "name = %@", "\(title)")
-		do{
-			let plan = try context.fetch(fetchRequest)
-			let planToUpdate = plan[0]
-			planToUpdate.setValue(newTitle, forKey: "name")
-			
-			try context.save()
-		}catch{
-			print(error)
-		}
-		print("Project: \(title) updated to: \(newTitle) ")
+		print("Task: \(title) updated to: \(newPlanTitle)")
 	}
 	
 	

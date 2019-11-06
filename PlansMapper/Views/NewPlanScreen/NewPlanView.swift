@@ -49,17 +49,13 @@ class NewPlanView: UIViewController {
 		
 		if (editMode) {
 			txtFieldNewPlanTitle.text = currentPlan?.title
+			planDescTxtField.text = currentPlan?.planDescription
 		}
 		
 		let saveBtn = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveBtnTapped))
 		self.navigationItem.rightBarButtonItem  = saveBtn
 	}
 	
-//	deinit {
-//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillShowNotification, object: nil)
-//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
-//		NotificationCenter.default.removeObserver(self, name:UIResponder.keyboardWillHideNotification, object: nil)
-//	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		txtFieldNewPlanTitle.resignFirstResponder()
@@ -83,7 +79,7 @@ class NewPlanView: UIViewController {
 				due += deadline
 				
 				if (editMode) {
-					//dataManager.updateProject(title: currentProject!.name!, newTitle: title!)
+					dataManager.editPlan(title: currentPlan!.title!, newPlanTitle:title, newDesc: desc)
 					self.navigationController?.popViewController(animated: true)
 				}else {
 					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, completed: false)
