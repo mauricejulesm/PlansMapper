@@ -191,11 +191,26 @@
             <objects>
                 <viewController id="FlM-1d-gso" customClass="PlansListView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dlC-4Y-Sci">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lZa-ub-XYD">
+                                <rect key="frame" x="1" y="60" width="411" height="29"/>
+                                <segments>
+                                    <segment title="Not Completed"/>
+                                    <segment title="Completed"/>
+                                </segments>
+                            </segmentedControl>
+                            <searchBar contentMode="redraw" placeholder="Search plans here" translatesAutoresizingMaskIntoConstraints="NO" id="7gM-yo-Sny">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <rect key="frame" x="1" y="96" width="414" height="594"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xcU-nk-2K6">
@@ -214,14 +229,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" id="0zh-9o-6ZL"/>
-                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="BJ1-FV-F8k"/>
-                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" id="V3e-Mu-VYZ"/>
-                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="ujp-Fh-NhY"/>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" constant="35" id="0zh-9o-6ZL"/>
+                            <constraint firstItem="7gM-yo-Sny" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="DVH-yb-ry3"/>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="lZa-ub-XYD" secondAttribute="trailing" constant="2" id="POl-FR-eGc"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="lZa-ub-XYD" secondAttribute="bottom" constant="8" id="Qwt-Md-0cj"/>
+                            <constraint firstItem="7gM-yo-Sny" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="SFZ-ti-nld"/>
+                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" constant="-1" id="V3e-Mu-VYZ"/>
+                            <constraint firstItem="lZa-ub-XYD" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="1" id="bA1-KA-8tC"/>
+                            <constraint firstAttribute="trailing" secondItem="7gM-yo-Sny" secondAttribute="trailing" id="r4D-CB-6Z2"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="1" id="ujp-Fh-NhY"/>
+                            <constraint firstItem="lZa-ub-XYD" firstAttribute="top" secondItem="7gM-yo-Sny" secondAttribute="bottom" constant="4" id="yiM-qP-TSq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
                     </view>
                     <navigationItem key="navigationItem" title="Plans List" id="JSw-hy-QQR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="9ou-A8-cMv"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pp9-wS-t1w">
                             <connections>
                                 <segue destination="MBz-Gw-TrM" kind="show" id="9H6-uW-gFM"/>
@@ -234,14 +256,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-IU-VEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1599" y="1936"/>
+            <point key="canvasLocation" x="-1600.0000000000002" y="1935.9375"/>
         </scene>
         <!--Details View-->
         <scene sceneID="53q-MP-Qy8">
             <objects>
                 <viewController title="Details View" id="sDa-7I-Nuv" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qJ5-Gj-M4I">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="rVY-nS-a9D"/>
@@ -276,8 +298,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q2Q-gS-K4r" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Plans" image="home-icon" id="Bua-BZ-gfj"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="nKP-dI-qZh">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nKP-dI-qZh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.73907439720812185" green="0.49535954341340732" blue="0.078153248175447762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -301,7 +323,7 @@
             <objects>
                 <viewController storyboardIdentifier="NewPlanView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MBz-Gw-TrM" customClass="NewPlanView" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eJQ-lS-fSo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new plan here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cSl-qD-fCB">
