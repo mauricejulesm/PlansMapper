@@ -21,6 +21,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
 	@IBOutlet weak var segmentController: UISegmentedControl!
+	@IBOutlet var plansSearchBar: UISearchBar!
 	
 	// MARK: - plans arrays
 	var planItems  = [Plan]()
@@ -29,6 +30,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	var currentPlans = [Plan]()
 	var unSortedPlans = [Plan]()
 	var subTasks = [Plan]()
+	var searchMode = false
 	
 	// MARK: - Class properties
 	var plansList = [Plan]()
@@ -42,6 +44,8 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
 		locationManager.requestWhenInUseAuthorization()
 		UNUserNotificationCenter.current().delegate = self
+		
+		plansSearchBar.delegate = self
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -192,7 +196,6 @@ extension PlansListView : UITableViewDataSource {
 	
 }
 
-
 // MARK: - Tableview delegate methods
 
 extension PlansListView : UITableViewDelegate {
@@ -203,9 +206,41 @@ extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
+		if !searchMode {
+			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 70, 0)
+			cell.layer.transform = rotationTransform
+			cell.alpha = 0
+			
+			UIView.animate(withDuration: 0.75) {
+				cell.layer.transform = CATransform3DIdentity
+				cell.alpha = 1.0
+			}
+		}
 	}
 }
 
+
+// MARK: - Searchbar and Searching
+
+extension PlansListView : UISearchBarDelegate {
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		var filteredArray = [Plan]()
+		
+		if searchText != "" {
+			filteredArray = currentPlans.filter() { ($0.title?.lowercased()
+				.contains(searchText.lowercased()))!}
+			currentPlans = filteredArray
+		}else{
+			currentPlans = segmentController.selectedSegmentIndex == 0 ? incompletePlans : completedPlans
+		}
+		searchMode = true
+		self.plansTableView.reloadData()
+	}
+	
+	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+		searchBar.resignFirstResponder()
+	}
+}
 // MARK: - private functionlities
 private extension PlansListView {
 
