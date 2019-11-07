@@ -148,8 +148,12 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func completePlanAction(at indexPath: IndexPath) -> UIContextualAction {
-		let action = UIContextualAction(style: .normal, title: "Done") { (action, view, completion ) in
-			print("done tapped")
+		let action = UIContextualAction(style: .normal, title: "Go") { (action, view, completion ) in
+			print("Go tapped")
+			
+			let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabsMainController") as! TabsMainController
+			tabBarController.selectedViewController = tabBarController.viewControllers?[1]
+			self.present(tabBarController, animated: true, completion: nil)
 			
 			completion(true)
 		}

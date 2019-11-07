@@ -62,16 +62,6 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 				self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
 				print("Found item at: \(item.name!)")
 			}
-			
-
-//			guard let response = response else {
-//				print("Error: \(error?.localizedDescription ?? "Unknown error").")
-//				return
-//			}
-			
-			
-			
-		
 	})
 	}
 	
