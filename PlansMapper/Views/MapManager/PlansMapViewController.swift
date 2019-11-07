@@ -11,24 +11,25 @@ import MapKit
 import CoreLocation
 
 class PlansMapViewController: UIViewController ,MKMapViewDelegate {
-
+	
 	@IBOutlet var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 3000
 	lazy var viewModel = PlansMapViewModel()
+	lazy var nlpManager = NLP_Manager()
 	var planVenues: [PlansMapModel] = []
 	var planVenue: PlansMapModel?
 	var currentUserLocation : CLLocation!
 	var fakeLocation = CLLocation(latitude: -20.161971, longitude:  57.503238)
 	var locationAllowed = false
 	let locationManager = CLLocationManager()
+	var searchTerm = ""
 	
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		mapView.delegate = self
-
-		//fakeLocation = CLLocation(latitude:-20.275018, longitude: 57.578638)
-		// set initial location as the current user location
+		
+		searchTerm = nlpManager.generateMapSearchTerm()
 		checkLocationAuthorizationStatus()
 		
 		centerMapOnLocation(location: fakeLocation)  // use the current location var to get dynamic location
@@ -39,8 +40,8 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		//mapView.setRegion(planVenue.myRegion, animated: true)
 		//loadInitialData()
 		
-		searchPlaces(for: "shopping mall")
-    }
+		searchPlaces(for: searchTerm)
+	}
 	
 	func centerMapOnLocation(location: CLLocation) {
 		let coordinateRegion = MKCoordinateRegion(center: location.coordinate,
@@ -56,13 +57,16 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		let search = MKLocalSearch(request: searchRequest)
 		
 		search.start(completionHandler: { (response, error) in
-		
-			print("Found: \(response!.mapItems.count) items on the map")
-			for item in response!.mapItems {
-				self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
-				print("Found item at: \(item.name!)")
+			if let resp = response {
+				print("Found: \(resp.mapItems.count) items on the map")
+				for item in resp.mapItems {
+					self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
+					print("Found item at: \(item.name!)")
+				}
+			}else{
+				print("Nothing found on the map for: \(itemName)")
 			}
-	})
+		})
 	}
 	
 	
@@ -101,10 +105,6 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 			locationManager.requestWhenInUseAuthorization()
 		}
 	}
-	
-	
-	
-	
 	
 	
 	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

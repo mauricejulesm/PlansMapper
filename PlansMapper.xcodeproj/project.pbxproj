@@ -14,7 +14,7 @@
 		5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */; };
 		5149C064235EF99F00887D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5149C063235EF99F00887D2A /* Assets.xcassets */; };
 		5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149C065235EF99F00887D2A /* LaunchScreen.storyboard */; };
-		D226AC09236CA0FE00D66BB6 /* NLP_Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */; };
+		D226AC09236CA0FE00D66BB6 /* NLP_Processor1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */; };
 		D226AC0B236F003000D66BB6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226AC0A236F003000D66BB6 /* MapKit.framework */; };
 		D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
 		D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansListView.swift */; };
@@ -33,6 +33,7 @@
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
 		D2BC3F632365D8D500EC516F /* splash_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = D2BC3F622365D8D400EC516F /* splash_screen.png */; };
+		D2E17C2A23742F6400C0F078 /* NLP_Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C2923742F6400C0F078 /* NLP_Manager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,7 +61,7 @@
 		5149C066235EF99F00887D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5149C068235EF99F00887D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlansMapper.debug.xcconfig"; path = "Target Support Files/Pods-PlansMapper/Pods-PlansMapper.debug.xcconfig"; sourceTree = "<group>"; };
-		D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Processor.swift; sourceTree = "<group>"; };
+		D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Processor1.swift; sourceTree = "<group>"; };
 		D226AC0A236F003000D66BB6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D22B4B2923607F440094BC4A /* TabsMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsMainController.swift; sourceTree = "<group>"; };
 		D22B4B2D236088B00094BC4A /* PlansListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansListView.swift; sourceTree = "<group>"; };
@@ -81,6 +82,7 @@
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
 		D2BC3F622365D8D400EC516F /* splash_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_screen.png; sourceTree = "<group>"; };
+		D2E17C2923742F6400C0F078 /* NLP_Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Manager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +158,8 @@
 		D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */ = {
 			isa = PBXGroup;
 			children = (
-				D226AC08236CA0FE00D66BB6 /* NLP_Processor.swift */,
+				D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */,
+				D2E17C2923742F6400C0F078 /* NLP_Manager.swift */,
 			);
 			path = NaturalLanguageProcessor;
 			sourceTree = "<group>";
@@ -392,11 +395,12 @@
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
 				D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */,
 				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
+				D2E17C2A23742F6400C0F078 /* NLP_Manager.swift in Sources */,
 				D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */,
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */,
 				D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */,
-				D226AC09236CA0FE00D66BB6 /* NLP_Processor.swift in Sources */,
+				D226AC09236CA0FE00D66BB6 /* NLP_Processor1.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */,
