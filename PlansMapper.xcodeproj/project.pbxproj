@@ -37,6 +37,7 @@
 		D2E17C2E2376F67B00C0F078 /* PlansCategorizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C2D2376F67A00C0F078 /* PlansCategorizer.mlmodel */; };
 		D2E17C302376F6DC00C0F078 /* PMCoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */; };
 		D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3223770DB300C0F078 /* DetailsView.swift */; };
+		D2E17C3623772F6F00C0F078 /* PM_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -90,6 +91,7 @@
 		D2E17C2D2376F67A00C0F078 /* PlansCategorizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PlansCategorizer.mlmodel; sourceTree = "<group>"; };
 		D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMCoreML.swift; sourceTree = "<group>"; };
 		D2E17C3223770DB300C0F078 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 		D2E17C34237725EF00C0F078 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */,
 				D27D67A52368BF1D00A629CD /* PlansListViewModel.swift in Sources */,
 				D2E17C302376F6DC00C0F078 /* PMCoreML.swift in Sources */,
+				D2E17C3623772F6F00C0F078 /* PM_Extensions.swift in Sources */,
 				5149C05A235EF99D00887D2A /* AppDelegate.swift in Sources */,
 				D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */,
 			);
