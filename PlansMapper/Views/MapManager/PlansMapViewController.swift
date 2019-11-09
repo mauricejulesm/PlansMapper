@@ -6,9 +6,7 @@
 //  Copyright © 2019 mauricejules. All rights reserved.
 //
 
-import UIKit
 import MapKit
-import CoreLocation
 
 class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 	
@@ -21,15 +19,14 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 	var currentUserLocation : CLLocation!
 	var fakeLocation = CLLocation(latitude: -20.161971, longitude:  57.503238)
 	var locationAllowed = false
-	let locationManager = CLLocationManager()
-	var searchTerm = ""
+	var searchTerms = [String]()
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		mapView.delegate = self
 		
-		searchTerm = nlpManager.generateMapSearchTerm()
+		searchTerms = nlpManager.generateMapSearchTerms()
 		checkLocationAuthorizationStatus()
 		
 		centerMapOnLocation(location: fakeLocation)  // use the current location var to get dynamic location
@@ -37,10 +34,8 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		mapView.register(ArtworkMarkerView.self,
 						 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 		
-		//mapView.setRegion(planVenue.myRegion, animated: true)
-		//loadInitialData()
 		
-		searchPlaces(for: searchTerm)
+		searchPlaces(for: searchTerms)
 	}
 	
 	func centerMapOnLocation(location: CLLocation) {
@@ -49,24 +44,27 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		mapView.setRegion(coordinateRegion, animated: true)
 	}
 	
-	func searchPlaces(for itemName:String) {
-		let searchRequest = MKLocalSearch.Request()
-		searchRequest.naturalLanguageQuery = itemName
-		let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
-		searchRequest.region = MKCoordinateRegion(center: currentUserLocation.coordinate, span: span)
-		let search = MKLocalSearch(request: searchRequest)
-		
-		search.start(completionHandler: { (response, error) in
-			if let resp = response {
-				print("Found: \(resp.mapItems.count) items on the map")
-				for item in resp.mapItems {
-					self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
-					print("Found item at: \(item.name!)")
+	func searchPlaces(for itemNames: [String]) {
+		for searchItem in itemNames {
+			let searchRequest = MKLocalSearch.Request()
+			searchRequest.naturalLanguageQuery = searchItem
+			let span = MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3)
+			searchRequest.region = MKCoordinateRegion(center: currentUserLocation.coordinate, span: span)
+			let search = MKLocalSearch(request: searchRequest)
+			
+			search.start(completionHandler: { (response, error) in
+				if let resp = response {
+					print("My Debug: Found: \(resp.mapItems.count) items on the map, for : \(searchItem)")
+					for item in resp.mapItems {
+						self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
+						print("My Debug: Found item at: \(item.name!)")
+					}
+				}else{
+					print("My Debug: Nothing found on the map for: \(searchItem)")
 				}
-			}else{
-				print("Nothing found on the map for: \(itemName)")
-			}
-		})
+			})
+		}
+		
 	}
 	
 	
@@ -82,26 +80,18 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		}
 	}
 	
-	
-	func loadInitialData() {
-		guard let fileName = Bundle.main.path(forResource: "PublicArt", ofType: "json") else { return }
-		let optionalData = try? Data(contentsOf: URL(fileURLWithPath: fileName))
-		
-		guard
-			let data = optionalData,
-			let json = try? JSONSerialization.jsonObject(with: data),
-			let dictionary = json as? [String: Any],
-			let works = dictionary["data"] as? [[Any]] else { return }
-		let validWorks = works.compactMap { PlansMapModel(json: $0) }
-		planVenues.append(contentsOf: validWorks)
-	}
-	
 	func checkLocationAuthorizationStatus() {
+		let locationManager = CLLocationManager()
+		locationManager.delegate = self
+		locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+			print("My Debug: current location found")
 			currentUserLocation = locationManager.location
 			mapView.showsUserLocation = true
 			locationAllowed = true
 		} else {
+			print("My Debug: Using the fake locaton now...")
+			currentUserLocation = fakeLocation
 			locationManager.requestWhenInUseAuthorization()
 		}
 	}
@@ -135,8 +125,8 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 }
 
 
-//extension PlansMapViewController : MKMapViewDelegate {
-//
-//
-//
-//}
+extension PlansMapViewController : CLLocationManagerDelegate {
+
+
+
+}

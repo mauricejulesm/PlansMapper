@@ -46,6 +46,8 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		UNUserNotificationCenter.current().delegate = self
 		
 		plansSearchBar.delegate = self
+		navigationItem.hidesSearchBarWhenScrolling = true
+
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +79,11 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 				incompletePlans.append(plan)
 			}
 		}
+	}
+	@IBAction func searchBtnPressed(_ sender: Any) {
+		let searchController = UISearchController(searchResultsController: nil)
+		searchController.searchBar.delegate = self
+		present(searchController, animated: true, completion: nil)
 	}
 	
 	// MARK: - Segments and status changing

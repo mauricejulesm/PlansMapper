@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>To always know where you are.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To see you plans venues on the map, please allow access to your location.</string>
 	<key>CFBundleDevelopmentRegion</key>
