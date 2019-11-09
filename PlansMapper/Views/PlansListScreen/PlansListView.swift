@@ -81,9 +81,20 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		}
 	}
 	@IBAction func searchBtnPressed(_ sender: Any) {
-		let searchController = UISearchController(searchResultsController: nil)
-		searchController.searchBar.delegate = self
-		present(searchController, animated: true, completion: nil)
+		let tagger = PlansCategoryTagger()
+		let reviews = [
+			"I guess I'll never come back here...",
+			"The view from where I was sit was just amazing",
+			"The waiter was very friendly and kind",
+			"The fish was rotten :/",
+			"Bad and nice food",
+			"Jon Snow is the King in the North!"
+		]
+		reviews.forEach { review in
+			guard let prediction = tagger.predictionReview(for: review) else { return }
+			print("\(review): \(prediction)")
+		}
+
 	}
 	
 	// MARK: - Segments and status changing
@@ -212,7 +223,9 @@ extension PlansListView : UITableViewDataSource {
 extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		plansTableView.deselectRow(at: indexPath, animated: false)
+		let detailsView = (storyboard?.instantiateViewController(withIdentifier: "DetailsView")) as! DetailsView
+		self.navigationController?.pushViewController(detailsView, animated: true)
+		
 	}
 	
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
