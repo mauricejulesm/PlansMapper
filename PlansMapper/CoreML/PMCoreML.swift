@@ -8,7 +8,7 @@ import NaturalLanguage
 @available(iOS 12.0, *)
 class PlansCategoryTagger {
 	// Custom scheme
-	private let scheme = NLTagScheme("RestaurantReview")
+	private let scheme = NLTagScheme("PlansData")
 	private let options: NLTagger.Options = [.omitPunctuation]
 	
 	private lazy var tagger: NLTagger? = {

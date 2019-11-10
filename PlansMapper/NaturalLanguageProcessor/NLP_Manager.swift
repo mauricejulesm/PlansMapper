@@ -13,7 +13,7 @@ class NLP_Manager : NSObject {
 
 	let planTitle = "mountain Rwanda"
 	let planDescription = " go to see my grandma"
-	var fullPlanText = String()
+	var fullPlanText = ""
 	override init() {
 		fullPlanText = planTitle + planDescription
 	}
