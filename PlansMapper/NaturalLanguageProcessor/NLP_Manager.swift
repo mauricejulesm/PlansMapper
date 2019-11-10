@@ -10,17 +10,20 @@ import Foundation
 import NaturalLanguage
 
 class NLP_Manager : NSObject {
-	
-	let planTitle = "fly to London"
-	let planDescription = " Go shopping shoes for running next the weekend at Grand Baie and Port Louis Shopping Mall with Jules Maurice"
+
+	let planTitle = "mountain Rwanda"
+	let planDescription = " go to see my grandma"
 	var fullPlanText = String()
 	override init() {
 		fullPlanText = planTitle + planDescription
 	}
 	
 	let shoppingCategory = ["shop", "mall", "store", "buy", "purchase"]
-	let sportsCategory = ["run", "jog", "swim", "workout", "hike", "walk", "sport"]
-	let foodCategory = ["food", "restaurant", "hotel", "cook", "manger"]
+	let travelCategory = ["flight tickets", "booking", "airport","airplane","aeroplane"]
+	let sportsCategory = ["run", "jog", "swimming", "workout", "hike", "walk", "sport", "football", "soccer", "recreation center"]
+	let swimmingCategor = ["swim","swimming pool"]
+	let hikingCategory = ["Hike","hiking", "mountain"]
+	let foodCategory = ["food", "restaurant", "hotel", "cook", "manger", "eat", "drink"]
 	let otherCategory = [""]
 
 	
@@ -48,30 +51,41 @@ class NLP_Manager : NSObject {
 		}
 	}
 	
-	func lemmatizePlanText(for planText: String) {
+	func lemmatizePlanText(for partsOfSpeech: [String]) ->[String] {
+		let planText = partsOfSpeech.joined(separator: " ")
+		
+		var foundCategoriesLemma = [String]()
 		print("\n*** Lemmantisization ***")
 		tagger.string = planText
 		let range = NSRange(location:0, length: planText.utf16.count)
 		tagger.enumerateTags(in: range, unit: .word, scheme: .lemma, options: options) { tag, tokenRange, stop in
 			if let lemma = tag?.rawValue {
-				print("My Debug: Lemma: \(lemma)")
+				foundCategoriesLemma.append(lemma.lowercased())
 			}
 		}
+		print("My Debug: Lemma: \(foundCategoriesLemma)")
+		return foundCategoriesLemma
 	}
 	
-	func extractPartsOfSpeech(for planText: String)  {
+	func extractPartsOfSpeech(for planText: String) ->[String] {
+		var relevantPartsOfSpeech = [String]()
 		print("\n*** Parts of speech ***")
 		tagger.string = planText
 		let range = NSRange(location: 0, length: planText.utf16.count)
 		tagger.enumerateTags(in: range, unit: .word, scheme: .lexicalClass, options: options) { tag, tokenRange, _ in
 			if let tag = tag {
 				let word = (planText as NSString).substring(with: tokenRange)
-				print("My Debug: \(word)\t\t: \(tag.rawValue)")
+				if tag.rawValue == "Verb" || tag.rawValue == "Noun"{
+					relevantPartsOfSpeech.append(word.lowercased())
+				}
 			}
 		}
+		print("My Debug: found relevant PoS: \(relevantPartsOfSpeech)")
+		return relevantPartsOfSpeech
 	}
 	
-	func extractNamedEntities(for planText: String) {
+	func extractNamedEntities(for planText: String) -> [String] {
+		var foundNames = [String]()
 		print("\n*** Named Entity ***")
 		tagger.string = planText
 		let range = NSRange(location: 0, length: planText.utf16.count)
@@ -79,19 +93,36 @@ class NLP_Manager : NSObject {
 		tagger.enumerateTags(in: range, unit: .word, scheme: .nameType, options: options) { tag, tokenRange, stop in
 			if let tag = tag, tags.contains(tag) {
 				let name = (planText as NSString).substring(with: tokenRange)
-				print("My Debug: \(name): \(tag.rawValue)")
+				foundNames.append(name)
 			}
 		}
+		print("My Debug: found place names \(foundNames)")
+		return foundNames
 	}
 	
 	//MARK:-  Helper methods
 	
-	func generateMapSearchTerms() -> [String] {
+	func generateMapSearchTerms(for fullPlanText:String) -> [String] {
+		var mapSearchTerms = [String]()
+		
 		determineLanguage(for: fullPlanText)
-		lemmatizePlanText(for: fullPlanText)
-		extractPartsOfSpeech(for: fullPlanText)
-		extractNamedEntities(for: fullPlanText)
-		return ["Shops", "Stores", "Bars", "shoes"]
+		let lemmas = lemmatizePlanText(for: extractPartsOfSpeech(for: fullPlanText))
+		let lemmasSet = Set(lemmas)
+
+		if !lemmasSet.isDisjoint(with: shoppingCategory) {
+			mapSearchTerms = shoppingCategory
+		}else if !lemmasSet.isDisjoint(with: sportsCategory) {
+			mapSearchTerms = sportsCategory
+		}else if !lemmasSet.isDisjoint(with: travelCategory) {
+			mapSearchTerms = travelCategory
+		}else if !lemmasSet.isDisjoint(with: foodCategory) {
+			mapSearchTerms = foodCategory
+		}else if !lemmasSet.isDisjoint(with: swimmingCategor) {
+			mapSearchTerms = swimmingCategor
+		}else if !lemmasSet.isDisjoint(with: hikingCategory) {
+			mapSearchTerms = hikingCategory
+		}else { mapSearchTerms = [""] }
+		return mapSearchTerms
 	}
 }
 

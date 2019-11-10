@@ -80,6 +80,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			}
 		}
 	}
+	@available(iOS 12.0, *)
 	@IBAction func searchBtnPressed(_ sender: Any) {
 		let tagger = PlansCategoryTagger()
 		let reviews = [
@@ -87,7 +88,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			"The view from where I was sit was just amazing",
 			"The waiter was very friendly and kind",
 			"The fish was rotten :/",
-			"Bad and nice food",
+			"Bad and nice",
 			"Jon Snow is the King in the North!"
 		]
 		reviews.forEach { review in

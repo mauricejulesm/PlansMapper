@@ -5,6 +5,7 @@ import Foundation
 import NaturalLanguage
 
 
+@available(iOS 12.0, *)
 class PlansCategoryTagger {
 	// Custom scheme
 	private let scheme = NLTagScheme("RestaurantReview")

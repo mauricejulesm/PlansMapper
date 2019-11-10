@@ -26,7 +26,7 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		super.viewDidLoad()
 		mapView.delegate = self
 		
-		searchTerms = nlpManager.generateMapSearchTerms()
+		searchTerms = nlpManager.generateMapSearchTerms(for: nlpManager.fullPlanText)
 		checkLocationAuthorizationStatus()
 		
 		centerMapOnLocation(location: fakeLocation)  // use the current location var to get dynamic location

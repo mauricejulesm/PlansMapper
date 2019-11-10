@@ -81,3 +81,9 @@ func extractNamedEntities(for planText: String) {
 }
 //print("\n*** Named Entity ***")
 //extractNamedEntities(for: fullPlanText)
+let list = [1,2,3,4,5]
+let findList = [12,32,52]
+let listSet = Set(list)
+let findListSet = Set(findList)
+
+let allElemsContained = findListSet.isDisjoint(with: listSet)
