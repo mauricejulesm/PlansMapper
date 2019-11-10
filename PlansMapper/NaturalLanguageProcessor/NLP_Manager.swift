@@ -20,14 +20,10 @@ class NLP_Manager : NSObject {
 	
 	let shoppingCategory = ["shop", "mall", "store", "buy", "purchase"]
 	let travelCategory = ["flight tickets", "booking", "airport","airplane","aeroplane"]
-	let sportsCategory = ["run", "jog", "swimming", "workout", "hike", "walk", "sport", "football", "soccer", "recreation center"]
+	let sportsCategory = ["run", "jog", "workout", "walk", "sport", "football", "soccer", "recreation center"]
 	let swimmingCategor = ["swim","swimming pool"]
 	let hikingCategory = ["Hike","hiking", "mountain"]
 	let foodCategory = ["food", "restaurant", "hotel", "cook", "manger", "eat", "drink"]
-	let otherCategory = [""]
-
-	
-	let quotes = ["Here's to the crazy ones. The misfits. The rebels. Because the people who are crazy enough to think they can change the world, are the ones who do. -Steve Jobs (Founder of Apple Inc.)", "Voici pour les fous. Les inadaptés. Les rebelles. Parce que ce sont les gens qui sont assez fous pour penser qu'ils peuvent changer le monde.", "यह है दीवानों के लिए। द मिसफिट्स। विद्रोही। क्योंकि जो लोग यह सोचने के लिए पागल हैं कि वे दुनिया को बदल सकते हैं, वही हैं जो करते हैं।", "Вот к сумасшедшим. Несоответствия Повстанцы. Потому что люди, которые достаточно сумасшедшие, чтобы думать, что они могут изменить мир, являются теми, кто это делает" ]
 	
 	let tagger = NSLinguisticTagger(tagSchemes: [.tokenType, .language, .lexicalClass, .nameType, .lemma], options: 0)
 	let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]

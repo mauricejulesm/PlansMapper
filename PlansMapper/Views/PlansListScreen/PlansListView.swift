@@ -84,12 +84,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	@IBAction func searchBtnPressed(_ sender: Any) {
 		let tagger = PlansCategoryTagger()
 		let reviews = [
-			"I guess I'll never come back here...",
-			"The view from where I was sit was just amazing",
-			"The waiter was very friendly and kind",
-			"The fish was rotten :/",
-			"Bad and nice",
-			"Jon Snow is the King in the North!"
+			"I liked this activity so much"
 		]
 		reviews.forEach { review in
 			guard let prediction = tagger.predictionReview(for: review) else { return }
