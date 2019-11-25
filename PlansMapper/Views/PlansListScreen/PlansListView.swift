@@ -24,19 +24,24 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	@IBOutlet var plansSearchBar: UISearchBar!
 	
 	// MARK: - plans arrays
-	var planItems  = [Plan]()
+	var currentPlans = [Plan]()
 	var completedPlans = [Plan]()
 	var incompletePlans = [Plan]()
-	var currentPlans = [Plan]()
-	var unSortedPlans = [Plan]()
-	var subTasks = [Plan]()
 	var searchMode = false
+	
+	// categorised
+	var sportsCat = [Plan]()
+	var foodCat = [Plan]()
+	var shoppingCat = [Plan]()
+	var otherCat = [Plan]()
+
+	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER"]
+	var sectionData = [Int: [Plan]]()
+
 	
 	// MARK: - Class properties
 	var plansList = [Plan]()
 	lazy var dataManager = DataManager()
-	lazy var nlpManager = NLP_Manager()
-	lazy var planMapView = PlansMapViewController()
 	var fullPlanText = ""
 	
 	override func viewDidLoad() {
@@ -48,6 +53,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		UNUserNotificationCenter.current().delegate = self
 		plansSearchBar.delegate = self
 		navigationItem.hidesSearchBarWhenScrolling = true
+		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -59,19 +65,22 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		fetchRequest.sortDescriptors = [sortDesc]
 		do {
 			plansList = try context.fetch(fetchRequest)
-			self.plansTableView.reloadData()
 		} catch  {
 			print("Unable to fetch plans")
 		}
+		
+		assignCategories()
+		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat]
+		
 		assignPlans()
 		if (segmentController.selectedSegmentIndex == 0){ currentPlans = incompletePlans }
 		self.plansTableView.reloadData()
 	}
 	
-	func assignPlans() {
-		completedPlans = []
-		incompletePlans = []
-		
+	private func assignPlans() {
+		completedPlans = []; incompletePlans = []
+
+		// assigning plans statuses
 		for plan in plansList {
 			if (plan.value(forKey: "completed") as! Bool == true){
 				completedPlans.append(plan)
@@ -80,19 +89,29 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			}
 		}
 	}
+	
+	private func assignCategories() {
+		sportsCat = []; foodCat = []; shoppingCat = []; otherCat = []
+		// assigning plans categories
+		for plan in plansList {
+			let planCat = plan.value(forKey: "category") as! String
+			
+			switch planCat.lowercased() {
+			case "sports":
+				sportsCat.append(plan)
+			case "food":
+				foodCat.append(plan)
+			case "shopping":
+				shoppingCat.append(plan)
+			default:
+				otherCat.append(plan)
+			}
+		}
+	}
+	
 	@available(iOS 12.0, *)
 	@IBAction func searchBtnPressed(_ sender: Any) {
-		let tagger = PlansCategoryTagger()
-		let reviews = [
-			"Buy suger tomorrow",
-			"go for a run this evening",
-			"Go to eat with Friends"
-		]
-		reviews.forEach { review in
-			guard let prediction = tagger.predictionReview(for: review) else { return }
-			print("\(review): \(prediction)")
-		}
-
+		print("Search pressed")
 	}
 	
 	// MARK: - Segments and status changing
@@ -111,15 +130,29 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 
 extension PlansListView : UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 1
+		return tableSections.count
+	}
+	
+	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+		let headerView = UIView()
+		headerView.backgroundColor = .orange
+		let headerLbl = UILabel()
+		headerLbl.frame = CGRect(x: 120, y: 5, width: 100, height: 35)
+		headerLbl.text = tableSections[section]
+		headerLbl.textColor = .white
+		headerView.addSubview(headerLbl)
+		return headerView
+	}
+	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		return 45
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return currentPlans.count
+		return sectionData[section]!.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		let plan = currentPlans[indexPath.row]
+		let plan = sectionData[indexPath.section]![indexPath.row]
 		cell.planTitleLbl?.text = plan.title
 		cell.planDescLbl?.text = plan.planDescription
 		cell.dateCreatedLbl?.text = plan.dateCreated

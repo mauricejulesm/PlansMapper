@@ -51,6 +51,13 @@ class DataManager  {
 		print("Task: \(title) updated to: \(newPlanTitle)")
 	}
 	
+	@available(iOS 12.0, *)
+	func getPlanCategory(for planText:String) -> String {
+		let plansTagger = PlansCategoryTagger()
+		guard let prediction = plansTagger.predictCategory(for: planText) else { return String() }
+		print("\(planText): \(prediction)")
+		return prediction
+	}
 	
 	// get the fetchRequest
 	func getPlanFetchRequest() -> NSFetchRequest<Plan> {
