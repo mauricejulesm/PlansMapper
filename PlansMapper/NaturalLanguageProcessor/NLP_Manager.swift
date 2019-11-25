@@ -9,14 +9,7 @@
 import Foundation
 import NaturalLanguage
 
-class NLP_Manager : NSObject {
-
-	let planTitle = "mountain Rwanda"
-	let planDescription = " go to see my grandma"
-	var fullPlanText = ""
-	override init() {
-		fullPlanText = planTitle + planDescription
-	}
+class NLP_Manager {
 	
 	let shoppingCategory = ["shop", "mall", "store", "buy", "purchase"]
 	let travelCategory = ["flight tickets", "booking", "airport","airplane","aeroplane"]

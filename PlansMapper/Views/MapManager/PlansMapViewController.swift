@@ -20,21 +20,16 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 	var fakeLocation = CLLocation(latitude: -20.161971, longitude:  57.503238)
 	var locationAllowed = false
 	var searchTerms = [String]()
-	
+	var fullPlanText : String!
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		mapView.delegate = self
-		
-		searchTerms = nlpManager.generateMapSearchTerms(for: nlpManager.fullPlanText)
+		searchTerms = nlpManager.generateMapSearchTerms(for: fullPlanText)
 		checkLocationAuthorizationStatus()
-		
 		centerMapOnLocation(location: fakeLocation)  // use the current location var to get dynamic location
-		
 		mapView.register(ArtworkMarkerView.self,
 						 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-		
-		
 		searchPlaces(for: searchTerms)
 	}
 	

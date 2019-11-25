@@ -66,17 +66,22 @@
         <!--Map-->
         <scene sceneID="gG3-0J-S9B">
             <objects>
-                <viewController id="xap-kQ-RDy" customClass="PlansMapViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlansMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xap-kQ-RDy" customClass="PlansMapViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="trailing" secondItem="xsF-MM-agM" secondAttribute="trailing" id="3BU-6l-gY8"/>
+                            <constraint firstAttribute="bottom" secondItem="6AP-wS-kup" secondAttribute="bottom" id="Y3k-rL-53Z"/>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="leading" secondItem="xsF-MM-agM" secondAttribute="leading" id="bHJ-qY-nPc"/>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="top" secondItem="xsF-MM-agM" secondAttribute="top" id="rmp-uH-W3X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xsF-MM-agM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
@@ -86,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-566" y="1069"/>
+            <point key="canvasLocation" x="-843.47826086956525" y="1172.5446428571429"/>
         </scene>
         <!--Plans List-->
         <scene sceneID="58e-Er-5gx">
@@ -198,7 +203,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="q2Q-gS-K4r" kind="relationship" relationship="viewControllers" id="D1H-5y-1yo"/>
-                        <segue destination="xap-kQ-RDy" kind="relationship" relationship="viewControllers" id="bIQ-vb-N68"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FSR-Go-mvK"/>
                     </connections>
                 </tabBarController>

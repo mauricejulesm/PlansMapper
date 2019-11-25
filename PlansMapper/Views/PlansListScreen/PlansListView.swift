@@ -35,7 +35,9 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	// MARK: - Class properties
 	var plansList = [Plan]()
 	lazy var dataManager = DataManager()
-	
+	lazy var nlpManager = NLP_Manager()
+	lazy var planMapView = PlansMapViewController()
+	var fullPlanText = ""
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -133,8 +135,8 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-		let done = completePlanAction(at: indexPath)
-		let swipeAction = UISwipeActionsConfiguration(actions: [done])
+		let goToMap = goPlanAction(at: indexPath)
+		let swipeAction = UISwipeActionsConfiguration(actions: [goToMap])
 		swipeAction.performsFirstActionWithFullSwipe = false
 		return swipeAction
 	}
@@ -161,18 +163,19 @@ extension PlansListView : UITableViewDataSource {
 		return action
 	}
 	
-	func completePlanAction(at indexPath: IndexPath) -> UIContextualAction {
+	func goPlanAction(at indexPath: IndexPath) -> UIContextualAction {
+		let title = currentPlans[indexPath.row].title!
+		let desc = currentPlans[indexPath.row].planDescription!
+		fullPlanText = title + " " + desc
 		let action = UIContextualAction(style: .normal, title: "Go") { (action, view, completion ) in
-			print("Go tapped")
-			
-			let tabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabsMainController") as! TabsMainController
-			tabBarController.selectedViewController = tabBarController.viewControllers?[1]
-			self.present(tabBarController, animated: true, completion: nil)
-			
+			let mpView = self.storyboard?.instantiateViewController(withIdentifier: "PlansMapViewController") as! PlansMapViewController
+			mpView.fullPlanText = self.fullPlanText
+			self.navigationController?.pushViewController(mpView, animated: true)
 			completion(true)
 		}
 		action.image = UIImage(named: "done_icon")
 		action.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+		
 		return action
 	}
 	
