@@ -139,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				D2E17C34237725EF00C0F078 /* Extensions */,
-				D2E17C2C2376EAFD00C0F078 /* CoreML */,
 				D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */,
 				D24C260A2365CDAB00EFEBD3 /* NotificationsManager */,
 				D2972F65236581660069B9C0 /* Alerts */,
@@ -170,6 +169,7 @@
 		D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */ = {
 			isa = PBXGroup;
 			children = (
+				D2E17C2C2376EAFD00C0F078 /* CoreML */,
 				D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */,
 				D2E17C2923742F6400C0F078 /* NLP_Manager.swift */,
 			);

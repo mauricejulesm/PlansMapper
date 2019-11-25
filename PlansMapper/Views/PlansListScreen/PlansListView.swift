@@ -37,18 +37,16 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	lazy var dataManager = DataManager()
 	
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		plansTableView.delegate = self
 		plansTableView.dataSource = self
 		plansTableView.register(UINib(nibName: "PlanCell", bundle: nil), forCellReuseIdentifier: "PlanCell")
 		locationManager.requestWhenInUseAuthorization()
 		UNUserNotificationCenter.current().delegate = self
-		
 		plansSearchBar.delegate = self
 		navigationItem.hidesSearchBarWhenScrolling = true
-
-    }
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
