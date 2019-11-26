@@ -113,7 +113,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
-                                <rect key="frame" x="-1" y="75" width="414" height="673"/>
+                                <rect key="frame" x="-1" y="46" width="414" height="702"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xcU-nk-2K6">
@@ -127,29 +127,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lZa-ub-XYD">
-                                <rect key="frame" x="3" y="46" width="411" height="29"/>
-                                <segments>
-                                    <segment title="Not Completed"/>
-                                    <segment title="Completed"/>
-                                </segments>
-                                <connections>
-                                    <action selector="switchSegments:" destination="FlM-1d-gso" eventType="valueChanged" id="6ez-mQ-VyH"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" constant="-23" id="0zh-9o-6ZL"/>
                             <constraint firstItem="7gM-yo-Sny" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="DVH-yb-ry3"/>
-                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="lZa-ub-XYD" secondAttribute="trailing" id="POl-FR-eGc"/>
-                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="lZa-ub-XYD" secondAttribute="bottom" constant="1" id="Qwt-Md-0cj"/>
                             <constraint firstItem="7gM-yo-Sny" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="SFZ-ti-nld"/>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" constant="1" id="V3e-Mu-VYZ"/>
-                            <constraint firstItem="lZa-ub-XYD" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="3" id="bA1-KA-8tC"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="7gM-yo-Sny" secondAttribute="bottom" constant="1" id="VrS-15-D6a"/>
                             <constraint firstAttribute="trailing" secondItem="7gM-yo-Sny" secondAttribute="trailing" id="r4D-CB-6Z2"/>
                             <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="-1" id="ujp-Fh-NhY"/>
-                            <constraint firstItem="lZa-ub-XYD" firstAttribute="top" secondItem="7gM-yo-Sny" secondAttribute="bottom" constant="1" id="yiM-qP-TSq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
                     </view>
@@ -170,7 +157,6 @@
                     <connections>
                         <outlet property="plansSearchBar" destination="7gM-yo-Sny" id="1Te-Az-adH"/>
                         <outlet property="plansTableView" destination="9pQ-UP-m7w" id="7rj-Y9-YbG"/>
-                        <outlet property="segmentController" destination="lZa-ub-XYD" id="ypP-kv-4Jd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-IU-VEt" userLabel="First Responder" sceneMemberID="firstResponder"/>

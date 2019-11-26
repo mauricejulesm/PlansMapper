@@ -23,10 +23,6 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	@IBOutlet weak var segmentController: UISegmentedControl!
 	@IBOutlet var plansSearchBar: UISearchBar!
 	
-	// MARK: - plans arrays
-	var currentPlans = [Plan]()
-	var completedPlans = [Plan]()
-	var incompletePlans = [Plan]()
 	var searchMode = false
 	
 	// categorised
@@ -34,8 +30,9 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	var foodCat = [Plan]()
 	var shoppingCat = [Plan]()
 	var otherCat = [Plan]()
+	var completedCat = [Plan]()
 
-	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER"]
+	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER", "COMPLETED"]
 	var sectionData = [Int: [Plan]]()
 
 	
@@ -53,10 +50,16 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		UNUserNotificationCenter.current().delegate = self
 		plansSearchBar.delegate = self
 		navigationItem.hidesSearchBarWhenScrolling = true
-		
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
+		assignCategories()
+		self.plansTableView.reloadData()
+	}
+	
+	/// a private functions to assing plans categories
+	func fetchPlansFromDB() {
+		plansList = []
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
 			else { return }
 		let context = appDelegate.persistentContainer.viewContext
@@ -65,66 +68,36 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		fetchRequest.sortDescriptors = [sortDesc]
 		do {
 			plansList = try context.fetch(fetchRequest)
-		} catch  {
-			print("Unable to fetch plans")
-		}
-		
-		assignCategories()
-		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat]
-		
-		assignPlans()
-		if (segmentController.selectedSegmentIndex == 0){ currentPlans = incompletePlans }
-		self.plansTableView.reloadData()
+		} catch  { print("Unable to fetch plans") }
 	}
 	
-	private func assignPlans() {
-		completedPlans = []; incompletePlans = []
-
-		// assigning plans statuses
-		for plan in plansList {
-			if (plan.value(forKey: "completed") as! Bool == true){
-				completedPlans.append(plan)
-			}else{
-				incompletePlans.append(plan)
-			}
-		}
-	}
-	
+	/// a private functions to assing plans categories
 	private func assignCategories() {
-		sportsCat = []; foodCat = []; shoppingCat = []; otherCat = []
-		// assigning plans categories
+		fetchPlansFromDB()
+		
+		sportsCat = []; foodCat = []; shoppingCat = []; otherCat = []; completedCat = []
 		for plan in plansList {
 			let planCat = plan.value(forKey: "category") as! String
+			let completed = plan.value(forKey: "completed") as! Bool
 			
-			switch planCat.lowercased() {
-			case "sports":
-				sportsCat.append(plan)
-			case "food":
-				foodCat.append(plan)
-			case "shopping":
-				shoppingCat.append(plan)
-			default:
-				otherCat.append(plan)
+			if (!completed){
+				switch planCat.lowercased() {
+				case "sports":
+					sportsCat.append(plan)
+				case "food":
+					foodCat.append(plan)
+				case "shopping":
+					shoppingCat.append(plan)
+				default:
+					otherCat.append(plan)
+				}
+			}else{
+				completedCat.append(plan)
 			}
 		}
-	}
-	
-	@available(iOS 12.0, *)
-	@IBAction func searchBtnPressed(_ sender: Any) {
-		print("Search pressed")
-	}
-	
-	// MARK: - Segments and status changing
-	@IBAction func switchSegments(_ sender: UISegmentedControl){
-		if sender.selectedSegmentIndex == 0  {
-			currentPlans = incompletePlans
-		}else{
-			currentPlans = completedPlans
-		}
-		self.plansTableView.reloadData()
+		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
 	}
 }
-
 
 // MARK: - TableView datasource methods
 
@@ -137,15 +110,17 @@ extension PlansListView : UITableViewDataSource {
 		let headerView = UIView()
 		headerView.backgroundColor = .orange
 		let headerLbl = UILabel()
-		headerLbl.frame = CGRect(x: 120, y: 5, width: 100, height: 35)
+		headerLbl.frame = CGRect(x: 118, y: 5, width: 200, height: 35)
 		headerLbl.text = tableSections[section]
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView
 	}
+	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		return 45
 	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return sectionData[section]!.count
 	}
@@ -187,7 +162,7 @@ extension PlansListView : UITableViewDataSource {
 		let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion ) in
 			print("Edit tapped")
 			let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
-			vc.currentPlan = self.currentPlans[indexPath.row]
+			vc.currentPlan = self.sectionData[indexPath.section]![indexPath.row]
 			vc.editMode = true
 			self.navigationController?.pushViewController(vc, animated: true)
 			completion(true)
@@ -197,8 +172,8 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func goPlanAction(at indexPath: IndexPath) -> UIContextualAction {
-		let title = currentPlans[indexPath.row].title!
-		let desc = currentPlans[indexPath.row].planDescription!
+		let title = sectionData[indexPath.section]![indexPath.row].title!
+		let desc = sectionData[indexPath.section]![indexPath.row].planDescription!
 		fullPlanText = title + " " + desc
 		let action = UIContextualAction(style: .normal, title: "Go") { (action, view, completion ) in
 			let mpView = self.storyboard?.instantiateViewController(withIdentifier: "PlansMapViewController") as! PlansMapViewController
@@ -213,20 +188,13 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func deletePlan(at indexPath: IndexPath) -> UIContextualAction{
-		let plan = currentPlans[indexPath.row]
+		let plan = sectionData[indexPath.section]![indexPath.row]
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			guard let context = plan.managedObjectContext else { return }
 			context.delete(plan)
-			
-			if (self.segmentController.selectedSegmentIndex == 0){
-				self.incompletePlans.remove(at: indexPath.row)
-			}else{
-				self.completedPlans.remove(at: indexPath.row)
-			}
-			
 			do {
 				try context.save()
-				self.currentPlans.remove(at: indexPath.row)
+				self.sectionData[indexPath.section]!.remove(at: indexPath.row)
 				self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
 			} catch  {
 				print("Unable to delete the category")
@@ -240,8 +208,7 @@ extension PlansListView : UITableViewDataSource {
 	@objc func onPlanStatusChanged(_ sender : UISwitch!){
 		let currentPlanTitle = sender.accessibilityLabel
 		self.dataManager.updatePlanStatus(title:currentPlanTitle!)
-		self.currentPlans.remove(at: sender.tag)
-		self.assignPlans()
+		assignCategories()
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.30) {
 			self.plansTableView.reloadData()
 		}
@@ -263,13 +230,15 @@ extension PlansListView : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		if !searchMode {
-			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 70, 0)
-			cell.layer.transform = rotationTransform
-			cell.alpha = 0
 			
-			UIView.animate(withDuration: 0.75) {
-				cell.layer.transform = CATransform3DIdentity
-				cell.alpha = 1.0
+			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+			cell.layer.transform = rotationTransform
+			cell.alpha = 0.5
+			
+			
+			UIView.animate(withDuration: 1.0) {
+			cell.layer.transform = CATransform3DIdentity
+			cell.alpha = 1.0
 			}
 		}
 	}
@@ -282,15 +251,15 @@ extension PlansListView : UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		var filteredArray = [Plan]()
 		
-		if searchText != "" {
-			filteredArray = currentPlans.filter() { ($0.title?.lowercased()
-				.contains(searchText.lowercased()))!}
-			currentPlans = filteredArray
-		}else{
-			currentPlans = segmentController.selectedSegmentIndex == 0 ? incompletePlans : completedPlans
-		}
-		searchMode = true
-		self.plansTableView.reloadData()
+//		if searchText != "" {
+//			filteredArray = currentPlans.filter() { ($0.title?.lowercased()
+//				.contains(searchText.lowercased()))!}
+//			currentPlans = filteredArray
+//		}else{
+//			currentPlans = segmentController.selectedSegmentIndex == 0 ? incompletePlans : completedPlans
+//		}
+//		searchMode = true
+//		self.plansTableView.reloadData()
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
