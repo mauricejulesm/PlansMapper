@@ -24,7 +24,7 @@ class PlansCategoryTagger {
 		}
 	}()
 	
-	func predictionReview(for text: String) -> String? {
+	func predictCategory(for text: String) -> String? {
 		tagger?.string = text
 		let range = text.startIndex ..< text.endIndex
 		tagger?.setLanguage(.english, range: range)

@@ -66,17 +66,22 @@
         <!--Map-->
         <scene sceneID="gG3-0J-S9B">
             <objects>
-                <viewController id="xap-kQ-RDy" customClass="PlansMapViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlansMapViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xap-kQ-RDy" customClass="PlansMapViewController" customModule="PlansMapper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vle-Fd-rDs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6AP-wS-kup">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="trailing" secondItem="xsF-MM-agM" secondAttribute="trailing" id="3BU-6l-gY8"/>
+                            <constraint firstAttribute="bottom" secondItem="6AP-wS-kup" secondAttribute="bottom" id="Y3k-rL-53Z"/>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="leading" secondItem="xsF-MM-agM" secondAttribute="leading" id="bHJ-qY-nPc"/>
+                            <constraint firstItem="6AP-wS-kup" firstAttribute="top" secondItem="xsF-MM-agM" secondAttribute="top" id="rmp-uH-W3X"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xsF-MM-agM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="location-icon" id="id5-9A-8cr"/>
@@ -86,7 +91,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e17-rT-Bzs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-566" y="1069"/>
+            <point key="canvasLocation" x="-843.47826086956525" y="1172.5446428571429"/>
         </scene>
         <!--Plans List-->
         <scene sceneID="58e-Er-5gx">
@@ -108,7 +113,7 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="200" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="9pQ-UP-m7w">
-                                <rect key="frame" x="-1" y="75" width="414" height="673"/>
+                                <rect key="frame" x="-1" y="46" width="414" height="702"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="xcU-nk-2K6">
@@ -122,29 +127,16 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="lZa-ub-XYD">
-                                <rect key="frame" x="3" y="46" width="411" height="29"/>
-                                <segments>
-                                    <segment title="Not Completed"/>
-                                    <segment title="Completed"/>
-                                </segments>
-                                <connections>
-                                    <action selector="switchSegments:" destination="FlM-1d-gso" eventType="valueChanged" id="6ez-mQ-VyH"/>
-                                </connections>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="bottom" secondItem="9pQ-UP-m7w" secondAttribute="bottom" constant="-23" id="0zh-9o-6ZL"/>
                             <constraint firstItem="7gM-yo-Sny" firstAttribute="top" secondItem="9Td-Nn-PXZ" secondAttribute="top" id="DVH-yb-ry3"/>
-                            <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="lZa-ub-XYD" secondAttribute="trailing" id="POl-FR-eGc"/>
-                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="lZa-ub-XYD" secondAttribute="bottom" constant="1" id="Qwt-Md-0cj"/>
                             <constraint firstItem="7gM-yo-Sny" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" id="SFZ-ti-nld"/>
                             <constraint firstItem="9Td-Nn-PXZ" firstAttribute="trailing" secondItem="9pQ-UP-m7w" secondAttribute="trailing" constant="1" id="V3e-Mu-VYZ"/>
-                            <constraint firstItem="lZa-ub-XYD" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="3" id="bA1-KA-8tC"/>
+                            <constraint firstItem="9pQ-UP-m7w" firstAttribute="top" secondItem="7gM-yo-Sny" secondAttribute="bottom" constant="1" id="VrS-15-D6a"/>
                             <constraint firstAttribute="trailing" secondItem="7gM-yo-Sny" secondAttribute="trailing" id="r4D-CB-6Z2"/>
                             <constraint firstItem="9pQ-UP-m7w" firstAttribute="leading" secondItem="9Td-Nn-PXZ" secondAttribute="leading" constant="-1" id="ujp-Fh-NhY"/>
-                            <constraint firstItem="lZa-ub-XYD" firstAttribute="top" secondItem="7gM-yo-Sny" secondAttribute="bottom" constant="1" id="yiM-qP-TSq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Td-Nn-PXZ"/>
                     </view>
@@ -165,12 +157,11 @@
                     <connections>
                         <outlet property="plansSearchBar" destination="7gM-yo-Sny" id="1Te-Az-adH"/>
                         <outlet property="plansTableView" destination="9pQ-UP-m7w" id="7rj-Y9-YbG"/>
-                        <outlet property="segmentController" destination="lZa-ub-XYD" id="ypP-kv-4Jd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33o-IU-VEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1600.0000000000002" y="1935.9375"/>
+            <point key="canvasLocation" x="-1778" y="1138"/>
         </scene>
         <!--Details View-->
         <scene sceneID="53q-MP-Qy8">
@@ -198,7 +189,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="q2Q-gS-K4r" kind="relationship" relationship="viewControllers" id="D1H-5y-1yo"/>
-                        <segue destination="xap-kQ-RDy" kind="relationship" relationship="viewControllers" id="bIQ-vb-N68"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FSR-Go-mvK"/>
                     </connections>
                 </tabBarController>
@@ -234,7 +224,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DPa-ek-dIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1598" y="1139"/>
+            <point key="canvasLocation" x="-2599" y="1138"/>
         </scene>
         <!--New Plan View-->
         <scene sceneID="Joq-Fv-vD6">
@@ -430,7 +420,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-nr-LdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2410.144927536232" y="1958.7053571428571"/>
+            <point key="canvasLocation" x="-3228" y="1925"/>
         </scene>
     </scenes>
     <resources>

@@ -73,16 +73,23 @@ class NewPlanView: UIViewController {
 		let calendar = Calendar.current
 		let dateCreated = "Created: " + dataManager.getTimeNow()
 		var due = "Due: "
+		var planCatgry = ""
+		var planFullText = ""
+		
 		
 		if let title = txtFieldNewPlanTitle.text, let deadline = txtFldDeadline.text, let desc = planDescTxtField.text {
 			if (title != "" && deadline != "" && desc != "") {
-				due += deadline
-				
+				due += deadline ; planFullText = title + " " + desc
+				if #available(iOS 12.0, *) {
+					planCatgry = dataManager.getPlanCategory(for: planFullText)
+				} else {
+					planCatgry = "Upgrade to ios 12"
+				}
 				if (editMode) {
 					dataManager.editPlan(title: currentPlan!.title!, newPlanTitle:title, newDesc: desc)
 					self.navigationController?.popViewController(animated: true)
 				}else {
-					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, completed: false)
+					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, cat: "Sports", completed: false)
 					do {
 						try newPlan?.managedObjectContext?.save()
 						print("Saved Plan: \(title) successfully")
