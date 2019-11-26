@@ -29,7 +29,7 @@ class DataManager  {
 	
 	
 	
-	func editPlan(title:String, newPlanTitle:String, newDesc: String) {
+	func editPlan(title:String, newPlanTitle:String, newDesc: String, newCat:String) {
 		
 		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
 		
@@ -43,6 +43,7 @@ class DataManager  {
 			let planToUpdate = test[0]
 			planToUpdate.setValue(newPlanTitle, forKey: "title")
 			planToUpdate.setValue(newDesc, forKey: "planDescription")
+			planToUpdate.setValue(newCat, forKey: "category")
 			try context.save()
 		}catch{
 			print(error)
