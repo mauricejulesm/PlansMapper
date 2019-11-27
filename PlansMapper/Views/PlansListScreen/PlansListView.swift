@@ -111,18 +111,19 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
-		headerView.backgroundColor = .orange
 		let headerLbl = UILabel()
-		headerLbl.frame = CGRect(x: 50, y: 0, width: 200, height: 35)
+		headerLbl.frame = CGRect(x: 50, y: 8, width: 200, height: 30)
 		headerLbl.text = tableSections[section]
 		headerLbl.textAlignment = .center
+		headerLbl.layer.cornerRadius = 8.0
+		headerLbl.backgroundColor = .orange
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 30
+		return 33
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
