@@ -86,10 +86,10 @@ class NewPlanView: UIViewController {
 					planCatgry = "Upgrade to ios 12"
 				}
 				if (editMode) {
-					dataManager.editPlan(title: currentPlan!.title!, newPlanTitle:title, newDesc: desc)
+					dataManager.editPlan(title: currentPlan!.title!, newPlanTitle:title, newDesc: desc, newCat: planCatgry)
 					self.navigationController?.popViewController(animated: true)
 				}else {
-					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, cat: "Sports", completed: false)
+					let newPlan = Plan(dateCreated: dateCreated, title: title, desc: desc, cat: planCatgry, completed: false)
 					do {
 						try newPlan?.managedObjectContext?.save()
 						print("Saved Plan: \(title) successfully")

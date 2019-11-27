@@ -20,7 +20,6 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	
 	// MARK: - Class outlets
 	@IBOutlet weak var plansTableView: UITableView!
-	@IBOutlet weak var segmentController: UISegmentedControl!
 	@IBOutlet var plansSearchBar: UISearchBar!
 	
 	var searchMode = false
@@ -34,6 +33,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 
 	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER", "COMPLETED"]
 	var sectionData = [Int: [Plan]]()
+	var cachedData = [Int: [Plan]]()
 
 	
 	// MARK: - Class properties
@@ -96,7 +96,10 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 			}
 		}
 		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
+		cachedData = sectionData
+
 	}
+	
 }
 
 // MARK: - TableView datasource methods
@@ -110,19 +113,23 @@ extension PlansListView : UITableViewDataSource {
 		let headerView = UIView()
 		headerView.backgroundColor = .orange
 		let headerLbl = UILabel()
-		headerLbl.frame = CGRect(x: 118, y: 5, width: 200, height: 35)
+		headerLbl.frame = CGRect(x: 50, y: 0, width: 200, height: 35)
 		headerLbl.text = tableSections[section]
+		headerLbl.textAlignment = .center
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 45
+		return 30
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return sectionData[section]!.count
+	}
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 150
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -249,17 +256,17 @@ extension PlansListView : UITableViewDelegate {
 
 extension PlansListView : UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		var filteredArray = [Plan]()
-		
-//		if searchText != "" {
-//			filteredArray = currentPlans.filter() { ($0.title?.lowercased()
-//				.contains(searchText.lowercased()))!}
-//			currentPlans = filteredArray
-//		}else{
-//			currentPlans = segmentController.selectedSegmentIndex == 0 ? incompletePlans : completedPlans
-//		}
-//		searchMode = true
-//		self.plansTableView.reloadData()
+		var filteredData = [Int: [Plan]]()
+		if searchText != "" {
+			filteredData = sectionData
+				.mapValues { $0.filter {($0.title?.lowercased()
+				.contains(searchText.lowercased()))! } }
+			sectionData = filteredData
+		}else{
+			sectionData = cachedData
+		}
+		searchMode = true
+		self.plansTableView.reloadData()
 	}
 	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
