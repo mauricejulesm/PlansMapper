@@ -136,6 +136,7 @@ extension PlansListView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
 		let plan = currentPlansInSections[indexPath.section]![indexPath.row]
+		cell.isAccessibilityElement = false
 		cell.planTitleLbl?.text = plan.title
 		cell.planDescLbl?.text = plan.planDescription
 		cell.dateCreatedLbl?.text = plan.dateCreated
@@ -153,6 +154,8 @@ extension PlansListView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let goToMap = goPlanAction(at: indexPath)
 		let swipeAction = UISwipeActionsConfiguration(actions: [goToMap])
+		swipeAction.isAccessibilityElement = true
+		swipeAction.accessibilityValue = "Go To Map"
 		swipeAction.performsFirstActionWithFullSwipe = false
 		return swipeAction
 	}
