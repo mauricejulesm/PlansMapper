@@ -99,7 +99,7 @@ class NewPlanView: UIViewController {
 				// schedule the reminder
 				notifManager.registerNotifCategories()
 				let components = calendar.dateComponents([.second, .minute, .hour, .day, .month, .year], from:  getDateFromString(stringDate:deadline))
-				notifManager.scheduceNotification(todoContent:title, year:components.year!, month:components.month!,day:components.day!,hour:components.hour!,minute:components.minute!,second:components.second!)
+				notifManager.scheduceNotification(planContent:title, year:components.year!, month:components.month!,day:components.day!,hour:components.hour!,minute:components.minute!,second:components.second!)
 				
 				self.navigationController?.popViewController(animated: true)
 

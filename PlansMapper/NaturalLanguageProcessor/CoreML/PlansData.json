@@ -1,38 +1,6 @@
 [
   {
     "planCategory": "SPORTS",
-    "planText": "Go jogging in the weekend"
-  },
-  {
-    "planCategory": "FOOD",
-    "planText": "Eat out with friends"
-  },
-  {
-    "planCategory": "SHOPPING",
-    "planText": "Buy shoes at the market"
-  },
-  {
-    "planCategory": "SPORTS",
-    "planText": "Running tommorrow"
-  },
-  {
-    "planCategory": "FOOD",
-    "planText": "Cook dinner tonight"
-  },
-  {
-    "planCategory": "SHOPPING",
-    "planText": "Shop shirts at Grand Baie"
-  },
-  {
-    "planCategory": "SPORTS",
-    "planText": "You have a run to do"
-  },
-  {
-    "planCategory": "SHOPPING",
-    "planText": "purchase a bag"
-  },
-  {
-    "planCategory": "SPORTS",
     "planText": "take a hike on saturday"
   },
   {
@@ -54,10 +22,6 @@
   {
     "planCategory": "SPORTS",
     "planText": "Smash your 5 mile goal tonight"
-  },
-  {
-    "planCategory": "FOOD",
-    "planText": "Remember to take out your girlfriend"
   },
   {
     "planCategory": "SHOPPING",

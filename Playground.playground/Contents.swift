@@ -11,7 +11,7 @@ enum LanguageUsed : String {
 }
 
 let planTitle = "Go Shopping"
-let planDescription = " Go shopping shoes for running next the weekend at Grand Baie and Port Louis Shopping Mall with Jules Maurice"
+let planDescription = " Go shopping shoes for running to eat ?  next the weekend at Grand Baie and Port Louis Shopping Mall with ~Jules Maurice"
 
 let fullPlanText = planTitle + planDescription
 
@@ -66,7 +66,7 @@ func extractPartsOfSpeech(for planText: String) {
 	}
 }
 //print("\n*** Parts of speech ***")
-//extractPartsOfSpeech(for: fullPlanText)
+extractPartsOfSpeech(for: fullPlanText)
 
 func extractNamedEntities(for planText: String) {
 	tagger1.string = planText

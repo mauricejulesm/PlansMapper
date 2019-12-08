@@ -32,8 +32,8 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	var completedCat = [Plan]()
 
 	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER", "COMPLETED"]
-	var sectionData = [Int: [Plan]]()
-	var cachedData = [Int: [Plan]]()
+	var currentPlansInSections = [Int: [Plan]]()
+	var cachedPlansData = [Int: [Plan]]()
 
 	
 	// MARK: - Class properties
@@ -95,8 +95,8 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 				completedCat.append(plan)
 			}
 		}
-		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
-		cachedData = sectionData
+		currentPlansInSections = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
+		cachedPlansData = currentPlansInSections
 
 	}
 	
@@ -127,7 +127,7 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return sectionData[section]!.count
+		return currentPlansInSections[section]!.count
 	}
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 150
@@ -135,7 +135,7 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		let plan = sectionData[indexPath.section]![indexPath.row]
+		let plan = currentPlansInSections[indexPath.section]![indexPath.row]
 		cell.planTitleLbl?.text = plan.title
 		cell.planDescLbl?.text = plan.planDescription
 		cell.dateCreatedLbl?.text = plan.dateCreated
@@ -170,7 +170,7 @@ extension PlansListView : UITableViewDataSource {
 		let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion ) in
 			print("Edit tapped")
 			let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
-			vc.currentPlan = self.sectionData[indexPath.section]![indexPath.row]
+			vc.currentPlan = self.currentPlansInSections[indexPath.section]![indexPath.row]
 			vc.editMode = true
 			self.navigationController?.pushViewController(vc, animated: true)
 			completion(true)
@@ -180,8 +180,8 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func goPlanAction(at indexPath: IndexPath) -> UIContextualAction {
-		let title = sectionData[indexPath.section]![indexPath.row].title!
-		let desc = sectionData[indexPath.section]![indexPath.row].planDescription!
+		let title = currentPlansInSections[indexPath.section]![indexPath.row].title!
+		let desc = currentPlansInSections[indexPath.section]![indexPath.row].planDescription!
 		fullPlanText = title + " " + desc
 		let action = UIContextualAction(style: .normal, title: "Go") { (action, view, completion ) in
 			let mpView = self.storyboard?.instantiateViewController(withIdentifier: "PlansMapViewController") as! PlansMapViewController
@@ -196,13 +196,13 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func deletePlan(at indexPath: IndexPath) -> UIContextualAction{
-		let plan = sectionData[indexPath.section]![indexPath.row]
+		let plan = currentPlansInSections[indexPath.section]![indexPath.row]
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			guard let context = plan.managedObjectContext else { return }
 			context.delete(plan)
 			do {
 				try context.save()
-				self.sectionData[indexPath.section]!.remove(at: indexPath.row)
+				self.currentPlansInSections[indexPath.section]!.remove(at: indexPath.row)
 				self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
 			} catch  {
 				print("Unable to delete the category")
@@ -254,26 +254,25 @@ extension PlansListView : UITableViewDelegate {
 
 
 // MARK: - Searchbar and Searching
-
 extension PlansListView : UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		var filteredData = [Int: [Plan]]()
+		var filteredPlans = [Int: [Plan]]()
 		if searchText != "" {
-			filteredData = sectionData
-				.mapValues { $0.filter {($0.title?.lowercased()
+			filteredPlans = currentPlansInSections.mapValues { $0.filter {($0.title?.lowercased()
 				.contains(searchText.lowercased()))! } }
-			sectionData = filteredData
+			currentPlansInSections = filteredPlans
 		}else{
-			sectionData = cachedData
+			currentPlansInSections = cachedPlansData
 		}
 		searchMode = true
 		self.plansTableView.reloadData()
 	}
-	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
 	}
 }
+
+
 // MARK: - private functionlities
 private extension PlansListView {
 
