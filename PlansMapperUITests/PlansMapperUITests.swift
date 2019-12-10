@@ -24,7 +24,7 @@ class PlansMapperUITests: XCTestCase {
         XCUIApplication().launch()
     }
 	
-    func testPlansTableLoad() {
+	func testPlansTableLoad() {
 		
 		let app = XCUIApplication()
 		let tablesQuery = app.tables

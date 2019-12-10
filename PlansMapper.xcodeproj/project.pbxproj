@@ -179,14 +179,14 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
+				D2972F65236581660069B9C0 /* Alerts */,
+				D22B4B27236023DF0094BC4A /* CoreDataModels */,
+				D22B4B542360ACDA0094BC4A /* DataManager */,
 				D2E17C34237725EF00C0F078 /* Extensions */,
 				D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */,
 				D24C260A2365CDAB00EFEBD3 /* NotificationsManager */,
-				D2972F65236581660069B9C0 /* Alerts */,
-				D22B4B542360ACDA0094BC4A /* DataManager */,
-				D22B4B27236023DF0094BC4A /* CoreDataModels */,
-				D22B4B522360A83D0094BC4A /* Views */,
 				D22B4B532360A8810094BC4A /* ProjectResources */,
+				D22B4B522360A83D0094BC4A /* Views */,
 				5149C059235EF99D00887D2A /* AppDelegate.swift */,
 				5149C063235EF99F00887D2A /* Assets.xcassets */,
 				D2BC3F622365D8D400EC516F /* splash_screen.png */,
