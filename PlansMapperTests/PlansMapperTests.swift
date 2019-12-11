@@ -18,13 +18,16 @@ class PlansMapperTests: XCTestCase {
 	var testPlanDesc = String ()
 	var testPlanCat = String ()
 	var testPlanDateCreated = String ()
-
+	var newPlan = Plan()
 	
     override func setUp() {
 		testPlanTitle = "Test Plan Tile"
 		testPlanDesc = "Test Plan Description"
 		testPlanCat = "SHOPPING"
 		testPlanDateCreated = "2019/12/08 16:26:14:575"
+		
+		newPlan = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)!
+
 	}
 	
 	func testBuilProje(){
@@ -42,21 +45,25 @@ class PlansMapperTests: XCTestCase {
 	}
 	
 	func testDeletePlan() {
-		
-		guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
-		let context = appDelegate.persistentContainer.viewContext
-		let fetchRequest = getPlanFetchRequest()
-		fetchRequest.predicate = NSPredicate(format: "title = %@", "\(testPlanTitle)")
-		
-		let test = try context.fetch(fetchRequest)
-		guard let context = plan.managedObjectContext else { return }
-		context.delete(plan)
+			guard let context = newPlan.managedObjectContext else { return }
+			context.delete(newPlan)
+			do {
+				try context.save()
+			} catch  {
+				print("Unable to delete the plan ")
+			}
+	}
+
+	func testEditPlan() {
+		guard let context = newPlan.managedObjectContext else { return }
+		context.delete(newPlan)
 		do {
 			try context.save()
 		} catch  {
-			print("Unable to delete the test plan")
+			print("Unable to delete the plan ")
 		}
 	}
+	
 	
 	func testLoadPlans() {
 		
@@ -67,6 +74,24 @@ class PlansMapperTests: XCTestCase {
 			print("item: \(item)")
 		}
 	}
+	
+	
+	//MARK:- TESING NLP MANAGER FUNCTION
+	
+	func testPartsOfSpeechExtraction() {
+		let planText = "Buy sports shoes in the weekend"
+		XCTAssert(!planText.isEmpty)
+		
+	}
+	
+	func testlemmatizePlanText() {
+		
+	}
+	
+	func testExtractNamedEntities() {
+		
+	}
+	
 
 	
 	// Measuring performance of some functionalities.
