@@ -28,14 +28,11 @@ class PlansMapperUITests: XCTestCase {
 		
 		let app = XCUIApplication()
 		let tablesQuery = app.tables
-		tablesQuery/*@START_MENU_TOKEN@*/.cells.containing(.staticText, identifier:"Buy shoes").element/*[[".cells.containing(.button, identifier:\"Go\").element",".cells.containing(.switch, identifier:\"Buy shoes\").element",".cells.containing(.staticText, identifier:\"Created: 2019\/12\/08 15:10:21:212\").element",".cells.containing(.staticText, identifier:\"Remember to shop at the store \").element",".cells.containing(.staticText, identifier:\"Buy shoes\").element"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeLeft()
-		tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["Remember to shop at the store "]/*[[".cells.staticTexts[\"Remember to shop at the store \"]",".staticTexts[\"Remember to shop at the store \"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.swipeRight()
-		
+		tablesQuery.cells.containing(.staticText, identifier:"Buy shoes").element.swipeLeft()
+		tablesQuery.cells.containing(.staticText, identifier:"Buy shoes").element.swipeRight()
 		let shoppingTable = app/*@START_MENU_TOKEN@*/.tables.containing(.other, identifier:"SHOPPING").element/*[[".tables.containing(.other, identifier:\"COMPLETED\").element",".tables.containing(.other, identifier:\"OTHER\").element",".tables.containing(.other, identifier:\"FOOD\").element",".tables.containing(.other, identifier:\"SPORTS\").element",".tables.containing(.other, identifier:\"SHOPPING\").element"],[[[-1,4],[-1,3],[-1,2],[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
 		shoppingTable.swipeDown()
 		shoppingTable.swipeUp()
-		
-		
     }
 	
 	func testCreateNewPlan() {
@@ -71,7 +68,7 @@ class PlansMapperUITests: XCTestCase {
 		let app = XCUIApplication()
 		
 		let tablesQuery = app.tables
-		tablesQuery.staticTexts[testPlanTitle].swipeRight()
+		tablesQuery.staticTexts["Buy shoes"].swipeRight()
 		tablesQuery.buttons["Go"].tap()
 		
 		let theMap = app.maps.element
@@ -79,7 +76,7 @@ class PlansMapperUITests: XCTestCase {
 		theMap.swipeLeft()
 		theMap.swipeRight()
 		app.tabBars.buttons["Plans"].tap()
-		tablesQuery.staticTexts[testPlanTitle].swipeDown()
+		tablesQuery.staticTexts["Buy shoes"].swipeDown()
 		
 	}
 	

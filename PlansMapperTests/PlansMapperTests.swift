@@ -18,6 +18,8 @@ class PlansMapperTests: XCTestCase {
 	var testPlanDesc = String ()
 	var testPlanCat = String ()
 	var testPlanDateCreated = String ()
+	var plansTestList = [Plan]()
+	
 	var newPlan = Plan()
 	
     override func setUp() {
@@ -30,20 +32,16 @@ class PlansMapperTests: XCTestCase {
 
 	}
 	
-	func testBuilProje(){
-		
-	}
 
 	func testCreatePlan() {
 		let newPlan = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)
 		do {
 			try newPlan?.managedObjectContext?.save()
-			print("Saved new Plan successfully")
 		} catch {
 			print("Creating new plan failed")
 		}
 	}
-	
+
 	func testDeletePlan() {
 			guard let context = newPlan.managedObjectContext else { return }
 			context.delete(newPlan)
@@ -55,50 +53,43 @@ class PlansMapperTests: XCTestCase {
 	}
 
 	func testEditPlan() {
-		guard let context = newPlan.managedObjectContext else { return }
-		context.delete(newPlan)
+		let newPlan = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)
 		do {
-			try context.save()
-		} catch  {
-			print("Unable to delete the plan ")
+			try newPlan?.managedObjectContext?.save()
+		} catch {
+			print("Creating new plan failed")
 		}
 	}
-	
-	
-	func testLoadPlans() {
-		
-	}
 
-	func testSearchPlans() {
-		for item in 0...10 {
-			print("item: \(item)")
+
+	func testFetchPlans() {
+		let newPlan = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)
+		do {
+			try newPlan?.managedObjectContext?.save()
+		} catch {
+			print("Creating new plan failed")
+		}
+		
+		let newPlan2 = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)
+		do {
+			try newPlan2?.managedObjectContext?.save()
+		} catch {
+			print("Creating new plan failed")
+		}
+		
+		let newPlan3 = Plan(dateCreated: testPlanDateCreated, title: testPlanTitle, desc:testPlanDesc, cat: testPlanCat, completed: false)
+		do {
+			try newPlan3?.managedObjectContext?.save()
+		} catch {
+			print("Creating new plan failed")
 		}
 	}
-	
-	
-	//MARK:- TESING NLP MANAGER FUNCTION
-	
-	func testPartsOfSpeechExtraction() {
-		let planText = "Buy sports shoes in the weekend"
-		XCTAssert(!planText.isEmpty)
-		
-	}
-	
-	func testlemmatizePlanText() {
-		
-	}
-	
-	func testExtractNamedEntities() {
-		
-	}
-	
 
-	
 	// Measuring performance of some functionalities.
-    func testPerformanceExample() {
-        self.measure {
-            testLoadPlans()
-        }
+//    func testPerformanceExample() {
+//        self.measure {
+//            //PlansListView.fetchPlansFromDB()
+//        }
     }
 
-}
+

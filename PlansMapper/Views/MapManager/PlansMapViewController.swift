@@ -35,9 +35,29 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		let coordinateRegion = MKCoordinateRegion(center: userLocation.coordinate,
 												  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
 		mapView.setRegion(coordinateRegion, animated: true)
+		
+		
+		let cu = CLLocation(latitude: 5.0, longitude: 5.0)
+		let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
+		
+		//let distanceInMeters = coordinate₀.distance(from: coordinate₁) // result is in meters
+		
+		
 	}
-	
-	
+//	let foundPlaces : CLLocation!
+//	
+//	private func getClosePlace() -> Int{
+//		checkLocationAuthorizationStatus()
+//		let currentLocationCoord = self.currentUserLocation.coordinate
+//		let closestCoordinate = getClosestCordinate(from: foundPlaces)
+//		let distanceM = closestCoordinate.distance(from: currentLocationCoord)
+//		
+//		print("You are \(distanceM) away from your closed venue.")
+//		return distanceM
+//		
+//		@IBAction func segmentChantMapStyle(sender: UISegmentedControl!) { switch (sender.selectedSegmentIndex) { case 0: mapView.mapType = .Standard case 1: mapView.mapType = .Satellite default: mapView.mapType = .Hybrid } }
+//	}
+//	
 	
 	
 	func addPinToMapView(title: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
@@ -58,7 +78,7 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 		locationManager.delegate = self; locationManager.desiredAccuracy = kCLLocationAccuracyBest
 		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
 			print("Debug: current location found")
-			currentUserLocation = locationManager.location
+			currentUserLocation = testLocation
 			mapView.showsUserLocation = true; locationAllowed = true
 		} else {
 			currentUserLocation = testLocation

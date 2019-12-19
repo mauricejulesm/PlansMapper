@@ -241,15 +241,13 @@ extension PlansListView : UITableViewDelegate {
 	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
 		
 		if !searchMode {
-			
-			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
+			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 70, 0)
 			cell.layer.transform = rotationTransform
-			cell.alpha = 0.5
+			cell.alpha = 0
 			
-			
-			UIView.animate(withDuration: 1.0) {
-			cell.layer.transform = CATransform3DIdentity
-			cell.alpha = 1.0
+			UIView.animate(withDuration: 0.75) {
+				cell.layer.transform = CATransform3DIdentity
+				cell.alpha = 1.0
 			}
 		}
 	}

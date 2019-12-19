@@ -8,7 +8,7 @@ import NaturalLanguage
 
 // MARK: 1- Loading plans dataset
 let dataURL = URL(
-//	fileURLWithPath: "/Users/falcon/Desktop/Academics/honors_project/THE_APP/PlansMapper/PlansMapper/NaturalLanguageProcessor/CoreML/RestaurantReviews.json")
+
 fileURLWithPath: "/Users/falcon/Desktop/Academics/honors_project/THE_APP/PlansMapper/PlansMapper/NaturalLanguageProcessor/CoreML/PlansData.json")
 
 
@@ -21,7 +21,6 @@ let (trainingDataSet, testDataSet) = plansDataset.randomSplit(by: 0.7, seed: 6)
 let mlModel  = try MLTextClassifier(
 	trainingData: trainingDataSet,
 	textColumn: "planText", labelColumn: "planCategory"
-//	textColumn: "text", labelColumn: "label"
 )
 
 let mlMetadata = MLModelMetadata(author: "Jules Maurice M.", shortDescription: "This model uses plans list to train and provides accuracy through testing iterations.", license: "PlansMapper", version: "2.0")
