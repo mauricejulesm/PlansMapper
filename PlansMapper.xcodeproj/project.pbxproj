@@ -38,7 +38,7 @@
 		D2E17C302376F6DC00C0F078 /* PMCoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */; };
 		D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3223770DB300C0F078 /* DetailsView.swift */; };
 		D2E17C3623772F6F00C0F078 /* PM_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */; };
-		D2E17C3C2378556800C0F078 /* PlansCategorizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */; };
+		D2E23FFC23ABFC1900DA694D /* PlansCategorizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,7 +114,7 @@
 		D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMCoreML.swift; sourceTree = "<group>"; };
 		D2E17C3223770DB300C0F078 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_Extensions.swift; sourceTree = "<group>"; };
-		D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PlansCategorizer.mlmodel; sourceTree = "<group>"; };
+		D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PlansCategorizer.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +156,7 @@
 		5149C04D235EF99D00887D2A = {
 			isa = PBXGroup;
 			children = (
+				D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */,
 				5149C058235EF99D00887D2A /* PlansMapper */,
 				D22B4B4323609A580094BC4A /* PlansMapper-iOS */,
 				D2435AD3239C046F00902508 /* PlansMapperTests */,
@@ -192,7 +193,6 @@
 				D2BC3F622365D8D400EC516F /* splash_screen.png */,
 				5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */,
 				5149C068235EF99F00887D2A /* Info.plist */,
-				D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */,
 			);
 			path = PlansMapper;
 			sourceTree = "<group>";
@@ -558,7 +558,7 @@
 				D226AC09236CA0FE00D66BB6 /* NLP_Processor_Test.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
-				D2E17C3C2378556800C0F078 /* PlansCategorizer.mlmodel in Sources */,
+				D2E23FFC23ABFC1900DA694D /* PlansCategorizer.mlmodel in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */,
 				D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */,
 				D27D67A52368BF1D00A629CD /* PlansListViewModel.swift in Sources */,
