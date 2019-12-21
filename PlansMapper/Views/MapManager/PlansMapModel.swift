@@ -11,10 +11,12 @@ import Contacts
 
 class PlansMapModel: NSObject, MKAnnotation {
 	
+	let title: String?
 	let locationName: String
 	let coordinate: CLLocationCoordinate2D
 	
-	init(locationName: String, coordinate: CLLocationCoordinate2D) {
+	init(title:String, locationName: String, coordinate: CLLocationCoordinate2D) {
+		self.title = title
 		self.locationName = locationName
 		self.coordinate = coordinate
 		
@@ -26,17 +28,17 @@ class PlansMapModel: NSObject, MKAnnotation {
 	}
 	
 	
-	init?(json: [Any]) {
-		// 1
-		self.locationName = json[12] as! String
-		// 2
-		if let latitude = Double(json[18] as! String),
-			let longitude = Double(json[19] as! String) {
-			self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-		} else {
-			self.coordinate = CLLocationCoordinate2D()
-		}
-	}
+//	init?(json: [Any]) {
+//		// 1
+//		self.locationName = json[12] as! String
+//		// 2
+//		if let latitude = Double(json[18] as! String),
+//			let longitude = Double(json[19] as! String) {
+//			self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+//		} else {
+//			self.coordinate = CLLocationCoordinate2D()
+//		}
+//	}
 	
 	// markerTintColor for disciplines: Sculpture, Plaque, Mural, Monument, other
 //	var markerTintColor: UIColor  {
@@ -60,7 +62,7 @@ class PlansMapModel: NSObject, MKAnnotation {
 		let addressDict = [CNPostalAddressStreetKey: subtitle!]
 		let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: addressDict)
 		let mapItem = MKMapItem(placemark: placemark)
-//		mapItem.name = title
+		mapItem.name = title
 		return mapItem
 	}
 	

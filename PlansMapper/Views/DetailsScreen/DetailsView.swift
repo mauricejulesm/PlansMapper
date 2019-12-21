@@ -31,12 +31,13 @@ class DetailsView: UIViewController {
 	}
 	
 	func setupDetailsViewUI(){
-		planTitleLbl.text = "Title: \(currentPlan?.title)"
-		planDescLbl.text = currentPlan?.planDescription
-		catPredictLbl.text = "80%"
-		languageLbl.text = currentPlan?.title
-		peopleNamesLbl.text = currentPlan?.title
-		recommendedVenueLbl.text = currentPlan?.title
+		planTitleLbl.text = "Title: " + currentPlan!.title!
+		planDescLbl.text = "Description: " + currentPlan!.planDescription!
+		catPredictLbl.text = "Predition %: " + "80% Accuracy"
+		languageLbl.text = "Used Language: English" + currentPlan!.title!
+		peopleNamesLbl.text = "People's names found: James, Vicent" + currentPlan!.title!
+		placeNamesLbl.text = "Places names found: Super U, Grand Bay" + currentPlan!.title!
+		recommendedVenueLbl.text = "We recommend you place X which is 40 km from you and has great ratings: " + currentPlan!.title!
 	}
 	
 

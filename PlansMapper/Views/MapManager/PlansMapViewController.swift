@@ -7,8 +7,9 @@
 //
 
 import MapKit
+import Contacts
 
-class PlansMapViewController: UIViewController ,MKMapViewDelegate {
+class PlansMapViewController: UIViewController {
 	
 	@IBOutlet var mapView: MKMapView!
 	let regionRadius: CLLocationDistance = 3000
@@ -65,41 +66,12 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 			let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 			let annotation = MKPointAnnotation()
 			
-			annotation.coordinate = location
-			annotation.title = title
+			let planMapAnnotation = PlansMapModel(title: title, locationName: title, coordinate: location)
 			
-			mapView.addAnnotation(annotation)
+			
+			mapView.addAnnotation(planMapAnnotation)
 		}
 	}
-	
-	// requesting the location access from the user
-	private func checkLocationAuthorizationStatus() {
-		let locationManager = CLLocationManager()
-		locationManager.delegate = self; locationManager.desiredAccuracy = kCLLocationAccuracyBest
-		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-			print("Debug: current location found")
-			currentUserLocation = testLocation
-			mapView.showsUserLocation = true; locationAllowed = true
-		} else {
-			currentUserLocation = testLocation
-			locationManager.requestWhenInUseAuthorization()
-	}}
-	
-	
-	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-		guard let annotation = annotation as? PlansMapModel else { return nil }
-		let identifier = "plansmarker"; var view: MKMarkerAnnotationView
-		if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-			as? MKMarkerAnnotationView {
-			dequeuedView.annotation = annotation
-			view = dequeuedView
-		} else {
-			view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-			view.canShowCallout = true; view.calloutOffset = CGPoint(x: -5, y: 5)
-			view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) }
-		return view
-	}
-	
 	
 	func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView,
 				 calloutAccessoryControlTapped control: UIControl) {
@@ -134,8 +106,37 @@ class PlansMapViewController: UIViewController ,MKMapViewDelegate {
 }
 
 
+extension PlansMapViewController : MKMapViewDelegate {
+	func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+		guard let annotation = annotation as? PlansMapModel else { return nil }
+		let identifier = "marker";
+		var view: MKMarkerAnnotationView
+		if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+			as? MKMarkerAnnotationView {
+			dequeuedView.annotation = annotation
+			view = dequeuedView
+		} else {
+			view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+			view.canShowCallout = true;
+			view.calloutOffset = CGPoint(x: -5, y: 5)
+			view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) }
+		return view
+	}
+}
+
+
 extension PlansMapViewController : CLLocationManagerDelegate {
-
-
-
+	// requesting the location access from the user
+	private func checkLocationAuthorizationStatus() {
+		let locationManager = CLLocationManager()
+		locationManager.delegate = self; locationManager.desiredAccuracy = kCLLocationAccuracyBest
+		if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+			print("Debug: current location found")
+			currentUserLocation = testLocation
+			mapView.showsUserLocation = true; locationAllowed = true
+		} else {
+			currentUserLocation = testLocation
+			locationManager.requestWhenInUseAuthorization()
+		}}
+	
 }
