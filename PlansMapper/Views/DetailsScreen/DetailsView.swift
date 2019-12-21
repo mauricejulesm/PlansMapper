@@ -18,12 +18,27 @@ class DetailsView: UIViewController {
 	@IBOutlet var peopleNamesLbl: UILabel!
 	@IBOutlet var recommendedVenueLbl: UILabel!
 	
+	var currentPlan : Plan?
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+       setupDetailsViewUI()
     }
-    
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle{
+		return .lightContent
+	}
+	
+	func setupDetailsViewUI(){
+		planTitleLbl.text = "Title: \(currentPlan?.title)"
+		planDescLbl.text = currentPlan?.planDescription
+		catPredictLbl.text = "80%"
+		languageLbl.text = currentPlan?.title
+		peopleNamesLbl.text = currentPlan?.title
+		recommendedVenueLbl.text = currentPlan?.title
+	}
+	
 
 	@IBAction func viewVenuesBtn(_ sender: Any) {
 		

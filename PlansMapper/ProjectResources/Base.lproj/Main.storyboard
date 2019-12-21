@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.73907439720812185" green="0.49535954341340732" blue="0.078153248175447762" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.086274509803921567" green="0.098039215686274508" blue="0.11764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <color key="textShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -333,88 +333,84 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-ef-lZ9" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="984"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1167"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Language uses: English" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvr-Y4-vc5">
-                                                <rect key="frame" x="22" y="292" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language uses: English" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvr-Y4-vc5">
+                                                <rect key="frame" x="22" y="385.5" width="362" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended Venue is Grand Baie Public Beach, 13km from you location,there is not traffic in the road and it has good ratings." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWc-N6-01d">
-                                                <rect key="frame" x="20" y="633" width="374" height="61"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recommended Venue is Grand Baie Public Beach, 13km from you location,there is not traffic in the road and it has good ratings." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWc-N6-01d">
+                                                <rect key="frame" x="20" y="737" width="374" height="115"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Plan Description: This is a long description of a the plan you have for the comming weekend" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eES-iP-of0">
-                                                <rect key="frame" x="22" y="143" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plan Description: This is a long description of a the plan you have for the comming weekend" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eES-iP-of0">
+                                                <rect key="frame" x="22" y="143" width="371" height="43"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Category Prediction %age: 96.95%" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-3T-vho">
-                                                <rect key="frame" x="22" y="239" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category Prediction %age: 96.95%" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-3T-vho">
+                                                <rect key="frame" x="22" y="239" width="371" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Plan title" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P1-y5-2fx">
-                                                <rect key="frame" x="22" y="43" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plan title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P1-y5-2fx">
+                                                <rect key="frame" x="22" y="44" width="371" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Place names found: Grand Baie, Port Louis, Kigali , Hon Kong" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-r6-n4k">
-                                                <rect key="frame" x="22" y="385" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="23" y="490" width="371" height="21.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="People found: Maurice, Jack, Neil" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmW-5T-5oT">
-                                                <rect key="frame" x="22" y="495" width="371" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <rect key="frame" x="22" y="600" width="371" height="45"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8y-bX-gQM">
-                                                <rect key="frame" x="30" y="795" width="354" height="41"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                <state key="normal" title="VIEW ON MAP"/>
-                                                <connections>
-                                                    <action selector="viewVenuesBtn:" destination="R5c-io-P8s" eventType="touchUpInside" id="O0m-17-i8n"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="top" secondItem="Tvr-Y4-vc5" secondAttribute="bottom" constant="72" id="3Ps-WN-jcm"/>
-                                            <constraint firstAttribute="trailing" secondItem="lZX-r6-n4k" secondAttribute="trailing" constant="21" id="8Hr-Qh-RoJ"/>
-                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="8tY-bX-cSJ"/>
+                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="top" secondItem="Tvr-Y4-vc5" secondAttribute="bottom" constant="89.5" id="3Ps-WN-jcm"/>
+                                            <constraint firstItem="eES-iP-of0" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="5eK-x4-Rq9"/>
+                                            <constraint firstAttribute="trailing" secondItem="lZX-r6-n4k" secondAttribute="trailing" constant="20" id="8Hr-Qh-RoJ"/>
+                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="8tY-bX-cSJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tvr-Y4-vc5" secondAttribute="trailing" constant="30" id="C7c-I9-4Tf"/>
                                             <constraint firstAttribute="trailing" secondItem="YWc-N6-01d" secondAttribute="trailing" constant="20" id="ECx-qj-pdw"/>
+                                            <constraint firstAttribute="trailing" secondItem="7P1-y5-2fx" secondAttribute="trailing" constant="21" id="FWy-iB-v62"/>
+                                            <constraint firstItem="DVG-3T-vho" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="FhA-Hy-Y5q"/>
                                             <constraint firstItem="FmW-5T-5oT" firstAttribute="top" secondItem="lZX-r6-n4k" secondAttribute="bottom" constant="88" id="LVg-su-bsS"/>
-                                            <constraint firstItem="B8y-bX-gQM" firstAttribute="top" secondItem="YWc-N6-01d" secondAttribute="bottom" constant="100.5" id="PoP-ey-RhX"/>
+                                            <constraint firstAttribute="trailing" secondItem="eES-iP-of0" secondAttribute="trailing" constant="21" id="TkG-Bk-6mD"/>
                                             <constraint firstItem="YWc-N6-01d" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="20" id="Vzy-ZH-Lc0"/>
-                                            <constraint firstAttribute="bottom" secondItem="B8y-bX-gQM" secondAttribute="bottom" constant="148.5" id="eMi-9P-jTT"/>
-                                            <constraint firstAttribute="trailing" secondItem="B8y-bX-gQM" secondAttribute="trailing" constant="239" id="hKa-GU-fKr"/>
-                                            <constraint firstItem="eES-iP-of0" firstAttribute="top" secondItem="7P1-y5-2fx" secondAttribute="bottom" constant="78" id="ibT-kp-v88"/>
+                                            <constraint firstItem="7P1-y5-2fx" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="cmg-ub-wAP"/>
+                                            <constraint firstAttribute="trailing" secondItem="DVG-3T-vho" secondAttribute="trailing" constant="21" id="gO9-jV-hbC"/>
+                                            <constraint firstItem="eES-iP-of0" firstAttribute="top" secondItem="7P1-y5-2fx" secondAttribute="bottom" constant="49" id="ibT-kp-v88"/>
                                             <constraint firstItem="FmW-5T-5oT" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="ihN-Ib-BRa"/>
-                                            <constraint firstItem="YWc-N6-01d" firstAttribute="top" secondItem="FmW-5T-5oT" secondAttribute="bottom" constant="96" id="ixX-P2-vhR"/>
-                                            <constraint firstAttribute="trailing" secondItem="FmW-5T-5oT" secondAttribute="trailing" constant="137.5" id="k2q-Bs-QWo"/>
-                                            <constraint firstItem="Tvr-Y4-vc5" firstAttribute="top" secondItem="DVG-3T-vho" secondAttribute="bottom" constant="31" id="kSb-rS-hd3"/>
-                                            <constraint firstItem="B8y-bX-gQM" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="mke-hE-vz9"/>
-                                            <constraint firstItem="DVG-3T-vho" firstAttribute="top" secondItem="eES-iP-of0" secondAttribute="bottom" constant="75" id="nC6-Ub-3s5"/>
+                                            <constraint firstItem="YWc-N6-01d" firstAttribute="top" secondItem="FmW-5T-5oT" secondAttribute="bottom" constant="92" id="ixX-P2-vhR"/>
+                                            <constraint firstAttribute="trailing" secondItem="FmW-5T-5oT" secondAttribute="trailing" constant="21" id="k2q-Bs-QWo"/>
+                                            <constraint firstItem="Tvr-Y4-vc5" firstAttribute="top" secondItem="DVG-3T-vho" secondAttribute="bottom" constant="91.5" id="kSb-rS-hd3"/>
+                                            <constraint firstItem="Tvr-Y4-vc5" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="22" id="mv7-co-ixm"/>
+                                            <constraint firstItem="DVG-3T-vho" firstAttribute="top" secondItem="eES-iP-of0" secondAttribute="bottom" constant="53" id="nC6-Ub-3s5"/>
+                                            <constraint firstAttribute="bottom" secondItem="YWc-N6-01d" secondAttribute="bottom" constant="281.5" id="ops-Bb-FUN"/>
                                             <constraint firstItem="7P1-y5-2fx" firstAttribute="top" secondItem="UUe-ef-lZ9" secondAttribute="top" constant="43.5" id="zmK-6U-tI2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="UUe-ef-lZ9" firstAttribute="height" secondItem="d51-8v-SzX" secondAttribute="height" priority="250" constant="40.5" id="6AY-3F-0fd"/>
+                                    <constraint firstItem="UUe-ef-lZ9" firstAttribute="height" secondItem="d51-8v-SzX" secondAttribute="height" priority="250" constant="211.5" id="6AY-3F-0fd"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="leading" secondItem="d51-8v-SzX" secondAttribute="leading" id="H8m-v1-pI7"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="width" secondItem="d51-8v-SzX" secondAttribute="width" id="OTw-49-Ptq"/>
-                                    <constraint firstAttribute="bottom" secondItem="UUe-ef-lZ9" secondAttribute="bottom" constant="-40.5" id="ft2-rK-jhe"/>
+                                    <constraint firstAttribute="bottom" secondItem="UUe-ef-lZ9" secondAttribute="bottom" constant="-211.5" id="ft2-rK-jhe"/>
                                     <constraint firstAttribute="trailing" secondItem="UUe-ef-lZ9" secondAttribute="trailing" id="jmk-gI-6F6"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="top" secondItem="d51-8v-SzX" secondAttribute="top" id="zP1-hm-Nxg"/>
                                 </constraints>
@@ -430,10 +426,19 @@
                         <viewLayoutGuide key="safeArea" id="C4b-xD-cnX"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="catPredictLbl" destination="DVG-3T-vho" id="JLO-jn-Lee"/>
+                        <outlet property="languageLbl" destination="Tvr-Y4-vc5" id="fNk-rD-2mW"/>
+                        <outlet property="peopleNamesLbl" destination="FmW-5T-5oT" id="eSm-aF-P3V"/>
+                        <outlet property="placeNamesLbl" destination="lZX-r6-n4k" id="PEd-Kl-Tmj"/>
+                        <outlet property="planDescLbl" destination="eES-iP-of0" id="0ct-vg-gfj"/>
+                        <outlet property="planTitleLbl" destination="7P1-y5-2fx" id="dbR-oE-0Hf"/>
+                        <outlet property="recommendedVenueLbl" destination="YWc-N6-01d" id="hs2-Wu-Tel"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcf-nr-LdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3228" y="1925"/>
+            <point key="canvasLocation" x="-3228.985507246377" y="1924.5535714285713"/>
         </scene>
     </scenes>
     <resources>

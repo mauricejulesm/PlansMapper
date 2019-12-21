@@ -57,6 +57,10 @@ class NewPlanView: UIViewController {
 	}
 	
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle{
+		return .lightContent
+	}
+	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		txtFieldNewPlanTitle.resignFirstResponder()
 		txtFldDeadline.resignFirstResponder()

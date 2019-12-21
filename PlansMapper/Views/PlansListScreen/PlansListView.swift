@@ -57,6 +57,10 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		self.plansTableView.reloadData()
 	}
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle{
+		return .lightContent
+	}
+	
 	/// a private functions to assing plans categories
 	func fetchPlansFromDB() {
 		plansList = []
@@ -76,30 +80,31 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		fetchPlansFromDB()
 		
 		sportsCat = []; foodCat = []; shoppingCat = []; otherCat = []; completedCat = []
-		for plan in plansList {
-			let planCat = plan.value(forKey: "category") as! String
-			let completed = plan.value(forKey: "completed") as! Bool
-			
-			if (!completed){
-				switch planCat.lowercased() {
-				case "sports":
-					sportsCat.append(plan)
-				case "food":
-					foodCat.append(plan)
-				case "shopping":
-					shoppingCat.append(plan)
-				default:
-					otherCat.append(plan)
+		
+		print(plansList.count)
+		if plansList.count > 1 {
+			for plan in plansList {
+				let planCat = plan.value(forKey: "category") as! String
+				let completed = plan.value(forKey: "completed") as! Bool
+				if (!completed){
+					switch planCat.lowercased() {
+					case "sports":
+						sportsCat.append(plan)
+					case "food":
+						foodCat.append(plan)
+					case "shopping":
+						shoppingCat.append(plan)
+					default:
+						otherCat.append(plan)
+					}
+				}else{
+					completedCat.append(plan)
 				}
-			}else{
-				completedCat.append(plan)
 			}
 		}
 		currentPlansInSections = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
 		cachedPlansData = currentPlansInSections
-
 	}
-	
 }
 
 // MARK: - TableView datasource methods
@@ -112,11 +117,11 @@ extension PlansListView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
 		let headerLbl = UILabel()
-		headerLbl.frame = CGRect(x: 50, y: 8, width: 200, height: 30)
+		headerLbl.frame = CGRect(x: 60, y: 8, width: 250, height: 30)
 		headerLbl.text = tableSections[section]
 		headerLbl.textAlignment = .center
-		headerLbl.layer.cornerRadius = 8.0
-		headerLbl.backgroundColor = .orange
+		headerLbl.layer.cornerRadius = 5
+		headerLbl.backgroundColor = #colorLiteral(red: 1, green: 0.737254902, blue: 0, alpha: 1)
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView
@@ -234,6 +239,7 @@ extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let detailsView = (storyboard?.instantiateViewController(withIdentifier: "DetailsView")) as! DetailsView
+		detailsView.currentPlan = self.currentPlansInSections[indexPath.section]![indexPath.row]
 		self.navigationController?.pushViewController(detailsView, animated: true)
 		
 	}
@@ -273,9 +279,8 @@ extension PlansListView : UISearchBarDelegate {
 	}
 }
 
-
-// MARK: - private functionlities
-private extension PlansListView {
-
-	
+extension UINavigationController {
+	open override var preferredStatusBarStyle: UIStatusBarStyle {
+		return topViewController?.preferredStatusBarStyle ?? .default
+	}
 }
