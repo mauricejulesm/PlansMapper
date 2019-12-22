@@ -121,7 +121,7 @@ extension PlansListView : UITableViewDataSource {
 		headerLbl.text = tableSections[section]
 		headerLbl.textAlignment = .center
 		headerLbl.layer.cornerRadius = 5
-		headerLbl.backgroundColor = #colorLiteral(red: 1, green: 0.737254902, blue: 0, alpha: 1)
+		headerLbl.backgroundColor = .orange
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView

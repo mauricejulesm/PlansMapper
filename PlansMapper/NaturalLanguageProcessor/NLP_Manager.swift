@@ -10,12 +10,9 @@ import NaturalLanguage
 
 class NLP_Manager {
 	
-	let shoppingCategory = ["shop", "mall", "store", "buy", "purchase"]
-	let travelCategory = ["flight tickets", "booking", "airport","airplane","aeroplane"]
-	let sportsCategory = ["run", "jog", "workout", "walk", "sport", "football", "soccer", "recreation center"]
-	let swimmingCategor = ["swim","swimming pool"]
-	let hikingCategory = ["Hike","hiking", "mountain"]
-	let foodCategory = ["food", "restaurant", "hotel", "cook", "manger", "eat", "drink"]
+	let shoppingCategory = ["shop", "store", "grocery", "purchase"]
+	let sportsCategory = [ "sport", "run", "jog", "workout", "walk", "football", "soccer", "recreation center"]
+	let foodCategory = ["restaurant", "food",  "hotel", "grocery", "cook", "manger", "eat", "drink"]
 	
 	let plansMapperTaggertagger = NSLinguisticTagger(tagSchemes: [.tokenType, .language, .lexicalClass, .nameType, .lemma],options: 0)
 	let options: NSLinguisticTagger.Options = [.omitPunctuation, .omitWhitespace, .joinNames]
@@ -87,14 +84,8 @@ class NLP_Manager {
 			mapSearchTerms = shoppingCategory
 		}else if !lemmasSet.isDisjoint(with: sportsCategory) {
 			mapSearchTerms = sportsCategory
-		}else if !lemmasSet.isDisjoint(with: travelCategory) {
-			mapSearchTerms = travelCategory
 		}else if !lemmasSet.isDisjoint(with: foodCategory) {
 			mapSearchTerms = foodCategory
-		}else if !lemmasSet.isDisjoint(with: swimmingCategor) {
-			mapSearchTerms = swimmingCategor
-		}else if !lemmasSet.isDisjoint(with: hikingCategory) {
-			mapSearchTerms = hikingCategory
 		}else { mapSearchTerms = [""] }
 		
 //		DataManager.setMapSearchPlaces( places : mapSearchPlaces)

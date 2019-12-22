@@ -19,10 +19,12 @@ class DetailsView: UIViewController {
 	@IBOutlet var recommendedVenueLbl: UILabel!
 	
 	var currentPlan : Plan?
+	var recommendedPlaces : String?
+	
 
 	override func viewDidLoad() {
         super.viewDidLoad()
-
+		recommendedPlaces = "No place found!"
        setupDetailsViewUI()
     }
 	
@@ -37,7 +39,7 @@ class DetailsView: UIViewController {
 		languageLbl.text = "Used Language: English" + currentPlan!.title!
 		peopleNamesLbl.text = "People's names found: James, Vicent" + currentPlan!.title!
 		placeNamesLbl.text = "Places names found: Super U, Grand Bay" + currentPlan!.title!
-		recommendedVenueLbl.text = "We recommend you place X which is 40 km from you and has great ratings: " + currentPlan!.title!
+		recommendedVenueLbl.text = "Recommendended places: " + recommendedPlaces!
 	}
 	
 

@@ -8,6 +8,8 @@
 
 import MapKit
 
+
+
 class PlansMapViewController: UIViewController {
 	
 	@IBOutlet var mapView: MKMapView!
@@ -19,6 +21,9 @@ class PlansMapViewController: UIViewController {
 	var locationAllowed = false
 	var searchTerms = [String]()
 	var fullPlanText : String!
+	var settingsView = SettingsView()
+	
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -29,6 +34,17 @@ class PlansMapViewController: UIViewController {
 		mapView.register(ArtworkMarkerView.self,
 						 forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
 		searchPlaces(for: searchTerms)
+		
+		switch UserDefaults.standard.integer(forKey: "plansMapType") {
+		case 2:
+			mapView.mapType = .hybrid
+		case 1:
+			mapView.mapType = .satellite
+		default:
+			mapView.mapType = .standard
+		}
+		
+		//print("This segment is selected: \()")
 	}
 	
 	func centerMapOnLocation(on userLocation: CLLocation) {
@@ -36,29 +52,11 @@ class PlansMapViewController: UIViewController {
 												  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
 		mapView.setRegion(coordinateRegion, animated: true)
 		
-//
-//		let cu = CLLocation(latitude: 5.0, longitude: 5.0)
-//		let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
-//
-		//let distanceInMeters = coordinate₀.distance(from: coordinate₁) // result is in meters
-		
-		
 	}
-//	let foundPlaces : CLLocation!
-//	
-//	private func getClosePlace() -> Int{
-//		checkLocationAuthorizationStatus()
-//		let currentLocationCoord = self.currentUserLocation.coordinate
-//		let closestCoordinate = getClosestCordinate(from: foundPlaces)
-//		let distanceM = closestCoordinate.distance(from: currentLocationCoord)
-//		
-//		print("You are \(distanceM) away from your closed venue.")
-//		return distanceM
-//		
-//		@IBAction func segmentChantMapStyle(sender: UISegmentedControl!) { switch (sender.selectedSegmentIndex) { case 0: mapView.mapType = .Standard case 1: mapView.mapType = .Satellite default: mapView.mapType = .Hybrid } }
-//	}
-//	
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle{
+		return .lightContent
+	}
 	
 	func addPinToMapView(title: String?, subtitle: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
 		if let title = title, let subtitle = subtitle {
