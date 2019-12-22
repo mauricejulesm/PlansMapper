@@ -7,7 +7,6 @@
 //
 
 import MapKit
-import Contacts
 
 class PlansMapViewController: UIViewController {
 	
@@ -16,7 +15,7 @@ class PlansMapViewController: UIViewController {
 	lazy var viewModel = PlansMapViewModel()
 	lazy var nlpManager = NLP_Manager()
 	var currentUserLocation : CLLocation!
-	var testLocation = CLLocation(latitude: -20.161971, longitude:  57.503238)
+	var testLocation = CLLocation(latitude: 55.866828, longitude:  -4.250016)
 	var locationAllowed = false
 	var searchTerms = [String]()
 	var fullPlanText : String!
@@ -37,10 +36,10 @@ class PlansMapViewController: UIViewController {
 												  latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
 		mapView.setRegion(coordinateRegion, animated: true)
 		
-		
-		let cu = CLLocation(latitude: 5.0, longitude: 5.0)
-		let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
-		
+//
+//		let cu = CLLocation(latitude: 5.0, longitude: 5.0)
+//		let coordinate₁ = CLLocation(latitude: 5.0, longitude: 3.0)
+//
 		//let distanceInMeters = coordinate₀.distance(from: coordinate₁) // result is in meters
 		
 		
@@ -61,14 +60,10 @@ class PlansMapViewController: UIViewController {
 //	
 	
 	
-	func addPinToMapView(title: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
-		if let title = title {
+	func addPinToMapView(title: String?, subtitle: String?, latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+		if let title = title, let subtitle = subtitle {
 			let location = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-			let annotation = MKPointAnnotation()
-			
-			let planMapAnnotation = PlansMapModel(title: title, locationName: title, coordinate: location)
-			
-			
+			let planMapAnnotation = PlansMapModel(title: title, locationName: subtitle, coordinate: location)
 			mapView.addAnnotation(planMapAnnotation)
 		}
 	}
@@ -94,15 +89,12 @@ class PlansMapViewController: UIViewController {
 				if let resp = response {
 					print("Debug: Found: \(resp.mapItems.count) items on the map, for : \(item)")
 					for item in resp.mapItems {
-						self.addPinToMapView(title: item.name, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
+						self.addPinToMapView(title: item.placemark.name, subtitle: item.placemark.country, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
 						print("My Debug: Found item at: \(item.name!)")
 					}
 				}else{ print("Debug: Nothing found on the map for: \(item)") }
 			})}
 	}
-	
-	
-	
 }
 
 
