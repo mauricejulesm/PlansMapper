@@ -195,6 +195,15 @@ extension PlansListView : UITableViewDataSource {
 		return action
 	}
 	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		
+		if notification.request.identifier == "PlansMapper.Notification"{
+			
+			completionHandler( [.alert,.sound,.badge])
+			
+		}
+	}
+	
 	func goPlanAction(at indexPath: IndexPath) -> UIContextualAction {
 		let title = currentPlansInSections[indexPath.section]![indexPath.row].title!
 		let desc = currentPlansInSections[indexPath.section]![indexPath.row].planDescription!
@@ -252,19 +261,19 @@ extension PlansListView : UITableViewDelegate {
 		
 	}
 	
-	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		
-		if !searchMode {
-			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 70, 0)
-			cell.layer.transform = rotationTransform
-			cell.alpha = 0
-			
-			UIView.animate(withDuration: 0.75) {
-				cell.layer.transform = CATransform3DIdentity
-				cell.alpha = 1.0
-			}
-		}
-	}
+//	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//
+//		if !searchMode {
+//			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 30, 0)
+//			cell.layer.transform = rotationTransform
+//			cell.alpha = 0
+//
+//			UIView.animate(withDuration: 0.30) {
+//				cell.layer.transform = CATransform3DIdentity
+//				cell.alpha = 1.0
+//			}
+//		}
+//	}
 }
 
 

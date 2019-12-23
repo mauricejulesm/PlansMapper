@@ -38,6 +38,16 @@ class AlertsManager {
 		
 		viewController.present(myAlert, animated: true, completion: nil)
 	}
+	
+	
+	/// a general plansmapper UIAlert
+	func showLoginAlert(from viewController: UIViewController, alertTitle:String, saying message:String, actionTitle:String) {
+		
+		let myAlert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+		let alertAction = UIAlertAction(title: actionTitle, style: .default, handler: nil)
+		myAlert.addAction(alertAction)
+		viewController.present(myAlert, animated: true, completion: nil)
+	}
 	// showing a simple toast
 	func showToast(from viewController: UIViewController, message:String) {
 		let alertDisapperTimeInSeconds = 2.0

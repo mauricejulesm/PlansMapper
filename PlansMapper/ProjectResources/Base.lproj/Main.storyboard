@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SWp-CB-2gN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pUl-j7-Z2d">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -180,9 +180,9 @@
                                                 <rect key="frame" x="35" y="323" width="344" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCt-qj-jPR">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lCt-qj-jPR">
                                                 <rect key="frame" x="35" y="268" width="344" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -224,7 +224,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="Mz1-mO-KLr" firstAttribute="height" secondItem="XFx-hQ-Meg" secondAttribute="height" priority="250" id="Hpf-D9-4K0"/>
                                     <constraint firstItem="Mz1-mO-KLr" firstAttribute="top" secondItem="XFx-hQ-Meg" secondAttribute="top" id="Qoo-Jr-Fqv"/>
@@ -245,6 +245,10 @@
                         <viewLayoutGuide key="safeArea" id="2Nj-oU-QZy"/>
                     </view>
                     <size key="freeformSize" width="414" height="1000"/>
+                    <connections>
+                        <outlet property="passwordLbl" destination="G92-Aw-fWZ" id="V3T-HX-UDw"/>
+                        <outlet property="usernameLbl" destination="lCt-qj-jPR" id="CWn-05-B9P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Qn-Xq-Vff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -476,46 +480,40 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="922"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UUe-ef-lZ9" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1118"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="789.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Language uses: English" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvr-Y4-vc5">
-                                                <rect key="frame" x="26" y="257" width="362" height="29"/>
+                                                <rect key="frame" x="21" y="330" width="362" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plan Description: This is a long description of a the plan you have for the comming weekend" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eES-iP-of0">
-                                                <rect key="frame" x="23" y="83" width="371" height="43"/>
+                                                <rect key="frame" x="23" y="146" width="371" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Category Prediction %age: 96.95%" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVG-3T-vho">
-                                                <rect key="frame" x="23" y="167" width="371" height="41"/>
+                                                <rect key="frame" x="21" y="240" width="371" height="41"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Plan title" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P1-y5-2fx">
-                                                <rect key="frame" x="23" y="17" width="371" height="50"/>
+                                                <rect key="frame" x="23" y="58" width="371" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Place names found: Grand Baie, Port Louis, Kigali , Hon Kong" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-r6-n4k">
-                                                <rect key="frame" x="23" y="357" width="371" height="21.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="People found: Maurice, Jack, Neil" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FmW-5T-5oT">
-                                                <rect key="frame" x="23" y="440" width="371" height="45"/>
+                                                <rect key="frame" x="21" y="421" width="371" height="45"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Recommended Venue is Grand Baie Public Beach, 13km from you location,there is not traffic in the road and it has good ratings." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWc-N6-01d">
-                                                <rect key="frame" x="26" y="549" width="374" height="115"/>
+                                                <rect key="frame" x="21" y="636" width="374" height="115"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.81176470588235294" green="0.65098039215686276" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -523,37 +521,34 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.16078431372549018" green="0.16862745098039217" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="top" secondItem="Tvr-Y4-vc5" secondAttribute="bottom" constant="71" id="3Ps-WN-jcm"/>
                                             <constraint firstItem="eES-iP-of0" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="5eK-x4-Rq9"/>
-                                            <constraint firstAttribute="trailing" secondItem="lZX-r6-n4k" secondAttribute="trailing" constant="20" id="8Hr-Qh-RoJ"/>
-                                            <constraint firstItem="lZX-r6-n4k" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="8tY-bX-cSJ"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tvr-Y4-vc5" secondAttribute="trailing" constant="26" id="C7c-I9-4Tf"/>
-                                            <constraint firstAttribute="trailing" secondItem="YWc-N6-01d" secondAttribute="trailing" constant="14" id="ECx-qj-pdw"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tvr-Y4-vc5" secondAttribute="trailing" constant="31" id="C7c-I9-4Tf"/>
+                                            <constraint firstAttribute="trailing" secondItem="YWc-N6-01d" secondAttribute="trailing" constant="19" id="ECx-qj-pdw"/>
                                             <constraint firstAttribute="trailing" secondItem="7P1-y5-2fx" secondAttribute="trailing" constant="20" id="FWy-iB-v62"/>
-                                            <constraint firstItem="DVG-3T-vho" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="FhA-Hy-Y5q"/>
-                                            <constraint firstItem="FmW-5T-5oT" firstAttribute="top" secondItem="lZX-r6-n4k" secondAttribute="bottom" constant="61.5" id="LVg-su-bsS"/>
+                                            <constraint firstItem="DVG-3T-vho" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="21" id="FhA-Hy-Y5q"/>
+                                            <constraint firstItem="FmW-5T-5oT" firstAttribute="top" secondItem="Tvr-Y4-vc5" secondAttribute="bottom" constant="62" id="TcR-z3-PLb"/>
                                             <constraint firstAttribute="trailing" secondItem="eES-iP-of0" secondAttribute="trailing" constant="20" id="TkG-Bk-6mD"/>
-                                            <constraint firstItem="YWc-N6-01d" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="26" id="Vzy-ZH-Lc0"/>
+                                            <constraint firstItem="YWc-N6-01d" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="21" id="Vzy-ZH-Lc0"/>
                                             <constraint firstItem="7P1-y5-2fx" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="cmg-ub-wAP"/>
-                                            <constraint firstAttribute="trailing" secondItem="DVG-3T-vho" secondAttribute="trailing" constant="20" id="gO9-jV-hbC"/>
-                                            <constraint firstItem="eES-iP-of0" firstAttribute="top" secondItem="7P1-y5-2fx" secondAttribute="bottom" constant="16" id="ibT-kp-v88"/>
-                                            <constraint firstItem="FmW-5T-5oT" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="23" id="ihN-Ib-BRa"/>
-                                            <constraint firstItem="YWc-N6-01d" firstAttribute="top" secondItem="FmW-5T-5oT" secondAttribute="bottom" constant="64" id="ixX-P2-vhR"/>
-                                            <constraint firstAttribute="trailing" secondItem="FmW-5T-5oT" secondAttribute="trailing" constant="20" id="k2q-Bs-QWo"/>
+                                            <constraint firstAttribute="trailing" secondItem="DVG-3T-vho" secondAttribute="trailing" constant="22" id="gO9-jV-hbC"/>
+                                            <constraint firstItem="eES-iP-of0" firstAttribute="top" secondItem="7P1-y5-2fx" secondAttribute="bottom" constant="38" id="ibT-kp-v88"/>
+                                            <constraint firstItem="FmW-5T-5oT" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="21" id="ihN-Ib-BRa"/>
+                                            <constraint firstItem="YWc-N6-01d" firstAttribute="top" secondItem="FmW-5T-5oT" secondAttribute="bottom" constant="170" id="ixX-P2-vhR"/>
+                                            <constraint firstAttribute="trailing" secondItem="FmW-5T-5oT" secondAttribute="trailing" constant="22" id="k2q-Bs-QWo"/>
                                             <constraint firstItem="Tvr-Y4-vc5" firstAttribute="top" secondItem="DVG-3T-vho" secondAttribute="bottom" constant="49" id="kSb-rS-hd3"/>
-                                            <constraint firstItem="Tvr-Y4-vc5" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="26" id="mv7-co-ixm"/>
-                                            <constraint firstItem="DVG-3T-vho" firstAttribute="top" secondItem="eES-iP-of0" secondAttribute="bottom" constant="41" id="nC6-Ub-3s5"/>
-                                            <constraint firstAttribute="bottom" secondItem="YWc-N6-01d" secondAttribute="bottom" constant="503" id="ops-Bb-FUN"/>
-                                            <constraint firstItem="7P1-y5-2fx" firstAttribute="top" secondItem="UUe-ef-lZ9" secondAttribute="top" constant="17" id="zmK-6U-tI2"/>
+                                            <constraint firstItem="Tvr-Y4-vc5" firstAttribute="leading" secondItem="UUe-ef-lZ9" secondAttribute="leading" constant="21" id="mv7-co-ixm"/>
+                                            <constraint firstItem="DVG-3T-vho" firstAttribute="top" secondItem="eES-iP-of0" secondAttribute="bottom" constant="51" id="nC6-Ub-3s5"/>
+                                            <constraint firstAttribute="bottom" secondItem="YWc-N6-01d" secondAttribute="bottom" constant="114" id="ops-Bb-FUN"/>
+                                            <constraint firstItem="7P1-y5-2fx" firstAttribute="top" secondItem="UUe-ef-lZ9" secondAttribute="top" constant="58" id="zmK-6U-tI2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="UUe-ef-lZ9" firstAttribute="height" secondItem="d51-8v-SzX" secondAttribute="height" priority="250" constant="245" id="6AY-3F-0fd"/>
+                                    <constraint firstItem="UUe-ef-lZ9" firstAttribute="height" secondItem="d51-8v-SzX" secondAttribute="height" priority="250" constant="-57" id="6AY-3F-0fd"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="leading" secondItem="d51-8v-SzX" secondAttribute="leading" id="H8m-v1-pI7"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="width" secondItem="d51-8v-SzX" secondAttribute="width" id="OTw-49-Ptq"/>
-                                    <constraint firstAttribute="bottom" secondItem="UUe-ef-lZ9" secondAttribute="bottom" constant="-245" id="ft2-rK-jhe"/>
+                                    <constraint firstAttribute="bottom" secondItem="UUe-ef-lZ9" secondAttribute="bottom" constant="57" id="ft2-rK-jhe"/>
                                     <constraint firstAttribute="trailing" secondItem="UUe-ef-lZ9" secondAttribute="trailing" id="jmk-gI-6F6"/>
                                     <constraint firstItem="UUe-ef-lZ9" firstAttribute="top" secondItem="d51-8v-SzX" secondAttribute="top" id="zP1-hm-Nxg"/>
                                 </constraints>
@@ -573,7 +568,6 @@
                         <outlet property="catPredictLbl" destination="DVG-3T-vho" id="JLO-jn-Lee"/>
                         <outlet property="languageLbl" destination="Tvr-Y4-vc5" id="fNk-rD-2mW"/>
                         <outlet property="peopleNamesLbl" destination="FmW-5T-5oT" id="eSm-aF-P3V"/>
-                        <outlet property="placeNamesLbl" destination="lZX-r6-n4k" id="PEd-Kl-Tmj"/>
                         <outlet property="planDescLbl" destination="eES-iP-of0" id="0ct-vg-gfj"/>
                         <outlet property="planTitleLbl" destination="7P1-y5-2fx" id="dbR-oE-0Hf"/>
                         <outlet property="recommendedVenueLbl" destination="YWc-N6-01d" id="hs2-Wu-Tel"/>
