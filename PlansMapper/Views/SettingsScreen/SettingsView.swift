@@ -53,7 +53,7 @@ Its goal is to make the experience of people who uses productivity and navigatio
 	}
 	
 	@IBAction func viewAppVersionBtn(_ sender: Any) {
-		alertManager.showUIAlert(from: self, title: "App Version Details", saying: "App Version: V2.1.2", okAction: "OK", cancelAction: nil)
+		alertManager.showUIAlert(from: self, title: "Version Details", saying: "App Version: V2.1.2", okAction: "OK", cancelAction: nil)
 	}
 	
 	@IBAction func mapTypeSegmentPressed(_ sender: Any) {

@@ -40,7 +40,7 @@ class AlertsManager {
 	}
 	// showing a simple toast
 	func showToast(from viewController: UIViewController, message:String) {
-		let alertDisapperTimeInSeconds = 1.0
+		let alertDisapperTimeInSeconds = 2.0
 		let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
 		viewController.present(alert, animated: true)
 		DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + alertDisapperTimeInSeconds) {

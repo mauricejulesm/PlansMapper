@@ -30,6 +30,7 @@
 		D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */; };
 		D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */; };
 		D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */; };
+		D2843F1C23B0B7380085DB8A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2843F1B23B0B7380085DB8A /* LoginView.swift */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
@@ -105,6 +106,7 @@
 		D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewModel.swift; sourceTree = "<group>"; };
 		D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapModel.swift; sourceTree = "<group>"; };
 		D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkViews.swift; sourceTree = "<group>"; };
+		D2843F1B23B0B7380085DB8A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		D22B4B522360A83D0094BC4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2843F1A23B0B70E0085DB8A /* LoginView */,
 				D2E17C3123770D8300C0F078 /* DetailsScreen */,
 				D27D67AA2368BFB900A629CD /* NewPlanScreen */,
 				D27D67A92368BFA800A629CD /* TabsController */,
@@ -343,6 +346,14 @@
 				D2972F632364D7670069B9C0 /* NewPlanView.swift */,
 			);
 			path = NewPlanScreen;
+			sourceTree = "<group>";
+		};
+		D2843F1A23B0B70E0085DB8A /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				D2843F1B23B0B7380085DB8A /* LoginView.swift */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		D2972F65236581660069B9C0 /* Alerts */ = {
@@ -549,6 +560,7 @@
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
 				D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */,
+				D2843F1C23B0B7380085DB8A /* LoginView.swift in Sources */,
 				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
 				D2E17C2A23742F6400C0F078 /* NLP_Manager.swift in Sources */,
 				D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */,

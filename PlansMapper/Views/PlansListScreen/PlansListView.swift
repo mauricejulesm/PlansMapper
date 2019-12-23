@@ -30,6 +30,7 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	var shoppingCat = [Plan]()
 	var otherCat = [Plan]()
 	var completedCat = [Plan]()
+	lazy var alertManager = AlertsManager()
 
 	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER", "COMPLETED"]
 	var currentPlansInSections = [Int: [Plan]]()
@@ -104,6 +105,13 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		}
 		currentPlansInSections = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
 		cachedPlansData = currentPlansInSections
+	}
+	
+	/// logout action
+	@IBAction func logoutBtnTapped(_ sender: Any) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "LoginView") as! LoginView
+		self.dismiss(animated: true, completion: nil)
+		navigationController?.present(vc, animated: true)
 	}
 }
 
