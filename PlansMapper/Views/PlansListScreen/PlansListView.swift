@@ -30,10 +30,11 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 	var shoppingCat = [Plan]()
 	var otherCat = [Plan]()
 	var completedCat = [Plan]()
+	lazy var alertManager = AlertsManager()
 
 	let tableSections = ["SHOPPING","SPORTS", "FOOD", "OTHER", "COMPLETED"]
-	var sectionData = [Int: [Plan]]()
-	var cachedData = [Int: [Plan]]()
+	var currentPlansInSections = [Int: [Plan]]()
+	var cachedPlansData = [Int: [Plan]]()
 
 	
 	// MARK: - Class properties
@@ -57,6 +58,10 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		self.plansTableView.reloadData()
 	}
 	
+	override var preferredStatusBarStyle: UIStatusBarStyle{
+		return .lightContent
+	}
+	
 	/// a private functions to assing plans categories
 	func fetchPlansFromDB() {
 		plansList = []
@@ -76,30 +81,38 @@ class PlansListView: UIViewController, UNUserNotificationCenterDelegate {
 		fetchPlansFromDB()
 		
 		sportsCat = []; foodCat = []; shoppingCat = []; otherCat = []; completedCat = []
-		for plan in plansList {
-			let planCat = plan.value(forKey: "category") as! String
-			let completed = plan.value(forKey: "completed") as! Bool
-			
-			if (!completed){
-				switch planCat.lowercased() {
-				case "sports":
-					sportsCat.append(plan)
-				case "food":
-					foodCat.append(plan)
-				case "shopping":
-					shoppingCat.append(plan)
-				default:
-					otherCat.append(plan)
+		
+		print(plansList.count)
+		if plansList.count > 1 {
+			for plan in plansList {
+				let planCat = plan.value(forKey: "category") as! String
+				let completed = plan.value(forKey: "completed") as! Bool
+				if (!completed){
+					switch planCat.lowercased() {
+					case "sports":
+						sportsCat.append(plan)
+					case "food":
+						foodCat.append(plan)
+					case "shopping":
+						shoppingCat.append(plan)
+					default:
+						otherCat.append(plan)
+					}
+				}else{
+					completedCat.append(plan)
 				}
-			}else{
-				completedCat.append(plan)
 			}
 		}
-		sectionData = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
-		cachedData = sectionData
-
+		currentPlansInSections = [0:shoppingCat, 1:sportsCat, 2:foodCat, 3:otherCat,4:completedCat]
+		cachedPlansData = currentPlansInSections
 	}
 	
+	/// logout action
+	@IBAction func logoutBtnTapped(_ sender: Any) {
+		let vc = storyboard?.instantiateViewController(withIdentifier: "LoginView") as! LoginView
+		self.dismiss(animated: true, completion: nil)
+		navigationController?.present(vc, animated: true)
+	}
 }
 
 // MARK: - TableView datasource methods
@@ -111,22 +124,23 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
-		headerView.backgroundColor = .orange
 		let headerLbl = UILabel()
-		headerLbl.frame = CGRect(x: 50, y: 0, width: 200, height: 35)
+		headerLbl.frame = CGRect(x: 60, y: 8, width: 250, height: 30)
 		headerLbl.text = tableSections[section]
 		headerLbl.textAlignment = .center
+		headerLbl.layer.cornerRadius = 5
+		headerLbl.backgroundColor = .orange
 		headerLbl.textColor = .white
 		headerView.addSubview(headerLbl)
 		return headerView
 	}
 	
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		return 30
+		return 33
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return sectionData[section]!.count
+		return currentPlansInSections[section]!.count
 	}
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return 150
@@ -134,7 +148,8 @@ extension PlansListView : UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = plansTableView.dequeueReusableCell(withIdentifier:"PlanCell", for: indexPath) as! PlanCell
-		let plan = sectionData[indexPath.section]![indexPath.row]
+		let plan = currentPlansInSections[indexPath.section]![indexPath.row]
+		cell.isAccessibilityElement = false
 		cell.planTitleLbl?.text = plan.title
 		cell.planDescLbl?.text = plan.planDescription
 		cell.dateCreatedLbl?.text = plan.dateCreated
@@ -152,6 +167,8 @@ extension PlansListView : UITableViewDataSource {
 	func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
 		let goToMap = goPlanAction(at: indexPath)
 		let swipeAction = UISwipeActionsConfiguration(actions: [goToMap])
+		swipeAction.isAccessibilityElement = true
+		swipeAction.accessibilityValue = "Go To Map"
 		swipeAction.performsFirstActionWithFullSwipe = false
 		return swipeAction
 	}
@@ -169,7 +186,7 @@ extension PlansListView : UITableViewDataSource {
 		let action = UIContextualAction(style: .normal, title: "Edit") { (action, view, completion ) in
 			print("Edit tapped")
 			let vc = self.storyboard?.instantiateViewController(withIdentifier: "NewPlanView") as! NewPlanView
-			vc.currentPlan = self.sectionData[indexPath.section]![indexPath.row]
+			vc.currentPlan = self.currentPlansInSections[indexPath.section]![indexPath.row]
 			vc.editMode = true
 			self.navigationController?.pushViewController(vc, animated: true)
 			completion(true)
@@ -178,9 +195,18 @@ extension PlansListView : UITableViewDataSource {
 		return action
 	}
 	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+		
+		if notification.request.identifier == "PlansMapper.Notification"{
+			
+			completionHandler( [.alert,.sound,.badge])
+			
+		}
+	}
+	
 	func goPlanAction(at indexPath: IndexPath) -> UIContextualAction {
-		let title = sectionData[indexPath.section]![indexPath.row].title!
-		let desc = sectionData[indexPath.section]![indexPath.row].planDescription!
+		let title = currentPlansInSections[indexPath.section]![indexPath.row].title!
+		let desc = currentPlansInSections[indexPath.section]![indexPath.row].planDescription!
 		fullPlanText = title + " " + desc
 		let action = UIContextualAction(style: .normal, title: "Go") { (action, view, completion ) in
 			let mpView = self.storyboard?.instantiateViewController(withIdentifier: "PlansMapViewController") as! PlansMapViewController
@@ -195,13 +221,13 @@ extension PlansListView : UITableViewDataSource {
 	}
 	
 	func deletePlan(at indexPath: IndexPath) -> UIContextualAction{
-		let plan = sectionData[indexPath.section]![indexPath.row]
+		let plan = currentPlansInSections[indexPath.section]![indexPath.row]
 		let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
 			guard let context = plan.managedObjectContext else { return }
 			context.delete(plan)
 			do {
 				try context.save()
-				self.sectionData[indexPath.section]!.remove(at: indexPath.row)
+				self.currentPlansInSections[indexPath.section]!.remove(at: indexPath.row)
 				self.plansTableView.deleteRows(at: [indexPath], with: .automatic)
 			} catch  {
 				print("Unable to delete the category")
@@ -230,51 +256,48 @@ extension PlansListView : UITableViewDelegate {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let detailsView = (storyboard?.instantiateViewController(withIdentifier: "DetailsView")) as! DetailsView
+		detailsView.currentPlan = self.currentPlansInSections[indexPath.section]![indexPath.row]
 		self.navigationController?.pushViewController(detailsView, animated: true)
 		
 	}
 	
-	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-		
-		if !searchMode {
-			
-			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, -500, 10, 0)
-			cell.layer.transform = rotationTransform
-			cell.alpha = 0.5
-			
-			
-			UIView.animate(withDuration: 1.0) {
-			cell.layer.transform = CATransform3DIdentity
-			cell.alpha = 1.0
-			}
-		}
-	}
+//	func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//
+//		if !searchMode {
+//			let rotationTransform = CATransform3DTranslate(CATransform3DIdentity, 0, 30, 0)
+//			cell.layer.transform = rotationTransform
+//			cell.alpha = 0
+//
+//			UIView.animate(withDuration: 0.30) {
+//				cell.layer.transform = CATransform3DIdentity
+//				cell.alpha = 1.0
+//			}
+//		}
+//	}
 }
 
 
 // MARK: - Searchbar and Searching
-
 extension PlansListView : UISearchBarDelegate {
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		var filteredData = [Int: [Plan]]()
+		var filteredPlans = [Int: [Plan]]()
 		if searchText != "" {
-			filteredData = sectionData
-				.mapValues { $0.filter {($0.title?.lowercased()
+			filteredPlans = currentPlansInSections.mapValues { $0.filter {($0.title?.lowercased()
 				.contains(searchText.lowercased()))! } }
-			sectionData = filteredData
+			currentPlansInSections = filteredPlans
 		}else{
-			sectionData = cachedData
+			currentPlansInSections = cachedPlansData
 		}
 		searchMode = true
 		self.plansTableView.reloadData()
 	}
-	
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
 		searchBar.resignFirstResponder()
 	}
 }
-// MARK: - private functionlities
-private extension PlansListView {
 
-	
+extension UINavigationController {
+	open override var preferredStatusBarStyle: UIStatusBarStyle {
+		return topViewController?.preferredStatusBarStyle ?? .default
+	}
 }

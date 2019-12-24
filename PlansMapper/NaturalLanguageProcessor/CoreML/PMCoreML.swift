@@ -7,12 +7,11 @@ import NaturalLanguage
 
 @available(iOS 12.0, *)
 class PlansCategoryTagger {
-	// Custom scheme
+	// Custom scheme for the plans data
 	private let scheme = NLTagScheme("PlansData")
 	private let options: NLTagger.Options = [.omitPunctuation]
 	
 	private lazy var tagger: NLTagger? = {
-		
 		do {
 			let url = Bundle.main.url(forResource: "PlansCategorizer", withExtension: "mlmodelc")!
 			let model = try NLModel(contentsOf: url)  // MLModel -> NLModel

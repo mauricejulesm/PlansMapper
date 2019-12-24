@@ -14,21 +14,23 @@
 		5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */; };
 		5149C064235EF99F00887D2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5149C063235EF99F00887D2A /* Assets.xcassets */; };
 		5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5149C065235EF99F00887D2A /* LaunchScreen.storyboard */; };
-		D226AC09236CA0FE00D66BB6 /* NLP_Processor1.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */; };
+		D226AC09236CA0FE00D66BB6 /* NLP_Processor_Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = D226AC08236CA0FE00D66BB6 /* NLP_Processor_Test.swift */; };
 		D226AC0B236F003000D66BB6 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D226AC0A236F003000D66BB6 /* MapKit.framework */; };
 		D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2923607F440094BC4A /* TabsMainController.swift */; };
 		D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B2D236088B00094BC4A /* PlansListView.swift */; };
 		D22B4B562360AD060094BC4A /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B552360AD060094BC4A /* DataManager.swift */; };
 		D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D22B4B572360C0270094BC4A /* PlanCell.swift */; };
 		D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D22B4B582360C0270094BC4A /* PlanCell.xib */; };
+		D2435AD5239C046F00902508 /* PlansMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2435AD4239C046F00902508 /* PlansMapperTests.swift */; };
+		D2435AE3239CE51A00902508 /* PlansMapperUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2435AE2239CE51A00902508 /* PlansMapperUITests.swift */; };
 		D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C26062365821900EFEBD3 /* AlertsManager.swift */; };
 		D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24C260B2365CDC600EFEBD3 /* NotificationManager.swift */; };
 		D27D67A52368BF1D00A629CD /* PlansListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67A42368BF1D00A629CD /* PlansListViewModel.swift */; };
 		D27D67CD2369AF4000A629CD /* PlansMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */; };
 		D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */; };
 		D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */; };
-		D27D67D12369B16A00A629CD /* PublicArt.json in Resources */ = {isa = PBXBuildFile; fileRef = D27D67D02369B16A00A629CD /* PublicArt.json */; };
 		D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */; };
+		D2843F1C23B0B7380085DB8A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2843F1B23B0B7380085DB8A /* LoginView.swift */; };
 		D2972F612364CFCA0069B9C0 /* Plan+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */; };
 		D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */; };
 		D2972F642364D7670069B9C0 /* NewPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2972F632364D7670069B9C0 /* NewPlanView.swift */; };
@@ -37,8 +39,25 @@
 		D2E17C302376F6DC00C0F078 /* PMCoreML.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */; };
 		D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3223770DB300C0F078 /* DetailsView.swift */; };
 		D2E17C3623772F6F00C0F078 /* PM_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */; };
-		D2E17C3C2378556800C0F078 /* PlansCategorizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */; };
+		D2E23FFC23ABFC1900DA694D /* PlansCategorizer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D2435AD7239C046F00902508 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5149C04E235EF99D00887D2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5149C055235EF99D00887D2A;
+			remoteInfo = PlansMapper;
+		};
+		D2435AE5239CE51A00902508 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5149C04E235EF99D00887D2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5149C055235EF99D00887D2A;
+			remoteInfo = PlansMapper;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		D22B4B4E23609A580094BC4A /* Embed Frameworks */ = {
@@ -65,7 +84,7 @@
 		5149C066235EF99F00887D2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5149C068235EF99F00887D2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		966AF12F82903C49B233798F /* Pods-PlansMapper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlansMapper.debug.xcconfig"; path = "Target Support Files/Pods-PlansMapper/Pods-PlansMapper.debug.xcconfig"; sourceTree = "<group>"; };
-		D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Processor1.swift; sourceTree = "<group>"; };
+		D226AC08236CA0FE00D66BB6 /* NLP_Processor_Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLP_Processor_Test.swift; sourceTree = "<group>"; };
 		D226AC0A236F003000D66BB6 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		D22B4B2923607F440094BC4A /* TabsMainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsMainController.swift; sourceTree = "<group>"; };
 		D22B4B2D236088B00094BC4A /* PlansListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansListView.swift; sourceTree = "<group>"; };
@@ -74,14 +93,20 @@
 		D22B4B552360AD060094BC4A /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D22B4B572360C0270094BC4A /* PlanCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlanCell.swift; path = PlansMapper/DataManager/PlanCell.swift; sourceTree = SOURCE_ROOT; };
 		D22B4B582360C0270094BC4A /* PlanCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PlanCell.xib; path = PlansMapper/DataManager/PlanCell.xib; sourceTree = SOURCE_ROOT; };
+		D2435AD2239C046F00902508 /* PlansMapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlansMapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2435AD4239C046F00902508 /* PlansMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansMapperTests.swift; sourceTree = "<group>"; };
+		D2435AD6239C046F00902508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2435AE0239CE51A00902508 /* PlansMapperUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlansMapperUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2435AE2239CE51A00902508 /* PlansMapperUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansMapperUITests.swift; sourceTree = "<group>"; };
+		D2435AE4239CE51A00902508 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D24C26062365821900EFEBD3 /* AlertsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsManager.swift; sourceTree = "<group>"; };
 		D24C260B2365CDC600EFEBD3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		D27D67A42368BF1D00A629CD /* PlansListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlansListViewModel.swift; sourceTree = "<group>"; };
 		D27D67CA2369AF3F00A629CD /* PlansMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewController.swift; sourceTree = "<group>"; };
 		D27D67CB2369AF3F00A629CD /* PlansMapViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapViewModel.swift; sourceTree = "<group>"; };
 		D27D67CC2369AF3F00A629CD /* PlansMapModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlansMapModel.swift; sourceTree = "<group>"; };
-		D27D67D02369B16A00A629CD /* PublicArt.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PublicArt.json; sourceTree = "<group>"; };
 		D27D67D22369B3DA00A629CD /* ArtWorkViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtWorkViews.swift; sourceTree = "<group>"; };
+		D2843F1B23B0B7380085DB8A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		D2972F5D2364CFCA0069B9C0 /* Plan+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F5E2364CFCA0069B9C0 /* Plan+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Plan+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		D2972F632364D7670069B9C0 /* NewPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPlanView.swift; sourceTree = "<group>"; };
@@ -91,7 +116,7 @@
 		D2E17C2F2376F6DC00C0F078 /* PMCoreML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PMCoreML.swift; sourceTree = "<group>"; };
 		D2E17C3223770DB300C0F078 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
 		D2E17C3523772F6F00C0F078 /* PM_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PM_Extensions.swift; sourceTree = "<group>"; };
-		D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PlansCategorizer.mlmodel; sourceTree = "<group>"; };
+		D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = PlansCategorizer.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +126,20 @@
 			files = (
 				D226AC0B236F003000D66BB6 /* MapKit.framework in Frameworks */,
 				2C9ED60CBA62C393182A7B27 /* Pods_PlansMapper.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2435ACF239C046F00902508 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2435ADD239CE51A00902508 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +158,11 @@
 		5149C04D235EF99D00887D2A = {
 			isa = PBXGroup;
 			children = (
+				D2E23FFB23ABFC1800DA694D /* PlansCategorizer.mlmodel */,
 				5149C058235EF99D00887D2A /* PlansMapper */,
 				D22B4B4323609A580094BC4A /* PlansMapper-iOS */,
+				D2435AD3239C046F00902508 /* PlansMapperTests */,
+				D2435AE1239CE51A00902508 /* PlansMapperUITests */,
 				5149C057235EF99D00887D2A /* Products */,
 				8A4F8ED379CCB09D7606EA83 /* Pods */,
 				1039F0BB1889E6045DA70E64 /* Frameworks */,
@@ -131,6 +173,8 @@
 			isa = PBXGroup;
 			children = (
 				5149C056235EF99D00887D2A /* PlansMapper.app */,
+				D2435AD2239C046F00902508 /* PlansMapperTests.xctest */,
+				D2435AE0239CE51A00902508 /* PlansMapperUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,21 +182,19 @@
 		5149C058235EF99D00887D2A /* PlansMapper */ = {
 			isa = PBXGroup;
 			children = (
+				D2972F65236581660069B9C0 /* Alerts */,
+				D22B4B27236023DF0094BC4A /* CoreDataModels */,
+				D22B4B542360ACDA0094BC4A /* DataManager */,
 				D2E17C34237725EF00C0F078 /* Extensions */,
 				D226AC07236CA0BA00D66BB6 /* NaturalLanguageProcessor */,
 				D24C260A2365CDAB00EFEBD3 /* NotificationsManager */,
-				D2972F65236581660069B9C0 /* Alerts */,
-				D22B4B542360ACDA0094BC4A /* DataManager */,
-				D22B4B27236023DF0094BC4A /* CoreDataModels */,
-				D22B4B522360A83D0094BC4A /* Views */,
 				D22B4B532360A8810094BC4A /* ProjectResources */,
+				D22B4B522360A83D0094BC4A /* Views */,
 				5149C059235EF99D00887D2A /* AppDelegate.swift */,
 				5149C063235EF99F00887D2A /* Assets.xcassets */,
-				D27D67D02369B16A00A629CD /* PublicArt.json */,
 				D2BC3F622365D8D400EC516F /* splash_screen.png */,
 				5149C060235EF99D00887D2A /* PlansMapper.xcdatamodeld */,
 				5149C068235EF99F00887D2A /* Info.plist */,
-				D2E17C3B2378556700C0F078 /* PlansCategorizer.mlmodel */,
 			);
 			path = PlansMapper;
 			sourceTree = "<group>";
@@ -170,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				D2E17C2C2376EAFD00C0F078 /* CoreML */,
-				D226AC08236CA0FE00D66BB6 /* NLP_Processor1.swift */,
+				D226AC08236CA0FE00D66BB6 /* NLP_Processor_Test.swift */,
 				D2E17C2923742F6400C0F078 /* NLP_Manager.swift */,
 			);
 			path = NaturalLanguageProcessor;
@@ -207,6 +249,7 @@
 		D22B4B522360A83D0094BC4A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D2843F1A23B0B70E0085DB8A /* LoginView */,
 				D2E17C3123770D8300C0F078 /* DetailsScreen */,
 				D27D67AA2368BFB900A629CD /* NewPlanScreen */,
 				D27D67A92368BFA800A629CD /* TabsController */,
@@ -233,6 +276,24 @@
 				D22B4B552360AD060094BC4A /* DataManager.swift */,
 			);
 			path = DataManager;
+			sourceTree = "<group>";
+		};
+		D2435AD3239C046F00902508 /* PlansMapperTests */ = {
+			isa = PBXGroup;
+			children = (
+				D2435AD4239C046F00902508 /* PlansMapperTests.swift */,
+				D2435AD6239C046F00902508 /* Info.plist */,
+			);
+			path = PlansMapperTests;
+			sourceTree = "<group>";
+		};
+		D2435AE1239CE51A00902508 /* PlansMapperUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D2435AE2239CE51A00902508 /* PlansMapperUITests.swift */,
+				D2435AE4239CE51A00902508 /* Info.plist */,
+			);
+			path = PlansMapperUITests;
 			sourceTree = "<group>";
 		};
 		D24C260A2365CDAB00EFEBD3 /* NotificationsManager */ = {
@@ -285,6 +346,14 @@
 				D2972F632364D7670069B9C0 /* NewPlanView.swift */,
 			);
 			path = NewPlanScreen;
+			sourceTree = "<group>";
+		};
+		D2843F1A23B0B70E0085DB8A /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				D2843F1B23B0B7380085DB8A /* LoginView.swift */,
+			);
+			path = LoginView;
 			sourceTree = "<group>";
 		};
 		D2972F65236581660069B9C0 /* Alerts */ = {
@@ -342,6 +411,42 @@
 			productReference = 5149C056235EF99D00887D2A /* PlansMapper.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D2435AD1239C046F00902508 /* PlansMapperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2435AD9239C046F00902508 /* Build configuration list for PBXNativeTarget "PlansMapperTests" */;
+			buildPhases = (
+				D2435ACE239C046F00902508 /* Sources */,
+				D2435ACF239C046F00902508 /* Frameworks */,
+				D2435AD0239C046F00902508 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2435AD8239C046F00902508 /* PBXTargetDependency */,
+			);
+			name = PlansMapperTests;
+			productName = PlansMapperTests;
+			productReference = D2435AD2239C046F00902508 /* PlansMapperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D2435ADF239CE51A00902508 /* PlansMapperUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2435AE7239CE51A00902508 /* Build configuration list for PBXNativeTarget "PlansMapperUITests" */;
+			buildPhases = (
+				D2435ADC239CE51A00902508 /* Sources */,
+				D2435ADD239CE51A00902508 /* Frameworks */,
+				D2435ADE239CE51A00902508 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D2435AE6239CE51A00902508 /* PBXTargetDependency */,
+			);
+			name = PlansMapperUITests;
+			productName = PlansMapperUITests;
+			productReference = D2435AE0239CE51A00902508 /* PlansMapperUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -360,6 +465,14 @@
 							};
 						};
 					};
+					D2435AD1239C046F00902508 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5149C055235EF99D00887D2A;
+					};
+					D2435ADF239CE51A00902508 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = 5149C055235EF99D00887D2A;
+					};
 				};
 			};
 			buildConfigurationList = 5149C051235EF99D00887D2A /* Build configuration list for PBXProject "PlansMapper" */;
@@ -376,6 +489,8 @@
 			projectRoot = "";
 			targets = (
 				5149C055235EF99D00887D2A /* PlansMapper */,
+				D2435AD1239C046F00902508 /* PlansMapperTests */,
+				D2435ADF239CE51A00902508 /* PlansMapperUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -387,10 +502,23 @@
 			files = (
 				D2BC3F632365D8D500EC516F /* splash_screen.png in Resources */,
 				D22B4B5A2360C0270094BC4A /* PlanCell.xib in Resources */,
-				D27D67D12369B16A00A629CD /* PublicArt.json in Resources */,
 				5149C067235EF99F00887D2A /* LaunchScreen.storyboard in Resources */,
 				5149C064235EF99F00887D2A /* Assets.xcassets in Resources */,
 				5149C05F235EF99D00887D2A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2435AD0239C046F00902508 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2435ADE239CE51A00902508 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,16 +560,17 @@
 				5149C062235EF99D00887D2A /* PlansMapper.xcdatamodeld in Sources */,
 				D22B4B2A23607F440094BC4A /* TabsMainController.swift in Sources */,
 				D27D67CE2369AF4000A629CD /* PlansMapViewModel.swift in Sources */,
+				D2843F1C23B0B7380085DB8A /* LoginView.swift in Sources */,
 				D24C26072365821900EFEBD3 /* AlertsManager.swift in Sources */,
 				D2E17C2A23742F6400C0F078 /* NLP_Manager.swift in Sources */,
 				D27D67D32369B3DA00A629CD /* ArtWorkViews.swift in Sources */,
 				D22B4B562360AD060094BC4A /* DataManager.swift in Sources */,
 				D24C260C2365CDC600EFEBD3 /* NotificationManager.swift in Sources */,
 				D27D67CF2369AF4000A629CD /* PlansMapModel.swift in Sources */,
-				D226AC09236CA0FE00D66BB6 /* NLP_Processor1.swift in Sources */,
+				D226AC09236CA0FE00D66BB6 /* NLP_Processor_Test.swift in Sources */,
 				D22B4B592360C0270094BC4A /* PlanCell.swift in Sources */,
 				D2972F622364CFCA0069B9C0 /* Plan+CoreDataProperties.swift in Sources */,
-				D2E17C3C2378556800C0F078 /* PlansCategorizer.mlmodel in Sources */,
+				D2E23FFC23ABFC1900DA694D /* PlansCategorizer.mlmodel in Sources */,
 				D22B4B2E236088B00094BC4A /* PlansListView.swift in Sources */,
 				D2E17C3323770DB300C0F078 /* DetailsView.swift in Sources */,
 				D27D67A52368BF1D00A629CD /* PlansListViewModel.swift in Sources */,
@@ -452,7 +581,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D2435ACE239C046F00902508 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2435AD5239C046F00902508 /* PlansMapperTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2435ADC239CE51A00902508 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2435AE3239CE51A00902508 /* PlansMapperUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D2435AD8239C046F00902508 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5149C055235EF99D00887D2A /* PlansMapper */;
+			targetProxy = D2435AD7239C046F00902508 /* PBXContainerItemProxy */;
+		};
+		D2435AE6239CE51A00902508 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5149C055235EF99D00887D2A /* PlansMapper */;
+			targetProxy = D2435AE5239CE51A00902508 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5149C05D235EF99D00887D2A /* Main.storyboard */ = {
@@ -632,6 +790,88 @@
 			};
 			name = Release;
 		};
+		D2435ADA239C046F00902508 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				INFOPLIST_FILE = PlansMapperTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mauricej.PlansMapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlansMapper.app/PlansMapper";
+			};
+			name = Debug;
+		};
+		D2435ADB239C046F00902508 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				INFOPLIST_FILE = PlansMapperTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mauricej.PlansMapperTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PlansMapper.app/PlansMapper";
+			};
+			name = Release;
+		};
+		D2435AE8239CE51A00902508 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				INFOPLIST_FILE = PlansMapperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mauricej.PlansMapperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlansMapper;
+			};
+			name = Debug;
+		};
+		D2435AE9239CE51A00902508 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Z6VN663KVG;
+				INFOPLIST_FILE = PlansMapperUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mauricej.PlansMapperUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PlansMapper;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -649,6 +889,24 @@
 			buildConfigurations = (
 				5149C06C235EF99F00887D2A /* Debug */,
 				5149C06D235EF99F00887D2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2435AD9239C046F00902508 /* Build configuration list for PBXNativeTarget "PlansMapperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2435ADA239C046F00902508 /* Debug */,
+				D2435ADB239C046F00902508 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D2435AE7239CE51A00902508 /* Build configuration list for PBXNativeTarget "PlansMapperUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2435AE8239CE51A00902508 /* Debug */,
+				D2435AE9239CE51A00902508 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

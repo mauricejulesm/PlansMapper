@@ -26,14 +26,14 @@ class NotificationManager: NSObject {
 	
 	
 	// schedule the notification
-	func scheduceNotification(todoContent:String, year:Int,month:Int,day:Int,hour:Int,minute:Int,second:Int) {
+	func scheduceNotification(planContent:String, year:Int,month:Int,day:Int,hour:Int,minute:Int,second:Int) {
 		
 		let notifCenter = UNUserNotificationCenter.current()
 		
 		let content = UNMutableNotificationContent()
 		content.title = "Your plan reminder"
 		//content.subtitle = "This is your reminder subtitle"
-		content.body = "\(todoContent)"
+		content.body = "\(planContent)"
 		content.categoryIdentifier = "planReminderCatgr"
 		content.badge = 1
 		content.userInfo = ["customData": "fizzbuzz"]
@@ -48,21 +48,15 @@ class NotificationManager: NSObject {
 		dateComponents.minute = minute
 		dateComponents.second = second
 		
-		let trigger = UNCalendarNotificationTrigger(
-			dateMatching: dateComponents,
-			repeats: true
-		)
-		let request = UNNotificationRequest(
-			identifier: "PlansMapper.Notification", 	// so far this is okay, but this deletes all the notifications to make it more efficient you can give each notification with a unique id by using UUID().uuidString.
-			content: content,
-			trigger: trigger
-		)
-		notifCenter.add(request)
-		
-		print("Notification scheduled! with id \(request.identifier)")
+	let trigger = UNCalendarNotificationTrigger( dateMatching: dateComponents,
+		repeats: true )
+	let notifRequest = UNNotificationRequest( identifier: "PlansMapper.Notification",
+		content: content, trigger: trigger )
+	notifCenter.add(notifRequest)
+	print("Notification scheduled! with id \(notifRequest.identifier)")
 	}
 	
-	func removeTaskNotification(){
+	func removePlanNotification(){
 		UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: ["PlansMapper.Notification"])
 		print("Notification was removed")
 	}
