@@ -46,7 +46,7 @@ class DetailsView: UIViewController {
 		catPredictLbl.text = "Predition Accuracy: \(testAccuracy)%"
 		languageLbl.text = "Used Language: English (en)"
 		peopleNamesLbl.text = "People & places' names found: " + names
-		recommendedVenueLbl.text = "• Recommendended places: Snap Fitness, Pure Gym, Overnewton Recreation Centre, Glasgow Green Football Centre"
+		recommendedVenueLbl.text = "• Recommendended places: TSnap Fitness, Pure Gym, Overnewton Recreation Centre, Glasgow Green Football Centre, The Club Gym"
 	}
 	
 

@@ -68,7 +68,7 @@ class NLP_Manager {
 				let name = (planText as NSString).substring(with: tokenRange)
 				foundNames.append(name) }
 		}
-		print("Debug: found place names are: \(foundNames)")
+		//print("Debug: found place names are: \(foundNames)")
 		return foundNames
 	}
 	

@@ -88,7 +88,7 @@ class PlansMapViewController: UIViewController {
 					print("Debug: Found: \(resp.mapItems.count) items on the map, for : \(item)")
 					for item in resp.mapItems {
 						self.addPinToMapView(title: item.placemark.name, subtitle: item.placemark.country, latitude: item.placemark.location!.coordinate.latitude, longitude: item.placemark.location!.coordinate.longitude)
-						print("My Debug: Found item at: \(item.name!)")
+						print("App Debug: Found item at: \(item.name!)")
 					}
 				}else{ print("Debug: Nothing found on the map for: \(item)") }
 			})}
